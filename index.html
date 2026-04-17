@@ -279,6 +279,11 @@
     </div>
   </div>
 
+  <div class="threshold-note" id="thresholdNote" hidden>
+    <span class="threshold-note__label">Qualification threshold</span>
+    <span class="threshold-note__body" id="thresholdNoteBody"></span>
+  </div>
+
   <div class="cohort-table">
     <div class="ct-header"><div>Segment</div><div>N</div><div>Role in cohort</div></div>
     <div class="ct-row">
@@ -314,6 +319,95 @@
   </div>
 
 
+</section>
+
+<!-- SECTION 5: MESSAGING ATLAS · per-segment TF-IDF phrases, pain/aspiration tagged -->
+<section id="messaging-atlas" class="section">
+  <div class="section-kicker">
+    Section 5 <span class="kicker-tag validating">Listener output</span> <span class="kicker-tag reference">Reference</span>
+  </div>
+  <h2 class="section-title">
+    Messaging atlas.<br/>
+    <span class="muted">
+      The language each segment actually uses — distinctive phrases, ranked by TF-IDF against the other segments. Pain and aspiration are tagged so copy can be pulled from either register.
+    </span>
+  </h2>
+  <div class="atlas-grid" id="atlasGrid">
+    <div class="atlas-empty">
+      <div class="atlas-empty__title">Waiting for today's atlas</div>
+      <div class="atlas-empty__body">Distinctive phrases per segment will appear here once the listener's first full rollup lands.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: ADJACENCY MATRIX · shared-language between segment pairs -->
+<section id="adjacency" class="section">
+  <div class="section-kicker">
+    Section 6 <span class="kicker-tag validating">Listener output</span>
+  </div>
+  <h2 class="section-title">
+    Segment adjacency.<br/>
+    <span class="muted">
+      Which segments can share a message. Ranked by shared distinctive language, not shared authors — in this dataset, <span id="adjacencyAuthorNote">authors almost never cross segments</span>, so psychographic adjacency is carried by vocabulary overlap.
+    </span>
+  </h2>
+  <div class="adjacency-card">
+    <div class="adjacency-list" id="adjacencyList">
+      <div class="adjacency-empty">
+        <div class="adjacency-empty__title">Pending adjacency pass</div>
+        <div class="adjacency-empty__body">Segment pairs with shared distinctive vocabulary will surface here after the listener's phrase rollup.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: PARTNERSHIP RANKING · qualified-density ranking of source subreddits -->
+<section id="partnerships" class="section">
+  <div class="section-kicker">
+    Section 7 <span class="kicker-tag validating">Listener output</span>
+  </div>
+  <h2 class="section-title">
+    Partnership &amp; channel targeting.<br/>
+    <span class="muted">
+      Source subreddits ranked by qualified-author <em>density</em>, not post volume. <span id="partnershipNote"></span>
+    </span>
+  </h2>
+  <div class="chart-card">
+    <div class="partnership-table" id="partnershipTable">
+      <div class="partnership-row partnership-row--header">
+        <div>Subreddit</div>
+        <div>Segment</div>
+        <div>Unique authors</div>
+        <div>Engaged</div>
+        <div>Qualified</div>
+        <div>Density</div>
+      </div>
+      <div class="partnership-row partnership-row--empty" id="partnershipEmpty">
+        <div class="partnership-row__empty">
+          Partnership ranking appears here once the listener has enough scored authors to rank by density.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8: PERSONAS · Opus-synthesized archetype cards -->
+<section id="personas" class="section">
+  <div class="section-kicker">
+    Section 8 <span class="kicker-tag validating">Listener output</span> <span class="kicker-tag reference">Synthesized</span>
+  </div>
+  <h2 class="section-title">
+    Persona cards.<br/>
+    <span class="muted">
+      Synthesized from scored rationales and representative posts — archetype, inferred demo, competing products, dominant emotion, and an activation hook per segment. Quotes are paraphrased aggregates, never verbatim.
+    </span>
+  </h2>
+  <div class="persona-grid" id="personaGrid">
+    <div class="persona-empty">
+      <div class="persona-empty__title">Persona synthesis pending</div>
+      <div class="persona-empty__body">Cards render once the persona pass has been baked into pulse.json.</div>
+    </div>
+  </div>
 </section>
 
 <footer class="footer">

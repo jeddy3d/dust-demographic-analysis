@@ -1177,3 +1177,487 @@ const ALPHA = (hex, a) => {
     document.addEventListener('pulse-loaded', tryRender, { once: true });
   }
 })();
+
+
+// ============================================================================
+// Block 12 — Messaging Atlas renderer (per-segment distinctive phrases)
+// Reads pulse.messaging_atlas: { segment: [{ phrase, docs, classification,
+// distinctiveness, shared_with_n_segments }] }
+// ============================================================================
+(function () {
+  const SEGMENT_COLORS = {
+    biohackers: '#ffb57a', lucid: '#7cc4ff', pregnancy: '#b892ff',
+    perimenopause: '#ff6b8a', consciousness: '#8ee6c2', creatives: '#b892ff',
+    sleep_general: '#ffb57a', clinical: '#c7c3bc',
+  };
+  const colorFor = (name) => {
+    const key = (name || '').toLowerCase().split(/[\s_-]+/)[0];
+    return SEGMENT_COLORS[key] || SEGMENT_COLORS[name] || '#d8d2c8';
+  };
+  const TITLES = {
+    biohackers: 'Biohackers · sleep optimizers',
+    lucid: 'Lucid dreamers',
+    pregnancy: 'Pregnant & new mothers',
+    perimenopause: 'Perimenopausal women',
+    consciousness: 'Consciousness & psychedelic-curious',
+    creatives: 'Creative professionals',
+    sleep_general: 'Insomniacs · non-nightmare',
+    clinical: 'Clinical · nightmare / grief / PTSD',
+  };
+  const titleFor = (slug) => TITLES[slug] || slug;
+
+  function render(atlas) {
+    const grid = document.getElementById('atlasGrid');
+    if (!grid) return;
+    const segs = Object.keys(atlas || {});
+    if (!segs.length) return;
+    grid.innerHTML = '';
+    segs.forEach((seg) => {
+      const phrases = atlas[seg] || [];
+      const card = document.createElement('div');
+      card.className = 'atlas-card';
+      card.style.setProperty('--accent', colorFor(seg));
+
+      const head = document.createElement('div');
+      head.className = 'atlas-card__head';
+      const dot = document.createElement('span');
+      dot.className = 'atlas-dot';
+      dot.style.background = colorFor(seg);
+      head.appendChild(dot);
+      const title = document.createElement('div');
+      title.className = 'atlas-card__title';
+      title.textContent = titleFor(seg);
+      head.appendChild(title);
+      const count = document.createElement('div');
+      count.className = 'atlas-card__count';
+      count.textContent = phrases.length + ' phrases';
+      head.appendChild(count);
+      card.appendChild(head);
+
+      const list = document.createElement('div');
+      list.className = 'atlas-phrases';
+      phrases.forEach((p) => {
+        const chip = document.createElement('div');
+        chip.className = 'atlas-chip atlas-chip--' + (p.classification || 'neutral');
+        const phraseEl = document.createElement('span');
+        phraseEl.className = 'atlas-chip__phrase';
+        phraseEl.textContent = p.phrase;
+        chip.appendChild(phraseEl);
+        const meta = document.createElement('span');
+        meta.className = 'atlas-chip__meta';
+        meta.textContent = p.docs + ' authors';
+        chip.appendChild(meta);
+        list.appendChild(chip);
+      });
+      card.appendChild(list);
+
+      const legend = document.createElement('div');
+      legend.className = 'atlas-card__legend';
+      legend.innerHTML =
+        '<span class="atlas-legend-tag atlas-legend-tag--pain">pain</span>' +
+        '<span class="atlas-legend-tag atlas-legend-tag--aspiration">aspiration</span>' +
+        '<span class="atlas-legend-tag atlas-legend-tag--neutral">identity / neutral</span>';
+      card.appendChild(legend);
+
+      grid.appendChild(card);
+    });
+  }
+
+  function tryRender() {
+    const pulse = window.DUST_PULSE;
+    if (pulse && pulse.messaging_atlas && Object.keys(pulse.messaging_atlas).length) {
+      render(pulse.messaging_atlas);
+      return true;
+    }
+    return false;
+  }
+  if (!tryRender()) document.addEventListener('pulse-loaded', tryRender, { once: true });
+})();
+
+
+// ============================================================================
+// Block 13 — Adjacency matrix renderer
+// Reads pulse.adjacency_matrix: { segments[], pairs[{a,b,shared_count,examples}],
+// author_overlap:{multi_segment_authors,total_engaged_authors,note} }
+// ============================================================================
+(function () {
+  const SEGMENT_COLORS = {
+    biohackers: '#ffb57a', lucid: '#7cc4ff', pregnancy: '#b892ff',
+    perimenopause: '#ff6b8a', consciousness: '#8ee6c2', creatives: '#b892ff',
+    sleep_general: '#ffb57a', clinical: '#c7c3bc',
+  };
+  const colorFor = (name) => {
+    const key = (name || '').toLowerCase().split(/[\s_-]+/)[0];
+    return SEGMENT_COLORS[key] || SEGMENT_COLORS[name] || '#d8d2c8';
+  };
+  const TITLES = {
+    biohackers: 'Biohackers',
+    lucid: 'Lucid dreamers',
+    pregnancy: 'Pregnancy',
+    perimenopause: 'Perimenopause',
+    consciousness: 'Consciousness',
+    creatives: 'Creatives',
+    sleep_general: 'Insomniacs',
+    clinical: 'Clinical',
+  };
+  const titleFor = (slug) => TITLES[slug] || slug;
+
+  function render(adj) {
+    const list = document.getElementById('adjacencyList');
+    const note = document.getElementById('adjacencyAuthorNote');
+    if (!list) return;
+    const pairs = (adj && adj.pairs) || [];
+    if (!pairs.length) return;
+
+    if (note && adj.author_overlap) {
+      const o = adj.author_overlap;
+      note.textContent =
+        o.multi_segment_authors + ' of ' + o.total_engaged_authors +
+        ' engaged authors span multiple segments';
+    }
+
+    list.innerHTML = '';
+    // Cap at top 12 to keep the surface scannable.
+    pairs.slice(0, 12).forEach((p) => {
+      const row = document.createElement('div');
+      row.className = 'adjacency-row';
+
+      const pair = document.createElement('div');
+      pair.className = 'adjacency-row__pair';
+      const aDot = document.createElement('span');
+      aDot.className = 'adjacency-dot';
+      aDot.style.background = colorFor(p.a);
+      const aName = document.createElement('span');
+      aName.className = 'adjacency-name';
+      aName.textContent = titleFor(p.a);
+      const sep = document.createElement('span');
+      sep.className = 'adjacency-sep';
+      sep.textContent = '↔';
+      const bDot = document.createElement('span');
+      bDot.className = 'adjacency-dot';
+      bDot.style.background = colorFor(p.b);
+      const bName = document.createElement('span');
+      bName.className = 'adjacency-name';
+      bName.textContent = titleFor(p.b);
+      pair.appendChild(aDot); pair.appendChild(aName);
+      pair.appendChild(sep);
+      pair.appendChild(bDot); pair.appendChild(bName);
+      row.appendChild(pair);
+
+      const meta = document.createElement('div');
+      meta.className = 'adjacency-row__meta';
+      meta.textContent = p.shared_count + ' shared phrases';
+      row.appendChild(meta);
+
+      const examples = document.createElement('div');
+      examples.className = 'adjacency-row__examples';
+      (p.examples || []).forEach((ex) => {
+        const chip = document.createElement('span');
+        chip.className = 'adjacency-chip';
+        chip.textContent = ex;
+        examples.appendChild(chip);
+      });
+      row.appendChild(examples);
+
+      list.appendChild(row);
+    });
+  }
+
+  function tryRender() {
+    const pulse = window.DUST_PULSE;
+    if (pulse && pulse.adjacency_matrix && (pulse.adjacency_matrix.pairs || []).length) {
+      render(pulse.adjacency_matrix);
+      return true;
+    }
+    return false;
+  }
+  if (!tryRender()) document.addEventListener('pulse-loaded', tryRender, { once: true });
+})();
+
+
+// ============================================================================
+// Block 14 — Partnership ranking renderer
+// Reads pulse.partnership_ranking: { thresholds, top[{subreddit,segment,
+//   unique_authors, engaged_authors, qualified_authors, density_qualified,
+//   density_engaged}], note }
+// ============================================================================
+(function () {
+  const SEGMENT_COLORS = {
+    biohackers: '#ffb57a', lucid: '#7cc4ff', pregnancy: '#b892ff',
+    perimenopause: '#ff6b8a', consciousness: '#8ee6c2', creatives: '#b892ff',
+    sleep_general: '#ffb57a', clinical: '#c7c3bc',
+  };
+  const colorFor = (name) => {
+    const key = (name || '').toLowerCase().split(/[\s_-]+/)[0];
+    return SEGMENT_COLORS[key] || SEGMENT_COLORS[name] || '#d8d2c8';
+  };
+
+  function fmtPct(x) { return Math.round((x || 0) * 100) + '%'; }
+
+  function render(rank) {
+    const table = document.getElementById('partnershipTable');
+    const note = document.getElementById('partnershipNote');
+    if (!table) return;
+    const rows = (rank && rank.top) || [];
+    if (!rows.length) return;
+
+    if (note) {
+      note.textContent = rank.note || '';
+    }
+
+    // Clear everything except the header row.
+    Array.from(table.querySelectorAll('.partnership-row:not(.partnership-row--header)'))
+      .forEach((el) => el.remove());
+
+    // Max density for bar sizing.
+    const maxDensity = rows.reduce(function (m, r) {
+      return Math.max(m, r.density_qualified || 0, r.density_engaged || 0);
+    }, 0) || 1;
+
+    rows.forEach((r) => {
+      const row = document.createElement('div');
+      row.className = 'partnership-row';
+
+      const sub = document.createElement('div');
+      sub.className = 'partnership-sub';
+      const dot = document.createElement('span');
+      dot.className = 'partnership-dot';
+      dot.style.background = colorFor(r.segment);
+      sub.appendChild(dot);
+      const subName = document.createElement('span');
+      subName.className = 'partnership-sub__name';
+      subName.textContent = 'r/' + r.subreddit;
+      sub.appendChild(subName);
+      row.appendChild(sub);
+
+      const seg = document.createElement('div');
+      seg.className = 'partnership-seg';
+      seg.textContent = r.segment;
+      row.appendChild(seg);
+
+      const unique = document.createElement('div');
+      unique.className = 'partnership-num';
+      unique.textContent = String(r.unique_authors);
+      row.appendChild(unique);
+
+      const eng = document.createElement('div');
+      eng.className = 'partnership-num';
+      eng.textContent = String(r.engaged_authors);
+      row.appendChild(eng);
+
+      const qual = document.createElement('div');
+      qual.className = 'partnership-num partnership-num--qual';
+      qual.textContent = String(r.qualified_authors);
+      row.appendChild(qual);
+
+      const density = document.createElement('div');
+      density.className = 'partnership-density';
+      const bar = document.createElement('div');
+      bar.className = 'partnership-density__bar';
+      const fillQ = document.createElement('div');
+      fillQ.className = 'partnership-density__fill partnership-density__fill--qual';
+      fillQ.style.width = Math.round(((r.density_qualified || 0) / maxDensity) * 100) + '%';
+      fillQ.style.background = colorFor(r.segment);
+      const fillE = document.createElement('div');
+      fillE.className = 'partnership-density__fill partnership-density__fill--eng';
+      fillE.style.width = Math.round(((r.density_engaged || 0) / maxDensity) * 100) + '%';
+      bar.appendChild(fillE);
+      bar.appendChild(fillQ);
+      density.appendChild(bar);
+      const lbl = document.createElement('div');
+      lbl.className = 'partnership-density__label';
+      lbl.textContent = fmtPct(r.density_qualified) + ' qual · ' + fmtPct(r.density_engaged) + ' eng';
+      density.appendChild(lbl);
+      row.appendChild(density);
+
+      table.appendChild(row);
+    });
+  }
+
+  function tryRender() {
+    const pulse = window.DUST_PULSE;
+    if (pulse && pulse.partnership_ranking && (pulse.partnership_ranking.top || []).length) {
+      render(pulse.partnership_ranking);
+      return true;
+    }
+    return false;
+  }
+  if (!tryRender()) document.addEventListener('pulse-loaded', tryRender, { once: true });
+})();
+
+
+// ============================================================================
+// Block 15 — Persona cards renderer
+// Reads pulse.personas.personas: { seg: { archetype, demographic_inference,
+//   profession_hints, dominant_emotion, competing_products[],
+//   what_they_want_from_dream_tech, representative_quotes[], activation_hook } }
+// ============================================================================
+(function () {
+  const SEGMENT_COLORS = {
+    biohackers: '#ffb57a', lucid: '#7cc4ff', pregnancy: '#b892ff',
+    perimenopause: '#ff6b8a', consciousness: '#8ee6c2', creatives: '#b892ff',
+    sleep_general: '#ffb57a', clinical: '#c7c3bc',
+  };
+  const colorFor = (name) => {
+    const key = (name || '').toLowerCase().split(/[\s_-]+/)[0];
+    return SEGMENT_COLORS[key] || SEGMENT_COLORS[name] || '#d8d2c8';
+  };
+  const TITLES = {
+    biohackers: 'Biohackers · sleep optimizers',
+    lucid: 'Lucid dreamers',
+    pregnancy: 'Pregnant & new mothers',
+    perimenopause: 'Perimenopausal women',
+    consciousness: 'Consciousness & psychedelic-curious',
+    creatives: 'Creative professionals',
+    sleep_general: 'Insomniacs · non-nightmare',
+    clinical: 'Clinical · nightmare / grief / PTSD',
+  };
+  const titleFor = (slug) => TITLES[slug] || slug;
+
+  function addField(container, label, value) {
+    if (!value) return;
+    const row = document.createElement('div');
+    row.className = 'persona-field';
+    const lbl = document.createElement('div');
+    lbl.className = 'persona-field__label';
+    lbl.textContent = label;
+    const val = document.createElement('div');
+    val.className = 'persona-field__value';
+    val.textContent = value;
+    row.appendChild(lbl);
+    row.appendChild(val);
+    container.appendChild(row);
+  }
+
+  function render(personas) {
+    const grid = document.getElementById('personaGrid');
+    if (!grid) return;
+    const map = (personas && personas.personas) || {};
+    const segs = Object.keys(map);
+    if (!segs.length) return;
+    grid.innerHTML = '';
+
+    segs.forEach((seg) => {
+      const p = map[seg] || {};
+      const card = document.createElement('div');
+      card.className = 'persona-card';
+      card.style.setProperty('--accent', colorFor(seg));
+
+      const head = document.createElement('div');
+      head.className = 'persona-card__head';
+      const dot = document.createElement('span');
+      dot.className = 'persona-dot';
+      dot.style.background = colorFor(seg);
+      head.appendChild(dot);
+      const headText = document.createElement('div');
+      headText.className = 'persona-card__headtext';
+      const segTitle = document.createElement('div');
+      segTitle.className = 'persona-card__seg';
+      segTitle.textContent = titleFor(seg);
+      const arche = document.createElement('div');
+      arche.className = 'persona-card__archetype';
+      arche.textContent = p.archetype || '';
+      headText.appendChild(segTitle);
+      headText.appendChild(arche);
+      head.appendChild(headText);
+      card.appendChild(head);
+
+      const fields = document.createElement('div');
+      fields.className = 'persona-fields';
+      addField(fields, 'Demographic', p.demographic_inference);
+      addField(fields, 'Profession', p.profession_hints);
+      addField(fields, 'Dominant emotion', p.dominant_emotion);
+      if (Array.isArray(p.competing_products) && p.competing_products.length) {
+        const row = document.createElement('div');
+        row.className = 'persona-field';
+        const lbl = document.createElement('div');
+        lbl.className = 'persona-field__label';
+        lbl.textContent = 'Competing products';
+        const val = document.createElement('div');
+        val.className = 'persona-field__chips';
+        p.competing_products.forEach((prod) => {
+          const chip = document.createElement('span');
+          chip.className = 'persona-chip';
+          chip.textContent = prod;
+          val.appendChild(chip);
+        });
+        row.appendChild(lbl); row.appendChild(val);
+        fields.appendChild(row);
+      }
+      addField(fields, 'What they want from DUST', p.what_they_want_from_dream_tech);
+      card.appendChild(fields);
+
+      if (Array.isArray(p.representative_quotes) && p.representative_quotes.length) {
+        const quotes = document.createElement('div');
+        quotes.className = 'persona-quotes';
+        const lbl = document.createElement('div');
+        lbl.className = 'persona-quotes__label';
+        lbl.textContent = 'Paraphrased voice';
+        quotes.appendChild(lbl);
+        p.representative_quotes.forEach((q) => {
+          const quote = document.createElement('div');
+          quote.className = 'persona-quote';
+          quote.textContent = '“' + q + '”';
+          quotes.appendChild(quote);
+        });
+        card.appendChild(quotes);
+      }
+
+      if (p.activation_hook) {
+        const hook = document.createElement('div');
+        hook.className = 'persona-hook';
+        const lbl = document.createElement('div');
+        lbl.className = 'persona-hook__label';
+        lbl.textContent = 'Activation hook';
+        const body = document.createElement('div');
+        body.className = 'persona-hook__body';
+        body.textContent = p.activation_hook;
+        hook.appendChild(lbl);
+        hook.appendChild(body);
+        card.appendChild(hook);
+      }
+
+      grid.appendChild(card);
+    });
+  }
+
+  function tryRender() {
+    const pulse = window.DUST_PULSE;
+    const map = pulse && pulse.personas && pulse.personas.personas;
+    if (map && Object.keys(map).length) {
+      render(pulse.personas);
+      return true;
+    }
+    return false;
+  }
+  if (!tryRender()) document.addEventListener('pulse-loaded', tryRender, { once: true });
+})();
+
+
+// ============================================================================
+// Block 16 — Threshold note renderer
+// Surfaces the qualified-author threshold used in today's pulse, so the
+// variance panel is honest about what it's counting.
+// ============================================================================
+(function () {
+  function render() {
+    const el = document.getElementById('thresholdNote');
+    const body = document.getElementById('thresholdNoteBody');
+    if (!el || !body) return;
+    const t = window.DUST_PULSE && window.DUST_PULSE.partnership_ranking
+      && window.DUST_PULSE.partnership_ranking.thresholds;
+    if (!t || t.qualified == null) return;
+    body.textContent =
+      '"Qualified" = composite score ≥ ' + t.qualified +
+      ' across the rubric (signal density, representativeness, commitment, novel learning, reachability, segment-fit confidence). ' +
+      '"Engaged" ≥ ' + t.engaged + '. ' +
+      'v1 used 3.5 — inaugural scoring compressed non-biohacker segments (creatives max 3.46, insomniacs 3.16), zeroing them out. ' +
+      'Next iteration will shift to segment-relative qualification and a segment-aware rubric.';
+    el.hidden = false;
+  }
+  function tryRender() {
+    if (window.DUST_PULSE) { render(); return true; }
+    return false;
+  }
+  if (!tryRender()) document.addEventListener('pulse-loaded', tryRender, { once: true });
+})();
