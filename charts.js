@@ -1635,6 +1635,278 @@ const ALPHA = (hex, a) => {
 
 
 // ============================================================================
+// Block 17 — GTM playbook renderer (targets.html)
+// For each segment we have signal for, render a three-part play:
+//   · Where to show up  — top qualified-density subreddit(s) from partnership_ranking
+//   · What to say       — top pain + top aspiration phrase from messaging_atlas
+//   · How to activate   — persona.activation_hook
+// Plus a standalone "Top outreach channels this week" table at the bottom,
+// keyed off partnership_ranking.top ordered by qualified density.
+//
+// Day-zero behavior: if any required field is missing, we keep the empty
+// state visible. Every pulse-derived string flows through textContent so a
+// compromised brief couldn't inject markup into the site.
+// ============================================================================
+(function () {
+  const SEGMENT_COLORS = {
+    biohackers: '#ffb57a', lucid: '#7cc4ff', pregnancy: '#b892ff',
+    perimenopause: '#ff6b8a', consciousness: '#8ee6c2', creatives: '#b892ff',
+    sleep_general: '#ffb57a', clinical: '#c7c3bc',
+  };
+  const TITLES = {
+    biohackers: 'Biohackers · sleep optimizers',
+    lucid: 'Lucid dreamers',
+    pregnancy: 'Pregnant & new mothers',
+    perimenopause: 'Perimenopausal women',
+    consciousness: 'Consciousness & psychedelic-curious',
+    creatives: 'Creative professionals',
+    sleep_general: 'Insomniacs · non-nightmare',
+    clinical: 'Clinical · nightmare / grief / PTSD',
+  };
+  // Tier 1 first, then Tier 2, then Tier 3 / earned-only segments.
+  const SEG_ORDER = [
+    'biohackers', 'lucid', 'pregnancy', 'perimenopause',
+    'consciousness', 'creatives', 'sleep_general', 'clinical',
+  ];
+  const TIER_LABEL = {
+    biohackers: 'Tier 1', lucid: 'Tier 1', pregnancy: 'Tier 1', perimenopause: 'Tier 1',
+    consciousness: 'Tier 2', creatives: 'Tier 2', sleep_general: 'Tier 2',
+    clinical: 'Tier 3 · earned-only',
+  };
+
+  const colorFor = (name) => {
+    const key = (name || '').toLowerCase().split(/[\s_-]+/)[0];
+    return SEGMENT_COLORS[key] || SEGMENT_COLORS[name] || '#d8d2c8';
+  };
+  const titleFor = (slug) => TITLES[slug] || slug;
+  const fmtPct = (x) => Math.round((x || 0) * 100) + '%';
+
+  function topPhrase(phrases, classification) {
+    if (!Array.isArray(phrases)) return null;
+    // Prefer the highest-distinctiveness phrase of the requested class.
+    const hits = phrases
+      .filter((p) => (p && p.classification) === classification)
+      .sort((a, b) => (b.distinctiveness || 0) - (a.distinctiveness || 0));
+    return hits[0] || null;
+  }
+
+  function topChannelFor(seg, channels) {
+    // channels: pulse.partnership_ranking.top, already sorted by density_qualified.
+    if (!Array.isArray(channels)) return null;
+    const hits = channels.filter((c) => c && c.segment === seg);
+    return hits[0] || null;
+  }
+
+  function renderPlayCard(seg, atlasPhrases, channel, persona) {
+    const card = document.createElement('article');
+    card.className = 'gtm-play';
+    card.style.setProperty('--accent', colorFor(seg));
+
+    // Header — colored dot, segment title, tier badge.
+    const head = document.createElement('div');
+    head.className = 'gtm-play__head';
+    const dot = document.createElement('span');
+    dot.className = 'gtm-play__dot';
+    dot.style.background = colorFor(seg);
+    head.appendChild(dot);
+    const title = document.createElement('div');
+    title.className = 'gtm-play__title';
+    title.textContent = titleFor(seg);
+    head.appendChild(title);
+    const tier = document.createElement('span');
+    tier.className = 'gtm-play__tier';
+    tier.textContent = TIER_LABEL[seg] || '';
+    head.appendChild(tier);
+    card.appendChild(head);
+
+    const body = document.createElement('div');
+    body.className = 'gtm-play__body';
+
+    // Row 1 — Where to show up.
+    const whereRow = document.createElement('div');
+    whereRow.className = 'gtm-play__row';
+    const whereLbl = document.createElement('div');
+    whereLbl.className = 'gtm-play__label';
+    whereLbl.textContent = 'Where to show up';
+    whereRow.appendChild(whereLbl);
+    const whereVal = document.createElement('div');
+    whereVal.className = 'gtm-play__value';
+    if (channel && channel.subreddit) {
+      const subLink = document.createElement('span');
+      subLink.className = 'gtm-play__channel';
+      subLink.textContent = 'r/' + channel.subreddit;
+      whereVal.appendChild(subLink);
+      const meta = document.createElement('span');
+      meta.className = 'gtm-play__meta';
+      meta.textContent = ' · ' + fmtPct(channel.density_qualified) + ' qualified density, ' +
+                         channel.qualified_authors + ' of ' + channel.unique_authors + ' authors';
+      whereVal.appendChild(meta);
+    } else {
+      whereVal.textContent = '—';
+      whereVal.classList.add('gtm-play__value--muted');
+    }
+    whereRow.appendChild(whereVal);
+    body.appendChild(whereRow);
+
+    // Row 2 — What to say (one pain, one aspiration).
+    const sayRow = document.createElement('div');
+    sayRow.className = 'gtm-play__row';
+    const sayLbl = document.createElement('div');
+    sayLbl.className = 'gtm-play__label';
+    sayLbl.textContent = 'What to say';
+    sayRow.appendChild(sayLbl);
+    const sayVal = document.createElement('div');
+    sayVal.className = 'gtm-play__value gtm-play__value--chips';
+    const pain = topPhrase(atlasPhrases, 'pain');
+    const aspiration = topPhrase(atlasPhrases, 'aspiration');
+    if (pain) {
+      const chip = document.createElement('span');
+      chip.className = 'gtm-chip gtm-chip--pain';
+      chip.textContent = pain.phrase;
+      sayVal.appendChild(chip);
+    }
+    if (aspiration) {
+      const chip = document.createElement('span');
+      chip.className = 'gtm-chip gtm-chip--aspiration';
+      chip.textContent = aspiration.phrase;
+      sayVal.appendChild(chip);
+    }
+    if (!pain && !aspiration) {
+      sayVal.textContent = '—';
+      sayVal.classList.add('gtm-play__value--muted');
+    }
+    sayRow.appendChild(sayVal);
+    body.appendChild(sayRow);
+
+    // Row 3 — How to activate (persona.activation_hook).
+    const actRow = document.createElement('div');
+    actRow.className = 'gtm-play__row';
+    const actLbl = document.createElement('div');
+    actLbl.className = 'gtm-play__label';
+    actLbl.textContent = 'How to activate';
+    actRow.appendChild(actLbl);
+    const actVal = document.createElement('div');
+    actVal.className = 'gtm-play__value gtm-play__value--hook';
+    const hookText = persona && persona.activation_hook;
+    if (hookText) {
+      actVal.textContent = hookText;
+    } else {
+      actVal.textContent = '—';
+      actVal.classList.add('gtm-play__value--muted');
+    }
+    actRow.appendChild(actVal);
+    body.appendChild(actRow);
+
+    card.appendChild(body);
+    return card;
+  }
+
+  function renderChannelRow(channel, maxDensity) {
+    const row = document.createElement('div');
+    row.className = 'gtm-channel';
+    row.style.setProperty('--accent', colorFor(channel.segment));
+
+    const dot = document.createElement('span');
+    dot.className = 'gtm-channel__dot';
+    dot.style.background = colorFor(channel.segment);
+    row.appendChild(dot);
+
+    const sub = document.createElement('div');
+    sub.className = 'gtm-channel__sub';
+    sub.textContent = 'r/' + channel.subreddit;
+    row.appendChild(sub);
+
+    const seg = document.createElement('div');
+    seg.className = 'gtm-channel__seg';
+    seg.textContent = titleFor(channel.segment);
+    row.appendChild(seg);
+
+    const bar = document.createElement('div');
+    bar.className = 'gtm-channel__bar';
+    const fill = document.createElement('div');
+    fill.className = 'gtm-channel__fill';
+    const pct = maxDensity ? ((channel.density_qualified || 0) / maxDensity) * 100 : 0;
+    fill.style.width = Math.max(2, Math.round(pct)) + '%';
+    fill.style.background = colorFor(channel.segment);
+    bar.appendChild(fill);
+    row.appendChild(bar);
+
+    const num = document.createElement('div');
+    num.className = 'gtm-channel__num';
+    num.textContent = fmtPct(channel.density_qualified) + ' · ' + channel.qualified_authors + ' qualified';
+    row.appendChild(num);
+
+    return row;
+  }
+
+  function render(pulse) {
+    const grid = document.getElementById('gtmPlays');
+    const empty = document.getElementById('gtmPlaysEmpty');
+    const channelsCard = document.getElementById('gtmChannels');
+    const channelList = document.getElementById('gtmChannelList');
+    if (!grid) return;
+
+    const atlas = (pulse && pulse.messaging_atlas) || {};
+    const channels = (pulse && pulse.partnership_ranking && pulse.partnership_ranking.top) || [];
+    const personas = (pulse && pulse.personas && pulse.personas.personas) || {};
+
+    // Require at least one piece of validated signal before we replace
+    // the empty state. Otherwise the day-zero copy stays authoritative.
+    const hasSignal =
+      Object.keys(atlas).length > 0 ||
+      channels.length > 0 ||
+      Object.keys(personas).length > 0;
+    if (!hasSignal) return;
+
+    // Clear everything except the empty-state placeholder.
+    Array.from(grid.querySelectorAll('.gtm-play')).forEach((el) => el.remove());
+    if (empty) empty.remove();
+
+    // Preserve the canonical tier ordering; append any segments we don't
+    // know about at the end so unexpected additions are still visible.
+    const known = new Set(SEG_ORDER);
+    const allSegs = new Set([
+      ...Object.keys(atlas),
+      ...Object.keys(personas),
+      ...channels.map((c) => c.segment).filter(Boolean),
+    ]);
+    const ordered = SEG_ORDER.filter((s) => allSegs.has(s))
+      .concat(Array.from(allSegs).filter((s) => !known.has(s)).sort());
+
+    ordered.forEach((seg) => {
+      const card = renderPlayCard(
+        seg,
+        atlas[seg] || [],
+        topChannelFor(seg, channels),
+        personas[seg] || null,
+      );
+      grid.appendChild(card);
+    });
+
+    // Bottom channel table — sorted by density_qualified desc, top 8.
+    if (channelsCard && channelList && channels.length) {
+      const topN = channels.slice().sort(function (a, b) {
+        return (b.density_qualified || 0) - (a.density_qualified || 0);
+      }).slice(0, 8);
+      const maxDensity = topN.reduce(function (m, c) {
+        return Math.max(m, c.density_qualified || 0);
+      }, 0) || 1;
+      channelList.innerHTML = '';
+      topN.forEach((c) => channelList.appendChild(renderChannelRow(c, maxDensity)));
+      channelsCard.hidden = false;
+    }
+  }
+
+  function tryRender() {
+    const pulse = window.DUST_PULSE;
+    if (pulse) { render(pulse); return true; }
+    return false;
+  }
+  if (!tryRender()) document.addEventListener('pulse-loaded', tryRender, { once: true });
+})();
+
+
+// ============================================================================
 // Block 16 — Threshold note renderer
 // Surfaces the qualified-author threshold used in today's pulse, so the
 // variance panel is honest about what it's counting.
