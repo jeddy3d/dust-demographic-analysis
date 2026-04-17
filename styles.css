@@ -2222,15 +2222,27 @@ body {
    ============================================================ */
 .cohort-dual {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: var(--space-400);
   margin-bottom: var(--space-500);
 }
 
 @media (max-width: 900px) {
   .cohort-dual {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
+}
+
+.cohort-dual > .chart-card {
+  /* Without min-width: 0, Chart.js canvases give the grid item an
+     intrinsic min-width equal to their rendered size, which pushes the
+     measured-mix card off the right edge of the section container. */
+  min-width: 0;
+  overflow: hidden;
+}
+
+.cohort-dual .chart-wrap {
+  min-width: 0;
 }
 
 .cohort-dual .chart-header {
