@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DUST Dream Sciences — Cohort &amp; GTM · v1.0</title>
+<meta name="description" content="Twenty hypothesized segments, a scoring matrix, the GTM motion, and the first-cohort composition — pending validation by the DUST cohort listener." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Ubuntu+Sans+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body data-page="home">
+
+<!-- Animated background -->
+<div class="aurora">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="stars"></div>
+</div>
+
+<!-- Sticky nav · left-aligned, 4-page structure -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="logo-dot"></span>
+      <span class="brand-name">DUST</span>
+      <span class="brand-sub">Dream Sciences</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="is-current">Home</a>
+      <a href="tam.html">TAM</a>
+      <a href="targets.html">Targets &amp; Risks</a>
+      <a href="method.html">Methodology</a>
+    </div>
+    <div class="nav-inner__trailing">
+      <span class="nav-updated" id="navUpdated" data-empty="true"></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO · home-scoped -->
+<header id="top" class="hero">
+  <div class="hero-tags">
+    <div class="hero-tag hero-tag-hypothesis">
+      <span class="tag-dot"></span>
+      Demographic Hypothesis · v1.0
+    </div>
+    <div class="hero-tag hero-tag-validation">
+      <span class="tag-dot pulsing"></span>
+      Listener live · measuring against live cohort signal
+    </div>
+  </div>
+
+  <p class="hero-sub">
+    This is the <b>operating core</b> of DUST's cohort plan — twenty hypothesized segments,
+    a scoring matrix, the tiered GTM motion, and the composition of the first 18–24-person
+    founders cohort. Every claim is a falsifiable bet, measured against live signal by the
+    <a href="method.html">DUST cohort listener</a> and revised accordingly. Context lives on
+    the <a href="tam.html">TAM</a>, <a href="targets.html">Targets &amp; Risks</a>, and
+    <a href="method.html">Methodology</a> pages.
+  </p>
+
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">20</div><div class="stat-label">Hypothesized segments</div></div>
+    <div class="stat"><div class="stat-num">6</div><div class="stat-label">Clusters</div></div>
+    <div class="stat"><div class="stat-num">3</div><div class="stat-label">Outreach tiers</div></div>
+    <div class="stat"><div class="stat-num">18–24</div><div class="stat-label">Founders cohort seats</div></div>
+  </div>
+</header>
+
+<!-- SECTION 2: SEGMENTS -->
+<section id="segments" class="section">
+  <div class="section-kicker">Section 1 <span class="kicker-tag hypothesis">Hypothesis</span> <span class="kicker-tag validating">Under validation</span></div>
+  <h2 class="section-title">Twenty segments, six clusters.<br/><span class="muted">The wide aperture that lets focus be <em>chosen</em>, not assumed.</span></h2>
+
+  <div class="cluster-legend">
+    <div><span class="dot" style="background:#ff6b8a"></span>A · Clinical &amp; Trauma-Adjacent</div>
+    <div><span class="dot" style="background:#b892ff"></span>B · Women's Health &amp; Life-Stage</div>
+    <div><span class="dot" style="background:#8ee6c2"></span>C · Mainstream Wellness</div>
+    <div><span class="dot" style="background:#7cc4ff"></span>D · Creative &amp; Cultural</div>
+    <div><span class="dot" style="background:#ffb57a"></span>E · Demographic Edge Cases</div>
+    <div><span class="dot" style="background:#c7c3bc"></span>F · Channel (B2B)</div>
+  </div>
+
+  <div class="segment-grid" id="segmentGrid"></div>
+</section>
+
+<!-- SECTION 3: SCORING -->
+<section id="scoring" class="section">
+  <div class="section-kicker">Section 2 <span class="kicker-tag hypothesis">Hypothesis</span> <span class="kicker-tag validating">Under validation</span></div>
+  <h2 class="section-title">Scoring matrix.<br/><span class="muted">Six criteria × twenty segments. Darker cells = stronger signal.</span></h2>
+
+  <div class="criteria-row">
+    <div class="criteria-pill"><b>Pain</b> · intensity of unmet need</div>
+    <div class="criteria-pill"><b>WTP</b> · willingness to pay</div>
+    <div class="criteria-pill"><b>CAC</b> · acquisition efficiency</div>
+    <div class="criteria-pill"><b>Viral</b> · content &amp; WOM potential</div>
+    <div class="criteria-pill"><b>Risk</b> · regulatory / brand safety</div>
+    <div class="criteria-pill"><b>Fit</b> · existing product evidence</div>
+  </div>
+
+  <div class="heatmap-card">
+    <div class="heatmap-wrap">
+      <table class="heatmap" id="heatmap"></table>
+    </div>
+    <div class="heatmap-scale">
+      <span>Lower</span>
+      <div class="scale-bar"></div>
+      <span>Higher</span>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: GTM -->
+<section id="gtm" class="section">
+  <div class="section-kicker">Section 3 <span class="kicker-tag hypothesis">Hypothesis</span></div>
+  <h2 class="section-title">Reaffirmed GTM recommendation.<br/><span class="muted">A deliberately heterogeneous Tier 1.</span></h2>
+
+  <div class="tier-flow">
+    <div class="tier tier-1">
+      <div class="tier-header">
+        <div class="tier-label">Tier 1</div>
+        <div class="tier-window">Initial 90 days</div>
+      </div>
+      <div class="tier-desc">The "ready audience" + the "viral demographic." Paid acquisition allowed.</div>
+      <div class="tier-segs">
+        <div class="seg-chip primary">Lucid dreamers</div>
+        <div class="seg-chip primary">Biohackers / optimizers</div>
+        <div class="seg-chip primary">Pregnant / new mothers</div>
+        <div class="seg-chip primary">Perimenopausal women</div>
+      </div>
+    </div>
+
+    <div class="tier-connector">↓</div>
+
+    <div class="tier tier-2">
+      <div class="tier-header">
+        <div class="tier-label">Tier 2</div>
+        <div class="tier-window">Months 4–9</div>
+      </div>
+      <div class="tier-desc">Overlap with Tier 1 via extended channels — Huberman, Marcus, Ferriss, Harris, retreats.</div>
+      <div class="tier-segs">
+        <div class="seg-chip">Consciousness explorers</div>
+        <div class="seg-chip">Creative professionals</div>
+        <div class="seg-chip">Spiritual / yoga</div>
+        <div class="seg-chip">Tech execs / high performers</div>
+        <div class="seg-chip">Insomniacs</div>
+        <div class="seg-chip">Long COVID</div>
+      </div>
+    </div>
+
+    <div class="tier-connector">↓</div>
+
+    <div class="tier tier-3">
+      <div class="tier-header">
+        <div class="tier-label">Tier 3</div>
+        <div class="tier-window">Earned &amp; partnership only</div>
+      </div>
+      <div class="tier-desc">High pain or wedge, but brand-risk profiles make paid acquisition the wrong tool.</div>
+      <div class="tier-segs">
+        <div class="seg-chip earned">Nightmare / PTSD</div>
+        <div class="seg-chip earned">Grief &amp; bereavement</div>
+        <div class="seg-chip earned">LGBTQ+ wellness</div>
+        <div class="seg-chip earned">Religious / cultural</div>
+      </div>
+    </div>
+
+    <div class="tier-connector">↓</div>
+
+    <div class="tier tier-wave">
+      <div class="tier-header">
+        <div class="tier-label">Wave 3</div>
+        <div class="tier-window">Year 2+</div>
+      </div>
+      <div class="tier-desc">Large and important, but require different product surfaces and brand maturity.</div>
+      <div class="tier-segs">
+        <div class="seg-chip wave">Aging adults (50–70)</div>
+        <div class="seg-chip wave">Gen Z / college</div>
+        <div class="seg-chip wave">Caregivers</div>
+        <div class="seg-chip wave">Couples</div>
+      </div>
+    </div>
+
+    <div class="tier-connector parallel">∥</div>
+
+    <div class="tier tier-b2b">
+      <div class="tier-header">
+        <div class="tier-label">B2B Parallel</div>
+        <div class="tier-window">Day one, different motion</div>
+      </div>
+      <div class="tier-desc">Cultivated from day one but treated as a distinct go-to-market motion, not a consumer segment.</div>
+      <div class="tier-segs">
+        <div class="seg-chip b2b">Therapists &amp; mental health pros</div>
+        <div class="seg-chip b2b">Shift workers / hospital systems</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 (home): COHORT · side-by-side hypothesized / measured -->
+<section id="cohort" class="section">
+  <div class="section-kicker">Section 4 <span class="kicker-tag hypothesis">Hypothesis</span> <span class="kicker-tag validating">Under validation</span></div>
+  <h2 class="section-title">Founders cohort composition.<br/><span class="muted">18–24 users. Deliberately heterogeneous — then measured.</span></h2>
+
+  <div class="cohort-dual">
+    <div class="chart-card">
+      <div class="chart-header">
+        <div>
+          <div class="chart-title">Hypothesized mix</div>
+          <div class="chart-sub">Dossier v1.0 · target weighting across Tier 1.</div>
+        </div>
+        <span class="kicker-tag hypothesis">Hypothesis</span>
+      </div>
+      <div class="chart-wrap"><canvas id="cohortChart"></canvas></div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-header">
+        <div>
+          <div class="chart-title">Measured mix</div>
+          <div class="chart-sub">Live · from <code>data/pulse.json</code>. Qualified candidates per candidate-policy segment.</div>
+        </div>
+        <span class="kicker-tag validating" id="measuredTag">Pending data</span>
+      </div>
+      <div class="chart-wrap"><canvas id="measuredCohortChart"></canvas></div>
+      <div class="live-signal is-empty" id="measuredEmpty">
+        <span class="live-signal__label">Waiting on cohort listener</span>
+        <span>Pulse.json will populate this chart once the listener's daily run completes. Day-zero cohorts render the hypothesized mix only.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cohort-table">
+    <div class="ct-header"><div>Segment</div><div>N</div><div>Role in cohort</div></div>
+    <div class="ct-row">
+      <div class="ct-seg"><span class="ct-dot" style="background:#7cc4ff"></span>Lucid dreamers / consciousness-curious</div>
+      <div class="ct-n">6</div>
+      <div class="ct-role">Most product-ready. Lowest expected friction.</div>
+    </div>
+    <div class="ct-row">
+      <div class="ct-seg"><span class="ct-dot" style="background:#ffb57a"></span>Biohackers (incl. ≥1 with podcast/platform)</div>
+      <div class="ct-n">4–5</div>
+      <div class="ct-role">Distribution-rich. Partnership readiness.</div>
+    </div>
+    <div class="ct-row">
+      <div class="ct-seg"><span class="ct-dot" style="background:#b892ff"></span>Women across pregnancy &amp; perimenopause</div>
+      <div class="ct-n">4–5</div>
+      <div class="ct-role">Highest-value bet for new learning. Viral demographic.</div>
+    </div>
+    <div class="ct-row">
+      <div class="ct-seg"><span class="ct-dot" style="background:#8ee6c2"></span>High-performing tech executives</div>
+      <div class="ct-n">3–4</div>
+      <div class="ct-role">Premium-positioning signal. WTP stress test.</div>
+    </div>
+    <div class="ct-row">
+      <div class="ct-seg"><span class="ct-dot" style="background:#ff6b8a"></span>Creative professionals</div>
+      <div class="ct-n">2–3</div>
+      <div class="ct-role">Content-generation engine.</div>
+    </div>
+    <div class="ct-row optional">
+      <div class="ct-seg"><span class="ct-dot" style="background:#c7c3bc"></span>Clinical (nightmare or grief) — optional</div>
+      <div class="ct-n">1–2</div>
+      <div class="ct-role">Via earned-media partnerships only. Explicit care protocols.</div>
+    </div>
+  </div>
+
+  <div class="signal-grid">
+    <div class="signal-card">
+      <div class="signal-label">Week-8 signals</div>
+      <div class="signal-item">Measured D15 retention (target <b>25%+</b>)</div>
+      <div class="signal-item">3–5 first-person testimonials or content artifacts</div>
+      <div class="signal-item">2+ segment-validated messaging variants</div>
+      <div class="signal-item">3 referral / partnership leads from cohort</div>
+      <div class="signal-item">1 roadmap decision (or explicit rejection)</div>
+    </div>
+    <div class="signal-card">
+      <div class="signal-label">Open product questions</div>
+      <div class="signal-item">Does "engineering your dreams" land outside lucid-dreamers?</div>
+      <div class="signal-item">Top 3 product features driving retention across segments?</div>
+      <div class="signal-item">Right pricing tier: $99 app-only, $199 bundled, or else?</div>
+      <div class="signal-item">Empirical referral rate by segment?</div>
+      <div class="signal-item">Does journaling alone hold attention without hardware?</div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="footer-brand">DUST Dream Sciences</div>
+      <div class="footer-sub">Demographic Hypothesis · April 2026 · v1.0 · Confidential</div>
+      <div class="footer-validation">
+        <span class="vs-dot building"></span>
+        <span>Validation status: hypothesis v1.0 complete. Live listener daily; revisions tracked on the <a href="method.html">Methodology</a> page.</span>
+      </div>
+    </div>
+    <div class="footer-right">
+      <div class="footer-role">Prepared by Jed DeMoss, Fractional Head of Growth</div>
+      <div class="footer-role">Prepared for Adam Haar Horowitz, Tomás &amp; DUST Leadership</div>
+    </div>
+  </div>
+</footer>
+
+<script src="pulse.js"></script>
+<script src="charts.js"></script>
+</body>
+</html>

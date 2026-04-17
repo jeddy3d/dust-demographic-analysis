@@ -1,0 +1,13 @@
+{
+  "name": "dust-demographic-analysis",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DUST Dream Sciences — Demographic & Market Dossier (static site + Netlify scheduled functions).",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0",
+    "@netlify/functions": "^2.8.0"
+  }
+}

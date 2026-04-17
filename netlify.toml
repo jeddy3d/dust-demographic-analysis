@@ -1,0 +1,55 @@
+# Netlify configuration for DUST Dream Sciences dossier site
+
+[build]
+  # Static site for now. Scheduled-function scaffolding lives in netlify/ but
+  # is paused until the cohort listener is complete. Re-enable by uncommenting
+  # the `functions` line below and the [functions] block.
+  publish = "."
+  # functions = "netlify/functions"
+
+# [build.environment]
+#   NODE_VERSION = "20"
+
+# [functions]
+#   node_bundler = "esbuild"
+
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-XSS-Protection = "1; mode=block"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Cache static assets
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Prevent indexing — this is confidential
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

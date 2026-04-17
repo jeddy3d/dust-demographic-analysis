@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DUST Dream Sciences — Targets &amp; Risks · v1.0</title>
+<meta name="description" content="Comparable playbooks (Oura, WHOOP, Function, AG1), CAC / retention / LTV benchmarks, and the risk register that could invalidate the plan." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Ubuntu+Sans+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body data-page="targets">
+
+<div class="aurora">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="stars"></div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="logo-dot"></span>
+      <span class="brand-name">DUST</span>
+      <span class="brand-sub">Dream Sciences</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="tam.html">TAM</a>
+      <a href="targets.html" class="is-current">Targets &amp; Risks</a>
+      <a href="method.html">Methodology</a>
+    </div>
+    <div class="nav-inner__trailing">
+      <span class="nav-updated" id="navUpdated" data-empty="true"></span>
+    </div>
+  </div>
+</nav>
+
+<header id="top" class="hero">
+  <div class="hero-tags">
+    <div class="hero-tag hero-tag-hypothesis">
+      <span class="tag-dot"></span>
+      Playbooks · Benchmarks · Risks
+    </div>
+  </div>
+
+  <p class="hero-sub">
+    The <b>external reference</b> frame for the plan: who to copy, what the numbers say,
+    and what could invalidate the bet. Playbooks from the companies DUST most resembles —
+    <em>Oura, WHOOP, Function, AG1, Waking Up</em> — plus CAC / retention / LTV benchmarks
+    and a risk register the team should review every revision.
+  </p>
+
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">8</div><div class="stat-label">Comparable playbooks</div></div>
+    <div class="stat"><div class="stat-num">$30–$60</div><div class="stat-label">Blended CAC target</div></div>
+    <div class="stat"><div class="stat-num">3:1 → 5:1</div><div class="stat-label">Required LTV : CAC ratio</div></div>
+    <div class="stat"><div class="stat-num">8</div><div class="stat-label">Tracked risks</div></div>
+  </div>
+</header>
+
+<!-- SECTION 1: COMPARABLE PLAYBOOKS -->
+<section id="playbooks" class="section">
+  <div class="section-kicker">Section 1 <span class="kicker-tag reference">Reference</span></div>
+  <h2 class="section-title">Comparable playbooks.<br/><span class="muted">Not Calm &amp; Headspace. <em>Oura, WHOOP, Function, AG1.</em></span></h2>
+
+  <div class="playbook-grid">
+    <article class="play-card good">
+      <div class="play-header">
+        <div class="play-company">Oura</div>
+        <div class="play-pattern">Scientific validation as inflection</div>
+      </div>
+      <div class="play-body">
+        <p>Sold ~150K rings in first 5 years. 2017 Stanford study vs. polysomnography unlocked the press cycle + celebrity adoption (Prince Harry, Ronaldo).</p>
+        <p class="play-lesson"><b>DUST analog:</b> MIT research + Adam's PhD. Publish — even small-N — in peer-reviewed venues. Convert to press hooks.</p>
+      </div>
+    </article>
+
+    <article class="play-card good">
+      <div class="play-header">
+        <div class="play-company">WHOOP</div>
+        <div class="play-pattern">Aspirational community as free distribution</div>
+      </div>
+      <div class="play-body">
+        <p>Four years (2012–2016) closed to elite athletes only. NFLPA deal 2017 distributed to every NFL player. Zero-CAC growth.</p>
+        <p class="play-lesson"><b>DUST analog:</b> Close cohort to 200–500 "Founding Dreamers" — lucid YouTubers, dream researchers, Yoga Nidra teachers, biohacker podcasters.</p>
+      </div>
+    </article>
+
+    <article class="play-card good">
+      <div class="play-header">
+        <div class="play-company">Function Health</div>
+        <div class="play-pattern">Founder authority + DTC speed</div>
+      </div>
+      <div class="play-body">
+        <p>$298M Series B in Nov 2025, $2.5B valuation on $100M run-rate. 450% YoY 2024→2025. Engine: Mark Hyman's pre-existing authority + podcast audience.</p>
+        <p class="play-lesson"><b>DUST analog:</b> Adam's media presence is a primary growth asset, not a side activity.</p>
+      </div>
+    </article>
+
+    <article class="play-card good">
+      <div class="play-header">
+        <div class="play-company">AG1</div>
+        <div class="play-pattern">Podcast + creator compounding</div>
+      </div>
+      <div class="play-body">
+        <p>$403K → $78.9M earned media value (2018→2023) — <b>19,470% increase</b>. Deep affiliate model with Ferriss, Shepard, Rogan, Huberman.</p>
+        <p class="play-lesson"><b>DUST analog:</b> Huberman, Rich Roll, Sam Harris, Aubrey Marcus, Tim Ferriss, Andrew Holecek, Charlie Morley — a natural starter set.</p>
+      </div>
+    </article>
+
+    <article class="play-card warn">
+      <div class="play-header">
+        <div class="play-company">Calm &amp; Headspace</div>
+        <div class="play-pattern">The wrong reference for early growth</div>
+      </div>
+      <div class="play-body">
+        <p>Calm's inflection: Sleep Stories 2017 — five years after launch. Headspace: Puddicombe's pre-existing media 2010–2014 before the app existed.</p>
+        <p class="play-lesson"><b>Why it's wrong:</b> Both had already crossed PMF. Headspace subs declined 300K in 2025. These are retention plays, not growth plays.</p>
+      </div>
+    </article>
+
+    <article class="play-card good">
+      <div class="play-header">
+        <div class="play-company">Eight Sleep</div>
+        <div class="play-pattern">Hardware unit economics discipline</div>
+      </div>
+      <div class="play-body">
+        <p>$50M raised in 2026 at $1.5B valuation on $500M+ lifetime Pod sales. Free-cash-flow positive in 2025.</p>
+        <p class="play-lesson"><b>DUST analog:</b> Design subscription unit economics that work without paid acquisition, before scaling.</p>
+      </div>
+    </article>
+
+    <article class="play-card niche">
+      <div class="play-header">
+        <div class="play-company">Shape / Prophetic AI</div>
+        <div class="play-pattern">Niche-but-loyal + direct competitor</div>
+      </div>
+      <div class="play-body">
+        <p>Shape (lucid dreaming app, $39.99/yr): 94% satisfaction, 1,700+ five-star reviews. Validates WTP but caps below mass scale.</p>
+        <p class="play-lesson"><b>Prophetic AI:</b> $1.1M raised, pre-revenue. Most direct competitor in headband-form-factor dream tech. Market will be there in 2027.</p>
+      </div>
+    </article>
+
+    <article class="play-card good">
+      <div class="play-header">
+        <div class="play-company">Waking Up (Sam Harris)</div>
+        <div class="play-pattern">Cleanest playbook to copy</div>
+      </div>
+      <div class="play-body">
+        <p>Launched to pre-existing audience, designed for retention and depth rather than scale, charged subscription from day one.</p>
+        <p class="play-lesson"><b>DUST analog:</b> BBC + MIT + 100M earned impressions is similar fuel.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- SECTION 2: BENCHMARKS -->
+<section id="benchmarks" class="section">
+  <div class="section-kicker">Section 2 <span class="kicker-tag reference">Reference</span></div>
+  <h2 class="section-title">CAC, retention &amp; LTV benchmarks.<br/><span class="muted">Defensible numbers for the board and the budget.</span></h2>
+
+  <div class="benchmark-grid">
+    <div class="chart-card">
+      <div class="chart-header">
+        <div>
+          <div class="chart-title">CAC by channel (2025)</div>
+          <div class="chart-sub">Blended DUST target: <b>$30–$60</b> months 1–6.</div>
+        </div>
+      </div>
+      <div class="chart-wrap"><canvas id="cacChart"></canvas></div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-header">
+        <div>
+          <div class="chart-title">Retention curve — health &amp; wellness apps</div>
+          <div class="chart-sub">DUST D15 target: <b>20%</b> (~2× median).</div>
+        </div>
+      </div>
+      <div class="chart-wrap"><canvas id="retentionChart"></canvas></div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-header">
+        <div>
+          <div class="chart-title">Pricing &amp; LTV positioning</div>
+          <div class="chart-sub">DUST sits between mainstream meditation apps and hardware-bundled optimizers.</div>
+        </div>
+      </div>
+      <div class="chart-wrap"><canvas id="pricingChart"></canvas></div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-header">
+        <div>
+          <div class="chart-title">Unit economics target</div>
+          <div class="chart-sub">Venture-defensible LTV/CAC ratio of <b>3:1 → 5:1</b>.</div>
+        </div>
+      </div>
+      <div class="unit-econ">
+        <div class="econ-pair">
+          <div class="econ-block small"><div class="econ-num">$30–$60</div><div class="econ-lbl">Target CAC</div></div>
+          <div class="econ-divider">:</div>
+          <div class="econ-block big"><div class="econ-num">$200–$400</div><div class="econ-lbl">Target LTV</div></div>
+        </div>
+        <div class="econ-ratio">
+          <div class="ratio-label">Required ratio</div>
+          <div class="ratio-value">3:1 → 5:1</div>
+        </div>
+        <div class="econ-meta">Based on 24–48 month avg tenure and $99/yr app-only or $199–$299/yr bundled pricing.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="conversion-row">
+    <div class="conv-stat">
+      <div class="conv-num">39.9%</div>
+      <div class="conv-lbl">Free-trial-to-paid median (RevenueCat 2025)</div>
+    </div>
+    <div class="conv-stat">
+      <div class="conv-num">40%+</div>
+      <div class="conv-lbl">DUST conversion target (defensible, not aggressive)</div>
+    </div>
+    <div class="conv-stat">
+      <div class="conv-num">30–77%</div>
+      <div class="conv-lbl">Referral mechanics share of waitlist signups</div>
+    </div>
+    <div class="conv-stat">
+      <div class="conv-num">48%</div>
+      <div class="conv-lbl">Reddit healthcare-vertical traffic YoY — fastest organic channel</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: RISKS -->
+<section id="risks" class="section">
+  <div class="section-kicker">Section 3 <span class="kicker-tag hypothesis">Hypothesis</span></div>
+  <h2 class="section-title">Risks, open questions &amp; caveats.<br/><span class="muted">What could invalidate the plan.</span></h2>
+
+  <div class="risk-grid">
+    <div class="risk">
+      <div class="risk-sev high">HIGH</div>
+      <div class="risk-name">Regulatory exposure on clinical claims</div>
+      <div class="risk-body">Marketing to nightmare, PTSD, grief, insomnia segments with disease-specific language risks FDA classification and FTC scrutiny. Mitigation: "sleep wellness" framing, no "treatment" or "cure," qualified disclaimers. Keep clinical segments earned-only.</div>
+    </div>
+    <div class="risk">
+      <div class="risk-sev med">MED</div>
+      <div class="risk-name">$585B figure is not directly sourced</div>
+      <div class="risk-body">Pivot deck to defensible aggregate construction (~$430B) with category list. Numerical imprecision in an investor pitch is a credibility risk.</div>
+    </div>
+    <div class="risk">
+      <div class="risk-sev high">HIGH</div>
+      <div class="risk-name">Hardware development timeline</div>
+      <div class="risk-body">Comparable hardware (Oura, Muse, Apollo Neuro, Lumenate, Prophetic) all moved slower than software. Price in 12–18 months of delay risk, not the optimistic plan.</div>
+    </div>
+    <div class="risk">
+      <div class="risk-sev med">MED</div>
+      <div class="risk-name">CAC inflation is real &amp; structural</div>
+      <div class="risk-body">Apple privacy (2024) + Meta health-category restrictions (2025) raised CAC 30–50%. The plan should not depend on cheap paid social — community + podcast + earned media is the compensating play.</div>
+    </div>
+    <div class="risk">
+      <div class="risk-sev low">LOW</div>
+      <div class="risk-name">"$0 paid" assumption may be overcorrected</div>
+      <div class="risk-body">Apple Search Ads ($3–7 CPI) and Reddit promoted posts in relevant subreddits remain efficient. Principle is "earned and community first," not "no paid ever."</div>
+    </div>
+    <div class="risk">
+      <div class="risk-sev med">MED</div>
+      <div class="risk-name">Competitive entry timing</div>
+      <div class="risk-body">Prophetic's headband in development; consciousness-tech entrants emerging quarterly. DUST's clearly differentiated brand window is 18–24 months.</div>
+    </div>
+    <div class="risk">
+      <div class="risk-sev high">HIGH</div>
+      <div class="risk-name">Cultural &amp; ethical exposure</div>
+      <div class="risk-body">Religious-cultural and grief segments are right to win in time, wrong to rush. A misstep on Indigenous, Muslim, or grief communities can permanently damage the brand. Earned + partnership only.</div>
+    </div>
+    <div class="risk">
+      <div class="risk-sev med">MED</div>
+      <div class="risk-name">Founder bandwidth</div>
+      <div class="risk-body">Function, Headspace, Waking Up all depend on founder-as-content-asset. Book Adam's recurring media slots (TED talk, 2 podcasts/month, 1 written piece/quarter) as non-negotiable inputs.</div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="footer-brand">DUST Dream Sciences</div>
+      <div class="footer-sub">Demographic Hypothesis · April 2026 · v1.0 · Confidential</div>
+      <div class="footer-validation">
+        <span class="vs-dot reference"></span>
+        <span>External benchmarks + internal risk register. Revise quarterly; update risks after every major bet.</span>
+      </div>
+    </div>
+    <div class="footer-right">
+      <div class="footer-role">Prepared by Jed DeMoss, Fractional Head of Growth</div>
+      <div class="footer-role">Prepared for Adam Haar Horowitz, Tomás &amp; DUST Leadership</div>
+    </div>
+  </div>
+</footer>
+
+<script src="pulse.js"></script>
+<script src="charts.js"></script>
+</body>
+</html>
