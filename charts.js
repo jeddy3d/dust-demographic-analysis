@@ -560,59 +560,107 @@ const ALPHA = (hex, a) => {
 })();
 
 // ============================================================
-// 8. COHORT MIX — doughnut
+// 8. HYPOTHESIZED COHORT MIX — doughnut
+//    Reads pulse.cohort_mix.hypothesized when the pulse has loaded
+//    (same segment slugs the measured chart uses, so labels + colors
+//    are directly comparable). Falls back to the hand-authored dossier
+//    weighting below if pulse.json is absent (day-zero UX).
 // ============================================================
 (function(){
   const ctx = document.getElementById('cohortChart');
   if (!ctx) return;
 
-  new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-      labels: [
-        'Lucid dreamers / consciousness-curious',
-        'Biohackers (incl. podcast/platform)',
-        'Pregnant & perimenopausal women',
-        'Tech executives / high performers',
-        'Creative professionals',
-        'Clinical (nightmare / grief) — optional',
-      ],
-      datasets: [{
-        data: [6, 4.5, 4.5, 3.5, 2.5, 1.5],
-        backgroundColor: [
-          ALPHA(COLORS.blue, 0.72),      // lucid / consciousness
-          ALPHA(COLORS.parchment, 0.72), // biohackers (signal)
-          ALPHA(COLORS.terra, 0.72),     // pregnant / perimenopausal
-          ALPHA(COLORS.sage, 0.72),      // tech execs
-          ALPHA(COLORS.mauve, 0.72),     // creative
-          ALPHA(COLORS.warm, 0.55),      // clinical (optional)
-        ],
-        borderColor: [
-          COLORS.blue, COLORS.parchment, COLORS.terra,
-          COLORS.sage, COLORS.mauve, COLORS.warm,
-        ],
-        borderWidth: 1.5,
-        spacing: 4,
-        hoverOffset: 14,
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      cutout: '58%',
-      plugins: {
-        legend: {
-          position: 'bottom',
-          labels: { padding: 14, font: { size: 11 } }
-        },
-        tooltip: {
-          callbacks: {
-            label: (c) => `${c.label}: ~${c.parsed} users`
-          }
-        }
-      }
+  // Mirror the measured chart's color map so the two doughnuts use the
+  // same slug → color mapping and read as paired views of one dataset.
+  const SEGMENT_COLORS = {
+    lucid:         COLORS.blue,
+    consciousness: COLORS.blue,
+    biohackers:    COLORS.parchment,
+    women:         COLORS.terra,
+    pregnancy:     COLORS.terra,
+    perimenopause: COLORS.terra,
+    tech:          COLORS.sage,
+    creatives:     COLORS.mauve,
+    clinical:      COLORS.warm,
+    sleep_general: COLORS.sage,
+  };
+  const colorFor = (name) => {
+    const key = (name || '').toLowerCase().split(/[\s_-]+/)[0];
+    return SEGMENT_COLORS[key] || SEGMENT_COLORS[name] || COLORS.muted;
+  };
+
+  // Day-zero fallback: dossier v1.0 weighting. Shape matches pulse's
+  // hypothesized list: [{ segment, share }, ...].
+  const FALLBACK = [
+    { segment: 'lucid',         share: 0.25 },
+    { segment: 'biohackers',    share: 0.25 },
+    { segment: 'women',         share: 0.20 },
+    { segment: 'tech',          share: 0.15 },
+    { segment: 'creatives',     share: 0.10 },
+    { segment: 'clinical',      share: 0.05 },
+  ];
+
+  let chart = null;
+  function render(list) {
+    const labels = list.map((m) => m.segment);
+    const data = list.map((m) => Math.round((m.share || 0) * 100));
+    const bgs = list.map((m) => ALPHA(colorFor(m.segment), 0.72));
+    const borders = list.map((m) => colorFor(m.segment));
+
+    if (chart) {
+      chart.data.labels = labels;
+      chart.data.datasets[0].data = data;
+      chart.data.datasets[0].backgroundColor = bgs;
+      chart.data.datasets[0].borderColor = borders;
+      chart.update();
+      return;
     }
-  });
+
+    chart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: labels,
+        datasets: [{
+          data: data,
+          backgroundColor: bgs,
+          borderColor: borders,
+          borderWidth: 1.5,
+          spacing: 4,
+          hoverOffset: 14,
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '58%',
+        plugins: {
+          legend: { position: 'bottom', labels: { padding: 14, font: { size: 11 } } },
+          tooltip: {
+            callbacks: {
+              label: (c) => `${c.label}: ${c.parsed}% hypothesized share`,
+            },
+          },
+        },
+      },
+    });
+  }
+
+  function tryRender() {
+    const pulse = window.DUST_PULSE;
+    if (pulse && pulse.cohort_mix && Array.isArray(pulse.cohort_mix.hypothesized)) {
+      render(pulse.cohort_mix.hypothesized);
+      return true;
+    }
+    return false;
+  }
+
+  // Render fallback immediately so the chart is never blank. When pulse
+  // loads, re-render from pulse. If pulse is permanently absent (null),
+  // the fallback stays on screen — the UI is still complete.
+  render(FALLBACK);
+  if (!tryRender()) {
+    document.addEventListener('pulse-loaded', tryRender, { once: true });
+  }
 })();
 
 // ============================================================
@@ -734,5 +782,398 @@ const ALPHA = (hex, a) => {
       // empty state so the UI commits to a final state.
       if (window.DUST_PULSE === null) render(null);
     }, 4000);
+  }
+})();
+
+// ============================================================
+// 10. LIVE SIGNAL BY SEGMENT — cards fed by pulse.segments[]
+//     Renders one card per measured segment with:
+//       - segment name, tier, outreach policy
+//       - unique_authors scanned vs qualified_authors (fraction)
+//       - avg_composite score
+//       - top 4 phrases (from top_phrases)
+//       - top 3 source subreddits (from top_subreddits)
+//     Segments with outreach_policy !== "candidate" (i.e. messaging_only
+//     or earned_only) get a muted treatment so they don't read as
+//     outreach targets — they're language research only.
+// ============================================================
+(function () {
+  const grid = document.getElementById('liveGrid');
+  if (!grid) return;
+
+  const SEGMENT_COLORS = {
+    lucid:         COLORS.blue,
+    consciousness: COLORS.blue,
+    biohackers:    COLORS.parchment,
+    pregnancy:     COLORS.terra,
+    perimenopause: COLORS.terra,
+    women:         COLORS.terra,
+    creatives:     COLORS.mauve,
+    sleep_general: COLORS.sage,
+    tech:          COLORS.sage,
+    clinical:      COLORS.warm,
+  };
+  const colorFor = (name) => {
+    const key = (name || '').toLowerCase().split(/[\s_-]+/)[0];
+    return SEGMENT_COLORS[key] || SEGMENT_COLORS[name] || COLORS.muted;
+  };
+
+  // Human-readable titles per slug. Lowercase-keyed for safety.
+  const TITLES = {
+    biohackers:    'Biohackers · sleep optimizers',
+    lucid:         'Lucid dreamers',
+    pregnancy:     'Pregnant & new mothers',
+    perimenopause: 'Perimenopausal women',
+    consciousness: 'Consciousness & psychedelic-curious',
+    creatives:     'Creative professionals',
+    sleep_general: 'Insomniacs · non-nightmare',
+    clinical:      'Clinical · nightmare / grief / PTSD',
+  };
+  const titleFor = (slug) => TITLES[slug] || slug;
+
+  function statusFor(s) {
+    // Candidate-policy segments with ≥3 qualified authors = "Validated".
+    // Candidate-policy with fewer = "Measuring". Non-candidate
+    // (messaging/earned) = "Language research".
+    const policy = s.outreach_policy || 'candidate';
+    const q = s.qualified_authors || 0;
+    if (policy !== 'candidate') {
+      return { label: 'Language research', klass: 'kicker-tag' };
+    }
+    if (q >= 3) return { label: 'Validated', klass: 'kicker-tag validated' };
+    if (q >= 1) return { label: 'Early signal', klass: 'kicker-tag building' };
+    return { label: 'Measuring', klass: 'kicker-tag validating' };
+  }
+
+  function policyCopy(policy) {
+    if (policy === 'candidate') return 'Outreach: direct (Tier 1–2 candidate)';
+    if (policy === 'messaging_only') return 'Outreach: messaging signal only (primary channel off-platform)';
+    if (policy === 'earned_only') return 'Outreach: earned / partnership only';
+    return 'Outreach: —';
+  }
+
+  function renderCards(segments) {
+    grid.innerHTML = '';
+    if (!segments || !segments.length) {
+      const empty = document.createElement('div');
+      empty.className = 'live-grid__empty';
+      empty.innerHTML =
+        '<div class="live-grid__empty-title">No measured segments yet</div>' +
+        '<div class="live-grid__empty-body">The daily listener run exports this data at 08:00 UTC. If you see this during the day, pulse.json was produced with an empty segment list.</div>';
+      grid.appendChild(empty);
+      return;
+    }
+
+    // Sort: candidate-policy first (by qualified desc), then
+    // messaging-only (by unique desc), then earned last.
+    const order = { candidate: 0, messaging_only: 1, earned_only: 2 };
+    segments.slice().sort(function (a, b) {
+      const pa = order[a.outreach_policy] ?? 3;
+      const pb = order[b.outreach_policy] ?? 3;
+      if (pa !== pb) return pa - pb;
+      if (pa === 0) return (b.qualified_authors || 0) - (a.qualified_authors || 0);
+      return (b.unique_authors || 0) - (a.unique_authors || 0);
+    }).forEach(function (s) {
+      const color = colorFor(s.name);
+      const status = statusFor(s);
+      const unique = s.unique_authors || 0;
+      const qualified = s.qualified_authors || 0;
+      const avg = (s.avg_composite == null) ? null : Number(s.avg_composite).toFixed(2);
+      const phrases = (s.top_phrases || []).slice(0, 4);
+      const subs = (s.top_subreddits || []).slice(0, 3);
+
+      const card = document.createElement('div');
+      card.className = 'live-card';
+      card.style.setProperty('--live-color', color);
+      if ((s.outreach_policy || 'candidate') !== 'candidate') {
+        card.classList.add('live-card--muted');
+      }
+
+      // Build with textContent where user-derived strings flow in, so
+      // no author handle or phrase can inject markup. Frame + static
+      // labels via innerHTML is fine.
+      card.innerHTML =
+        '<div class="live-card__top">' +
+          '<div class="live-card__title"></div>' +
+          '<span class="' + status.klass + '">' + status.label + '</span>' +
+        '</div>' +
+        '<div class="live-card__policy"></div>' +
+        '<div class="live-card__stats">' +
+          '<div class="live-stat">' +
+            '<div class="live-stat__val"></div>' +
+            '<div class="live-stat__lbl">Authors scanned</div>' +
+          '</div>' +
+          '<div class="live-stat">' +
+            '<div class="live-stat__val"></div>' +
+            '<div class="live-stat__lbl">Qualified</div>' +
+          '</div>' +
+          '<div class="live-stat">' +
+            '<div class="live-stat__val"></div>' +
+            '<div class="live-stat__lbl">Avg composite (/3)</div>' +
+          '</div>' +
+          '<div class="live-stat">' +
+            '<div class="live-stat__val"></div>' +
+            '<div class="live-stat__lbl">Schema version</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="live-card__block">' +
+          '<div class="live-card__sub">Top language patterns</div>' +
+          '<div class="live-card__phrases"></div>' +
+        '</div>' +
+        '<div class="live-card__block">' +
+          '<div class="live-card__sub">Top source subreddits</div>' +
+          '<div class="live-card__subs"></div>' +
+        '</div>';
+
+      // Fill in dynamic text nodes — textContent for safety.
+      card.querySelector('.live-card__title').textContent = titleFor(s.name);
+      card.querySelector('.live-card__policy').textContent = policyCopy(s.outreach_policy);
+      const vals = card.querySelectorAll('.live-stat__val');
+      vals[0].textContent = String(unique);
+      vals[1].textContent = String(qualified);
+      vals[2].textContent = avg == null ? '—' : avg;
+      vals[3].textContent = 'v' + (s.version != null ? s.version : '—');
+
+      const phrasesEl = card.querySelector('.live-card__phrases');
+      if (!phrases.length) {
+        phrasesEl.innerHTML = '<span class="live-card__empty">—</span>';
+      } else {
+        phrases.forEach(function (p) {
+          const chip = document.createElement('span');
+          chip.className = 'phrase-chip';
+          const term = document.createElement('span');
+          term.className = 'phrase-chip__term';
+          term.textContent = p.phrase || '—';
+          const count = document.createElement('span');
+          count.className = 'phrase-chip__count';
+          count.textContent = p.docs != null ? String(p.docs) : '';
+          chip.appendChild(term);
+          if (p.docs != null) chip.appendChild(count);
+          phrasesEl.appendChild(chip);
+        });
+      }
+
+      const subsEl = card.querySelector('.live-card__subs');
+      if (!subs.length) {
+        subsEl.innerHTML = '<span class="live-card__empty">—</span>';
+      } else {
+        subs.forEach(function (r) {
+          const chip = document.createElement('span');
+          chip.className = 'sub-chip';
+          const name = document.createElement('span');
+          name.className = 'sub-chip__name';
+          name.textContent = 'r/' + (r.subreddit || '—');
+          const authors = document.createElement('span');
+          authors.className = 'sub-chip__n';
+          authors.textContent = r.authors != null ? String(r.authors) : '';
+          chip.appendChild(name);
+          if (r.authors != null) chip.appendChild(authors);
+          subsEl.appendChild(chip);
+        });
+      }
+
+      grid.appendChild(card);
+    });
+  }
+
+  function updateHeader(segments) {
+    const tag = document.getElementById('liveSignalTag');
+    const sub = document.getElementById('liveSignalSub');
+    if (!segments || !segments.length) {
+      if (tag) { tag.textContent = 'Pending data'; tag.className = 'kicker-tag validating'; }
+      return;
+    }
+    const totalUnique = segments.reduce(function (a, s) { return a + (s.unique_authors || 0); }, 0);
+    const candidates = segments.filter(function (s) { return (s.outreach_policy || 'candidate') === 'candidate'; });
+    const totalQualified = candidates.reduce(function (a, s) { return a + (s.qualified_authors || 0); }, 0);
+    if (tag) { tag.textContent = 'Live'; tag.className = 'kicker-tag validated'; }
+    if (sub) {
+      sub.textContent = totalUnique.toLocaleString() + ' unique authors scanned across ' +
+        segments.length + ' segments · ' + totalQualified + ' qualified as outreach candidates · ' +
+        'privacy-filtered before publication.';
+    }
+  }
+
+  function tryRender() {
+    const pulse = window.DUST_PULSE;
+    if (pulse && Array.isArray(pulse.segments)) {
+      renderCards(pulse.segments);
+      updateHeader(pulse.segments);
+      return true;
+    }
+    return false;
+  }
+
+  if (!tryRender()) {
+    document.addEventListener('pulse-loaded', tryRender, { once: true });
+    setTimeout(function () {
+      // Explicitly resolved-null pulse: keep the initial empty-state HTML
+      // that the page was shipped with — nothing more to do.
+      if (window.DUST_PULSE === null) {
+        const tag = document.getElementById('liveSignalTag');
+        if (tag) { tag.textContent = 'Pending data'; tag.className = 'kicker-tag validating'; }
+      }
+    }, 4000);
+  }
+})();
+
+// ============================================================
+// 11. HYPOTHESIS vs MEASURED VARIANCE PANEL
+//     Sits beneath the side-by-side doughnuts on index.html.
+//     For each segment that appears in either cohort_mix.hypothesized
+//     or cohort_mix.measured, render a row with:
+//       hypothesized % · measured % · delta (pp)
+//     Rows are sorted by |delta| desc so the biggest variance
+//     lands at the top. >10pp variance gets a 'variance-row--flag'
+//     treatment so it reads as "this hypothesis needs revision."
+//
+//     Segment slug reconciliation: hypothesized uses umbrella slugs
+//     (e.g. "women" covers pregnancy+perimenopause) while measured
+//     uses granular slugs. We DO NOT attempt to collapse the two —
+//     surfacing the asymmetry is the whole point of the panel, and
+//     a split ("women" hypothesized at 20%, "pregnancy" + "peri"
+//     measured at 0% + 6%) is itself the signal that the hypothesis
+//     was wrong about which sub-segment would carry the cohort.
+// ============================================================
+(function () {
+  const table = document.getElementById('varianceTable');
+  if (!table) return;
+
+  const SEGMENT_COLORS = {
+    lucid:         COLORS.blue,
+    consciousness: COLORS.blue,
+    biohackers:    COLORS.parchment,
+    pregnancy:     COLORS.terra,
+    perimenopause: COLORS.terra,
+    women:         COLORS.terra,
+    creatives:     COLORS.mauve,
+    sleep_general: COLORS.sage,
+    tech:          COLORS.sage,
+    clinical:      COLORS.warm,
+  };
+  const colorFor = (name) => {
+    const key = (name || '').toLowerCase().split(/[\s_-]+/)[0];
+    return SEGMENT_COLORS[key] || SEGMENT_COLORS[name] || COLORS.muted;
+  };
+
+  const TITLES = {
+    biohackers:    'Biohackers',
+    lucid:         'Lucid dreamers',
+    pregnancy:     'Pregnant & new mothers',
+    perimenopause: 'Perimenopausal women',
+    women:         'Women (umbrella)',
+    consciousness: 'Consciousness-curious',
+    creatives:     'Creative professionals',
+    sleep_general: 'Insomniacs',
+    tech:          'Tech execs',
+    clinical:      'Clinical · grief / PTSD',
+  };
+  const titleFor = (slug) => TITLES[slug] || slug;
+
+  function fmtPct(x) {
+    if (x == null || isNaN(x)) return '—';
+    return Math.round(x * 100) + '%';
+  }
+  function fmtDeltaPp(hyp, meas) {
+    if (hyp == null || meas == null) return { text: '—', pp: null };
+    const pp = Math.round((meas - hyp) * 100);
+    const sign = pp > 0 ? '+' : (pp < 0 ? '−' : '±');
+    return { text: sign + Math.abs(pp) + 'pp', pp: pp };
+  }
+
+  function render(mix) {
+    // mix: { hypothesized: [{segment, share}], measured: [{segment, count}] }
+    const hyp = (mix && Array.isArray(mix.hypothesized)) ? mix.hypothesized : [];
+    const meas = (mix && Array.isArray(mix.measured)) ? mix.measured : [];
+
+    // Measured shares: normalize counts to a share of qualified candidates.
+    const measTotal = meas.reduce(function (a, m) { return a + (m.count || 0); }, 0);
+    const measShare = {};
+    meas.forEach(function (m) {
+      if (measTotal > 0) measShare[m.segment] = (m.count || 0) / measTotal;
+    });
+    const hypShare = {};
+    hyp.forEach(function (h) { hypShare[h.segment] = h.share || 0; });
+
+    // Union of slugs so a segment that's hypothesized but not yet
+    // measured (or vice versa) still shows up as an explicit row.
+    const slugs = Array.from(new Set(
+      Object.keys(hypShare).concat(Object.keys(measShare))
+    ));
+
+    if (!slugs.length || (measTotal === 0 && !hyp.length)) {
+      // Keep the empty-state that shipped with the HTML.
+      return;
+    }
+
+    // Build rows.
+    const rows = slugs.map(function (slug) {
+      const h = hypShare[slug];
+      const m = measShare[slug];
+      const delta = fmtDeltaPp(h, m);
+      return {
+        slug: slug,
+        hyp: h,
+        meas: m,
+        deltaPp: delta.pp,
+        deltaText: delta.text,
+      };
+    });
+
+    // Sort: flagged (|delta|>10pp or one-sided) first, then by |delta| desc.
+    rows.sort(function (a, b) {
+      const aAbs = a.deltaPp == null ? 999 : Math.abs(a.deltaPp);
+      const bAbs = b.deltaPp == null ? 999 : Math.abs(b.deltaPp);
+      return bAbs - aAbs;
+    });
+
+    // Clear existing empty-state + non-header rows. Keep the header row.
+    Array.from(table.querySelectorAll('.variance-row:not(.variance-row--header)')).forEach(function (el) {
+      el.remove();
+    });
+
+    rows.forEach(function (r) {
+      const row = document.createElement('div');
+      row.className = 'variance-row';
+      const flagged =
+        (r.deltaPp != null && Math.abs(r.deltaPp) > 10) ||
+        r.hyp == null || r.meas == null;
+      if (flagged) row.classList.add('variance-row--flag');
+
+      row.innerHTML =
+        '<div class="variance-seg">' +
+          '<span class="variance-dot"></span>' +
+          '<span class="variance-seg__name"></span>' +
+        '</div>' +
+        '<div class="variance-val variance-val--hyp"></div>' +
+        '<div class="variance-val variance-val--meas"></div>' +
+        '<div class="variance-val variance-val--delta"></div>';
+
+      row.querySelector('.variance-dot').style.background = colorFor(r.slug);
+      row.querySelector('.variance-seg__name').textContent = titleFor(r.slug);
+      row.querySelector('.variance-val--hyp').textContent = fmtPct(r.hyp);
+      row.querySelector('.variance-val--meas').textContent = fmtPct(r.meas);
+      const deltaEl = row.querySelector('.variance-val--delta');
+      deltaEl.textContent = r.deltaText;
+      if (r.deltaPp != null) {
+        if (r.deltaPp > 10) deltaEl.classList.add('variance-val--up');
+        else if (r.deltaPp < -10) deltaEl.classList.add('variance-val--down');
+      }
+
+      table.appendChild(row);
+    });
+  }
+
+  function tryRender() {
+    const pulse = window.DUST_PULSE;
+    if (pulse && pulse.cohort_mix) {
+      render(pulse.cohort_mix);
+      return true;
+    }
+    return false;
+  }
+
+  if (!tryRender()) {
+    document.addEventListener('pulse-loaded', tryRender, { once: true });
   }
 })();

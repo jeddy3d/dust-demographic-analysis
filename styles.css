@@ -2319,3 +2319,444 @@ body {
   .version-row__by::before { content: "By: "; color: var(--fg-muted); }
 }
 
+/* ============================================================
+   LIVE SIGNAL GRID — "What the listener sees" card array
+   One card per measured segment from pulse.segments[]. Each
+   card carries its own --live-color that tints the top border
+   so the grid reads as a color-coded set without relying on a
+   legend. Uses textContent inside the card body so user-derived
+   strings (phrases, subreddit names) cannot inject markup.
+   ============================================================ */
+
+.live-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-300);
+  margin-top: var(--space-400);
+}
+
+.live-grid__empty {
+  grid-column: 1 / -1;
+  padding: var(--space-500);
+  border-radius: var(--radius-200);
+  border: var(--bw-0125) dashed var(--border-default);
+  background: rgba(232, 217, 184, 0.02);
+  text-align: center;
+}
+
+.live-grid__empty-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  margin-bottom: var(--space-150);
+}
+
+.live-grid__empty-body {
+  color: var(--fg-secondary);
+  font-size: 14px;
+  line-height: 1.55;
+  max-width: 56ch;
+  margin: 0 auto;
+}
+
+.live-card {
+  --live-color: var(--signal);
+  position: relative;
+  padding: var(--space-300);
+  border-radius: var(--radius-200);
+  background: var(--bg-tertiary);
+  border: var(--bw-0125) solid var(--border-default);
+  border-top: 2px solid var(--live-color);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-200);
+}
+
+.live-card--muted {
+  opacity: 0.78;
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.live-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-200);
+}
+
+.live-card__title {
+  font-weight: var(--w-medium);
+  font-size: 15px;
+  color: var(--fg-primary);
+  line-height: 1.35;
+}
+
+.live-card__policy {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.live-card__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-100);
+  padding: var(--space-150) 0;
+  border-top: var(--bw-0125) solid var(--border-default);
+  border-bottom: var(--bw-0125) solid var(--border-default);
+}
+
+.live-stat {
+  text-align: left;
+}
+
+.live-stat__val {
+  font-family: var(--font-mono);
+  font-weight: var(--w-semibold);
+  font-size: 18px;
+  color: var(--fg-primary);
+  line-height: 1.1;
+}
+
+.live-stat__lbl {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  margin-top: 4px;
+  line-height: 1.3;
+}
+
+.live-card__block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-100);
+}
+
+.live-card__sub {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.live-card__phrases,
+.live-card__subs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-100);
+}
+
+.live-card__empty {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-subtle);
+}
+
+.phrase-chip,
+.sub-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 3px var(--space-100);
+  border-radius: var(--radius-999);
+  background: rgba(232, 217, 184, 0.04);
+  border: var(--bw-0125) solid rgba(232, 217, 184, 0.14);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.phrase-chip__term,
+.sub-chip__name {
+  color: var(--fg-secondary);
+}
+
+.phrase-chip__count,
+.sub-chip__n {
+  color: var(--fg-muted);
+  font-size: 9.5px;
+}
+
+.phrase-chip__count::before,
+.sub-chip__n::before {
+  content: "· ";
+  opacity: 0.6;
+}
+
+@media (max-width: 640px) {
+  .live-card__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ============================================================
+   VARIANCE PANEL — hypothesis vs. measured side-by-side
+   Lives beneath the paired doughnuts. One row per segment
+   that appears in either hypothesized or measured. |Delta|>10pp
+   flags a row so the biggest mispredictions lead the list.
+   ============================================================ */
+
+.variance-panel {
+  margin: var(--space-500) 0 var(--space-400);
+  padding: var(--space-400);
+  border-radius: var(--radius-200);
+  background: var(--bg-tertiary);
+  border: var(--bw-0125) solid var(--border-default);
+}
+
+.variance-panel__head {
+  margin-bottom: var(--space-300);
+}
+
+.variance-panel__title {
+  font-weight: var(--w-medium);
+  font-size: 16px;
+  color: var(--fg-primary);
+  margin-bottom: var(--space-100);
+}
+
+.variance-panel__sub {
+  color: var(--fg-secondary);
+  font-size: 13.5px;
+  line-height: 1.55;
+  max-width: 72ch;
+}
+
+.variance-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.variance-row {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: var(--space-200);
+  padding: var(--space-150) 0;
+  border-bottom: var(--bw-0125) solid var(--border-default);
+  align-items: center;
+}
+
+.variance-row:last-child {
+  border-bottom: none;
+}
+
+.variance-row--header {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.variance-row--empty {
+  grid-template-columns: 1fr;
+  padding: var(--space-400) 0;
+}
+
+.variance-row__empty {
+  color: var(--fg-muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-align: center;
+}
+
+.variance-row--flag {
+  background: rgba(212, 168, 140, 0.04);
+  border-left: 2px solid rgba(212, 168, 140, 0.38);
+  padding-left: var(--space-150);
+  margin-left: calc(-1 * var(--space-150));
+}
+
+.variance-seg {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-150);
+  color: var(--fg-primary);
+  font-size: 13.5px;
+}
+
+.variance-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--fg-muted);
+  flex-shrink: 0;
+}
+
+.variance-val {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--fg-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.variance-val--delta {
+  color: var(--fg-muted);
+}
+
+.variance-val--up {
+  color: #b3cfc5;
+}
+
+.variance-val--down {
+  color: #e3b999;
+}
+
+@media (max-width: 720px) {
+  .variance-row,
+  .variance-row--header {
+    grid-template-columns: 1.4fr repeat(3, 1fr);
+    gap: var(--space-100);
+    font-size: 12px;
+  }
+  .variance-panel {
+    padding: var(--space-300);
+  }
+}
+
+/* ============================================================
+   REVISION TIMELINE — vertical changelog on method.html
+   Replaces the prior 4-col table with a rail-and-entry layout
+   so full diff_summary paragraphs breathe. Uses data-author
+   hooks so seed / reflection / operator entries get distinct
+   dot colors without extra markup in pulse.js.
+   ============================================================ */
+
+.revision-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: var(--space-300);
+}
+
+.revision-entry {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: var(--space-200);
+  padding-bottom: var(--space-400);
+  position: relative;
+}
+
+.revision-entry:last-child {
+  padding-bottom: 0;
+}
+
+.revision-entry__rail {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.revision-entry__dot {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--signal);
+  box-shadow: 0 0 0 3px rgba(232, 217, 184, 0.10);
+  z-index: 1;
+}
+
+.revision-entry__line {
+  position: absolute;
+  top: 18px;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  background: var(--border-default);
+}
+
+.revision-entry:last-child .revision-entry__line {
+  display: none;
+}
+
+.revision-entry[data-author="seed"] .revision-entry__dot {
+  background: #a0b5d6;
+  box-shadow: 0 0 0 3px rgba(160, 181, 214, 0.10);
+}
+
+.revision-entry[data-author="reflection"] .revision-entry__dot {
+  background: #9cbab0;
+  box-shadow: 0 0 0 3px rgba(156, 186, 176, 0.10);
+}
+
+.revision-entry[data-author="operator"] .revision-entry__dot {
+  background: #d4a88c;
+  box-shadow: 0 0 0 3px rgba(212, 168, 140, 0.12);
+}
+
+.revision-entry__body {
+  padding-top: 2px;
+}
+
+.revision-entry__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-150);
+  margin-bottom: var(--space-100);
+}
+
+.revision-entry__seg {
+  font-weight: var(--w-medium);
+  color: var(--fg-primary);
+  font-size: 14.5px;
+}
+
+.revision-entry__bump {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--signal);
+  padding: 1px 6px;
+  border-radius: var(--radius-50);
+  background: rgba(232, 217, 184, 0.06);
+  border: var(--bw-0125) solid rgba(232, 217, 184, 0.20);
+}
+
+.revision-entry__author {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.revision-entry__when {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--fg-muted);
+  margin-left: auto;
+}
+
+.revision-entry__diff {
+  color: var(--fg-secondary);
+  font-size: 14px;
+  line-height: 1.65;
+  max-width: 72ch;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 640px) {
+  .revision-entry {
+    grid-template-columns: 20px 1fr;
+    gap: var(--space-150);
+  }
+  .revision-entry__when {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+

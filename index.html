@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>DUST Dream Sciences — Cohort &amp; GTM · v1.0</title>
-<meta name="description" content="Twenty hypothesized segments, a scoring matrix, the GTM motion, and the first-cohort composition — pending validation by the DUST cohort listener." />
+<title>DUST Dream Sciences — Market Segmentation &amp; Persona Research · v1.0</title>
+<meta name="description" content="Preliminary brand research: twenty hypothesized segments and personas, a scoring matrix, and a daily listener that tests the hypothesis against live public signal. Informs brand, messaging, and downstream growth — cohort selection included." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Ubuntu+Sans+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -50,24 +50,25 @@
     </div>
     <div class="hero-tag hero-tag-validation">
       <span class="tag-dot pulsing"></span>
-      Listener live · measuring against live cohort signal
+      Listener live · daily scan against public signal
     </div>
   </div>
 
   <p class="hero-sub">
-    This is the <b>operating core</b> of DUST's cohort plan — twenty hypothesized segments,
-    a scoring matrix, the tiered GTM motion, and the composition of the first 18–24-person
-    founders cohort. Every claim is a falsifiable bet, measured against live signal by the
-    <a href="method.html">DUST cohort listener</a> and revised accordingly. Context lives on
-    the <a href="tam.html">TAM</a>, <a href="targets.html">Targets &amp; Risks</a>, and
-    <a href="method.html">Methodology</a> pages.
+    <b>Preliminary market segmentation &amp; persona research</b> for DUST — twenty hypothesized
+    segments, a scoring matrix, and a daily listener that tests each hypothesis against
+    live public signal. The listener is the deliverable; it's designed to inform brand and
+    messaging strategy, and to feed every downstream growth process — cohort selection, paid
+    creative, partnership targeting, CRM segmentation. Every claim is a falsifiable bet, revised
+    as the data comes in. Context lives on the <a href="tam.html">TAM</a>,
+    <a href="targets.html">Targets &amp; Risks</a>, and <a href="method.html">Methodology</a> pages.
   </p>
 
   <div class="hero-stats">
     <div class="stat"><div class="stat-num">20</div><div class="stat-label">Hypothesized segments</div></div>
     <div class="stat"><div class="stat-num">6</div><div class="stat-label">Clusters</div></div>
-    <div class="stat"><div class="stat-num">3</div><div class="stat-label">Outreach tiers</div></div>
-    <div class="stat"><div class="stat-num">18–24</div><div class="stat-label">Founders cohort seats</div></div>
+    <div class="stat"><div class="stat-num">3</div><div class="stat-label">Signal tiers</div></div>
+    <div class="stat"><div class="stat-num">Daily</div><div class="stat-label">Listener cadence</div></div>
   </div>
 </header>
 
@@ -86,6 +87,27 @@
   </div>
 
   <div class="segment-grid" id="segmentGrid"></div>
+</section>
+
+<!-- SECTION 2.5: LIVE SIGNAL (from pulse.json) -->
+<section id="live-signal" class="section">
+  <div class="section-kicker">
+    <span>Live measurement</span>
+    <span class="kicker-tag validated" id="liveSignalTag">Pending data</span>
+  </div>
+  <h2 class="section-title">
+    What the listener sees.<br/>
+    <span class="muted">
+      <span id="liveSignalSub">Measured against public Reddit signal across Tier 1–3 subreddits. Privacy-filtered before publication.</span>
+    </span>
+  </h2>
+
+  <div class="live-grid" id="liveGrid">
+    <div class="live-grid__empty">
+      <div class="live-grid__empty-title">Waiting for today's pulse</div>
+      <div class="live-grid__empty-body">Once the listener's daily run completes, each measured segment will appear here with its qualified-author count, top language patterns, and source subreddits. The listener runs at 08:00 UTC.</div>
+    </div>
+  </div>
 </section>
 
 <!-- SECTION 3: SCORING -->
@@ -203,7 +225,7 @@
 <!-- SECTION 4 (home): COHORT · side-by-side hypothesized / measured -->
 <section id="cohort" class="section">
   <div class="section-kicker">Section 4 <span class="kicker-tag hypothesis">Hypothesis</span> <span class="kicker-tag validating">Under validation</span></div>
-  <h2 class="section-title">Founders cohort composition.<br/><span class="muted">18–24 users. Deliberately heterogeneous — then measured.</span></h2>
+  <h2 class="section-title">One downstream application — cohort composition.<br/><span class="muted">What a deliberately heterogeneous 18–24-person beta cohort would look like <em>against this segmentation</em>. Hypothesized vs. measured mix.</span></h2>
 
   <div class="cohort-dual">
     <div class="chart-card">
@@ -227,8 +249,32 @@
       </div>
       <div class="chart-wrap"><canvas id="measuredCohortChart"></canvas></div>
       <div class="live-signal is-empty" id="measuredEmpty">
-        <span class="live-signal__label">Waiting on cohort listener</span>
+        <span class="live-signal__label">Waiting on segmentation listener</span>
         <span>Pulse.json will populate this chart once the listener's daily run completes. Day-zero cohorts render the hypothesized mix only.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hypothesis-vs-measured variance panel · fed by pulse.cohort_mix -->
+  <div class="variance-panel" id="variancePanel">
+    <div class="variance-panel__head">
+      <div class="variance-panel__title">Where the hypothesis is holding — and where it isn't</div>
+      <div class="variance-panel__sub">
+        Share of qualified cohort candidates per segment, hypothesized vs. measured.
+        Deltas over <b>10pp</b> flag segments where the dossier's hypothesis needs revision — either the share was wrong, or the segment itself needs to split.
+      </div>
+    </div>
+    <div class="variance-table" id="varianceTable">
+      <div class="variance-row variance-row--header">
+        <div>Segment</div>
+        <div>Hypothesized</div>
+        <div>Measured</div>
+        <div>Delta</div>
+      </div>
+      <div class="variance-row variance-row--empty" id="varianceEmpty">
+        <div class="variance-row__empty">
+          Variance appears here once both hypothesized and measured shares are present in pulse.json. Day zero shows hypothesized only.
+        </div>
       </div>
     </div>
   </div>
@@ -291,10 +337,10 @@
   <div class="footer-inner">
     <div class="footer-left">
       <div class="footer-brand">DUST Dream Sciences</div>
-      <div class="footer-sub">Demographic Hypothesis · April 2026 · v1.0 · Confidential</div>
+      <div class="footer-sub">Market Segmentation &amp; Persona Research · April 2026 · v1.0 · Confidential</div>
       <div class="footer-validation">
         <span class="vs-dot building"></span>
-        <span>Validation status: hypothesis v1.0 complete. Live listener daily; revisions tracked on the <a href="method.html">Methodology</a> page.</span>
+        <span>Hypothesis v1.0 complete. Live listener daily; revisions tracked on the <a href="method.html">Methodology</a> page. This is preliminary brand research — an input to marketing, messaging, and downstream growth decisions.</span>
       </div>
     </div>
     <div class="footer-right">

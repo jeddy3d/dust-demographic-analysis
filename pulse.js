@@ -50,44 +50,83 @@
     el.setAttribute("data-empty", "false");
   }
 
+  function formatRevisionTime(iso) {
+    if (!iso) return "";
+    try {
+      const d = new Date(iso);
+      if (Number.isNaN(d.getTime())) return "";
+      const mon = d.toLocaleString("en-US", { month: "short", timeZone: "UTC" });
+      const day = d.getUTCDate();
+      const year = d.getUTCFullYear();
+      return `${mon} ${day}, ${year}`;
+    } catch (err) {
+      return "";
+    }
+  }
+
   function renderVersionHistory(payload) {
     const root = $("versionHistory");
     if (!root) return; // only present on method.html
     const changes = (payload && payload.version_changes) || [];
     if (!changes.length) return; // keep the empty-state the HTML already renders
 
-    // Build a simple table-ish list. Each row: segment, vN → vN+1, author, diff.
-    const rows = changes.map(function (c) {
+    // Vertical revision timeline — one entry per version_change, newest first.
+    // Each entry shows:
+    //   · a colored author badge (seed / reflection / operator)
+    //   · segment + version bump (vN → vN+1)
+    //   · timestamp
+    //   · full diff_summary text (Claude's own paragraph when reflection,
+    //     the operator's note when operator, seed message when seed)
+    //
+    // Every user-derived string goes through textContent so author handles,
+    // segment names, and diff text cannot inject markup.
+    const sorted = changes.slice().sort(function (a, b) {
+      // to_version desc, then created_at desc as a tiebreaker.
+      const vDelta = (b.to_version || 0) - (a.to_version || 0);
+      if (vDelta !== 0) return vDelta;
+      const at = a.created_at || "";
+      const bt = b.created_at || "";
+      return bt.localeCompare(at);
+    });
+
+    root.innerHTML = "";
+    root.classList.add("revision-timeline");
+
+    sorted.forEach(function (c) {
       const segment = c.segment || "—";
       const from = (c.from_version != null) ? "v" + c.from_version : "—";
       const to = (c.to_version != null) ? "v" + c.to_version : "—";
       const by = c.created_by || "—";
+      const when = formatRevisionTime(c.created_at);
       const diff = c.diff_summary || "";
-      // The diff_summary is Claude's own text; it was generated against
-      // private samples. The pipeline already rejected reflections that
-      // tried to regress the schema, but we still render as text (not
-      // HTML) so no interpolation can inject markup.
-      const row = document.createElement("div");
-      row.className = "version-row";
-      row.innerHTML =
-        '<div class="version-row__seg"></div>' +
-        '<div class="version-row__arrow"></div>' +
-        '<div class="version-row__by"></div>' +
-        '<div class="version-row__diff"></div>';
-      row.children[0].textContent = segment;
-      row.children[1].textContent = from + " → " + to;
-      row.children[2].textContent = by;
-      row.children[3].textContent = diff;
-      return row;
-    });
 
-    root.innerHTML = "";
-    const header = document.createElement("div");
-    header.className = "version-row version-row--header";
-    header.innerHTML =
-      '<div>Segment</div><div>Version</div><div>Author</div><div>Diff summary</div>';
-    root.appendChild(header);
-    rows.forEach(function (r) { root.appendChild(r); });
+      const entry = document.createElement("div");
+      entry.className = "revision-entry";
+      entry.setAttribute("data-author", by);
+
+      entry.innerHTML =
+        '<div class="revision-entry__rail">' +
+          '<span class="revision-entry__dot"></span>' +
+          '<span class="revision-entry__line"></span>' +
+        '</div>' +
+        '<div class="revision-entry__body">' +
+          '<div class="revision-entry__head">' +
+            '<span class="revision-entry__seg"></span>' +
+            '<span class="revision-entry__bump"></span>' +
+            '<span class="revision-entry__author"></span>' +
+            '<span class="revision-entry__when"></span>' +
+          '</div>' +
+          '<div class="revision-entry__diff"></div>' +
+        '</div>';
+
+      entry.querySelector(".revision-entry__seg").textContent = segment;
+      entry.querySelector(".revision-entry__bump").textContent = from + " → " + to;
+      entry.querySelector(".revision-entry__author").textContent = by;
+      entry.querySelector(".revision-entry__when").textContent = when;
+      entry.querySelector(".revision-entry__diff").textContent = diff || "—";
+
+      root.appendChild(entry);
+    });
   }
 
   function firePulseLoaded(payload) {
