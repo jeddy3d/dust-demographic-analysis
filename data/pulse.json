@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-17T23:06:47Z",
+  "generated_at": "2026-04-17T23:16:35Z",
   "as_of": "2026-04-17",
   "schema_version": 2,
   "segments": [
@@ -9,7 +9,7 @@
       "version": 2,
       "outreach_policy": "candidate",
       "unique_authors": 553,
-      "qualified_authors": 7,
+      "qualified_authors": 23,
       "avg_composite": 1.5598488372092996,
       "avg_signal_density": 1.686046511627907,
       "avg_representativeness": 1.5290697674418605,
@@ -93,7 +93,7 @@
       "version": 2,
       "outreach_policy": "candidate",
       "unique_authors": 276,
-      "qualified_authors": 1,
+      "qualified_authors": 4,
       "avg_composite": 1.237622641509433,
       "avg_signal_density": 1.8339622641509434,
       "avg_representativeness": 1.271698113207547,
@@ -169,7 +169,7 @@
       "version": 2,
       "outreach_policy": "messaging_only",
       "unique_authors": 196,
-      "qualified_authors": 6,
+      "qualified_authors": 32,
       "avg_composite": 2.118735751295338,
       "avg_signal_density": 2.4196891191709846,
       "avg_representativeness": 2.844559585492228,
@@ -241,7 +241,7 @@
       "version": 2,
       "outreach_policy": "messaging_only",
       "unique_authors": 295,
-      "qualified_authors": 0,
+      "qualified_authors": 2,
       "avg_composite": 1.481730215827338,
       "avg_signal_density": 2.1043165467625897,
       "avg_representativeness": 1.9460431654676258,
@@ -317,7 +317,7 @@
       "version": 2,
       "outreach_policy": "candidate",
       "unique_authors": 276,
-      "qualified_authors": 3,
+      "qualified_authors": 10,
       "avg_composite": 1.4581007751937973,
       "avg_signal_density": 2.0310077519379846,
       "avg_representativeness": 1.817829457364341,
@@ -363,11 +363,11 @@
           "docs": 40
         },
         {
-          "phrase": "around",
+          "phrase": "every",
           "docs": 38
         },
         {
-          "phrase": "every",
+          "phrase": "around",
           "docs": 38
         }
       ],
@@ -393,7 +393,7 @@
       "version": 2,
       "outreach_policy": "candidate",
       "unique_authors": 283,
-      "qualified_authors": 0,
+      "qualified_authors": 5,
       "avg_composite": 1.8045413533834591,
       "avg_signal_density": 1.736842105263158,
       "avg_representativeness": 2.030075187969925,
@@ -469,7 +469,7 @@
       "version": 2,
       "outreach_policy": "candidate",
       "unique_authors": 189,
-      "qualified_authors": 0,
+      "qualified_authors": 3,
       "avg_composite": 1.1855405405405406,
       "avg_signal_density": 2.2378378378378376,
       "avg_representativeness": 1.7675675675675675,
@@ -504,7 +504,7 @@
         },
         {
           "phrase": "fall asleep",
-          "docs": 48
+          "docs": 52
         },
         {
           "phrase": "wake",
@@ -693,28 +693,28 @@
     "measured": [
       {
         "segment": "biohackers",
-        "count": 7,
-        "share": 0.6364
+        "count": 23,
+        "share": 0.5111
       },
       {
         "segment": "lucid",
-        "count": 1,
-        "share": 0.0909
+        "count": 4,
+        "share": 0.0889
       },
       {
         "segment": "consciousness",
-        "count": 3,
-        "share": 0.2727
+        "count": 10,
+        "share": 0.2222
       },
       {
         "segment": "creatives",
-        "count": 0,
-        "share": 0.0
+        "count": 5,
+        "share": 0.1111
       },
       {
         "segment": "sleep_general",
-        "count": 0,
-        "share": 0.0
+        "count": 3,
+        "share": 0.0667
       }
     ]
   },
@@ -1201,9 +1201,9 @@
         "b": "lucid",
         "shared_count": 6,
         "examples": [
-          "happened",
-          "remember",
           "dream",
+          "remember",
+          "happened",
           "sleep"
         ]
       },
@@ -1212,8 +1212,8 @@
         "b": "pregnancy",
         "shared_count": 5,
         "examples": [
-          "family",
           "mom",
+          "family",
           "feels",
           "night"
         ]
@@ -1223,8 +1223,8 @@
         "b": "sleep_general",
         "shared_count": 5,
         "examples": [
-          "wake",
           "able",
+          "wake",
           "sleep",
           "night"
         ]
@@ -1267,8 +1267,8 @@
         "b": "sleep_general",
         "shared_count": 4,
         "examples": [
-          "feels",
           "sleep",
+          "feels",
           "night",
           "life"
         ]
