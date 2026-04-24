@@ -995,18 +995,19 @@ body {
   vertical-align: middle;
 }
 
-/* Measurable vs dossier-only columns get subtly different cell fills so
- * the reader can scan "these columns have two numbers" at a glance
- * without reading the header bar. */
-.heatmap td.score.measurable    { background: rgba(160, 181, 214, 0.05); }
-.heatmap td.score.dossier-only  { background: rgba(232, 217, 184, 0.05); }
+/* Cell background is set inline by charts.js using the parchment
+ * opacity gradient (0.08 → 0.76 across v=1 → v=5) so the eye can scan
+ * magnitude at a glance. Measurable vs dossier-only is signalled by
+ * the column-header underbar (blue vs parchment) instead of a cell
+ * tint — the gradient already owns the cell background. */
 
 .heatmap .cell-hyp {
   font-family: var(--font-mono);
   font-weight: var(--w-medium);
   font-size: var(--text-m);
-  color: var(--fg-primary);
   line-height: 1.15;
+  /* color is set inline by the renderer — brighter on high-score cells,
+   * muted on low-score cells — mirroring the opacity gradient in text. */
 }
 
 .heatmap .cell-meas {

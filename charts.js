@@ -401,6 +401,24 @@ const ALPHA = (hex, a) => {
     return 'drifting';
   }
 
+  // Cell background opacity keyed to the dossier hypothesis score — same
+  // parchment gradient the pre-blended heatmap used. v=1 is a near-black
+  // ~8% tint; v=5 is a warm ~76% tint. The opacity carries the magnitude
+  // signal so the eye can scan the grid at a glance; the measured number
+  // and delta chip sit inside the cell without disturbing the gradient.
+  function cellBg(v) {
+    const opacity = 0.08 + (v - 1) * 0.17;
+    return 'background: rgba(232, 217, 184, ' + opacity + ');';
+  }
+
+  // Text color for the hypothesis number only. Higher-score cells get
+  // bright warm white; low-score cells get muted gray — reinforces the
+  // magnitude gradient across rows. Measured numbers stay blue (set in
+  // CSS) regardless so they read as a distinct signal.
+  function cellHypColor(v) {
+    return v >= 4 ? '#f4f2ed' : '#b8b5ad';
+  }
+
   function deltaClass(delta) {
     const a = Math.abs(delta);
     if (a < HOLDING_GAP)  return 'delta-neutral';
@@ -410,28 +428,32 @@ const ALPHA = (hex, a) => {
 
   // Render one cell. Dossier-only columns show a single value; measurable
   // columns show hypothesis over measured-with-delta when data exists,
-  // or hypothesis + em-dash when the row is uncovered.
+  // or hypothesis + em-dash when the row is uncovered. The parchment
+  // opacity-gradient background is shared by both variants so the
+  // grid-wide magnitude scan stays intact.
   function cellHTML(row, col, measured) {
     const h = row[col];
     const isMeasurable = MEASURED_COLS.indexOf(col) !== -1;
+    const bg = cellBg(h);
+    const hypStyle = 'color: ' + cellHypColor(h) + ';';
     if (!isMeasurable) {
-      return '<td class="score dossier-only">'
-           +   '<div class="cell-hyp">' + h + '</div>'
+      return '<td class="score dossier-only" style="' + bg + '">'
+           +   '<div class="cell-hyp" style="' + hypStyle + '">' + h + '</div>'
            + '</td>';
     }
     const lseg = LISTENER_SEG[row.seg];
     const mEntry = lseg ? measured[lseg] : null;
     const mv = mEntry ? mEntry[col.toLowerCase()] : null;
     if (mv == null) {
-      return '<td class="score measurable">'
-           +   '<div class="cell-hyp">' + h + '</div>'
+      return '<td class="score measurable" style="' + bg + '">'
+           +   '<div class="cell-hyp" style="' + hypStyle + '">' + h + '</div>'
            +   '<div class="cell-meas cell-meas--empty">—</div>'
            + '</td>';
     }
     const delta = mv - h;
     const sign  = delta >= 0 ? '+' : '';
-    return '<td class="score measurable">'
-         +   '<div class="cell-hyp">' + h + '</div>'
+    return '<td class="score measurable" style="' + bg + '">'
+         +   '<div class="cell-hyp" style="' + hypStyle + '">' + h + '</div>'
          +   '<div class="cell-meas">'
          +     mv.toFixed(1)
          +     ' <span class="cell-delta ' + deltaClass(delta) + '">'
