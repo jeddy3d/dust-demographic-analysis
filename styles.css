@@ -818,10 +818,69 @@ body {
   display: inline-block;
 }
 
+/* Outer grid now holds pair-containers, not raw cards. Each pair needs
+ * room for two 300px cards + inner gap, so the auto-fit minmax bumps
+ * up to 620px. At narrower screens the auto-fit collapses to one
+ * pair per row; at still-narrower widths the pair itself collapses to
+ * a single column (see .segment-pair media query). */
 .segment-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(620px, 1fr));
+  gap: var(--space-300);
+}
+
+/* A pair = one hypothesis card + one measured card side-by-side for
+ * the same segment. Identical shape so the reader's eye can compare
+ * the two cards row-by-row without having to track which is which. */
+.segment-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: var(--space-200);
+}
+
+/* Section heading row above the grid, labeling the two columns once
+ * rather than repeating per-pair badges. Sits above the first grid
+ * row and visually aligns with the pair halves at typical desktop
+ * widths (both it and the grid share the same max content width). */
+.segment-pair-heads {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-200);
+  max-width: calc(100% + var(--space-200));
+  margin: var(--space-300) 0 var(--space-150);
+  font-family: var(--font-mono);
+  font-weight: var(--w-medium);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+.segment-pair-head {
+  padding-bottom: var(--space-100);
+  border-bottom: var(--bw-0125) solid var(--border-default);
+}
+.segment-pair-head--dossier {
+  color: var(--signal);
+  border-bottom-color: rgba(232, 217, 184, 0.22);
+}
+.segment-pair-head--measured {
+  color: var(--viz-2);
+  border-bottom-color: rgba(160, 181, 214, 0.28);
+}
+
+/* Collapse pair to single column on narrow screens; the pair header
+ * row stays as two columns so the labels still read cleanly. */
+@media (max-width: 640px) {
+  .segment-grid {
+    grid-template-columns: 1fr;
+  }
+  .segment-pair {
+    grid-template-columns: 1fr;
+    gap: var(--space-100);
+  }
+  .segment-pair-heads {
+    display: none;
+  }
 }
 
 .segment {
@@ -831,6 +890,78 @@ body {
   border-radius: var(--radius-150);
   border-left: var(--bw-025) solid var(--seg-color);
   transition: all 0.3s;
+}
+
+/* Measured-card visual variant: subtle blue tint at the border-left
+ * top-right to differentiate from the dossier card's parchment. The
+ * cluster color still drives the left border so segments remain
+ * visually grouped across both halves. Empty-state measured cards
+ * are dimmed further below. */
+.segment--measured {
+  background: linear-gradient(
+    to right,
+    var(--bg-secondary) 0%,
+    var(--bg-secondary) 70%,
+    rgba(160, 181, 214, 0.04) 100%
+  );
+}
+
+.segment--empty {
+  opacity: 0.72;
+}
+
+.segment-pop--measured {
+  color: var(--viz-2);
+  background: rgba(160, 181, 214, 0.09);
+}
+
+.segment-pop--empty {
+  color: var(--fg-muted);
+  background: var(--bg-tertiary);
+  border: var(--bw-0125) solid var(--border-default);
+}
+
+.segment-wedge--empty {
+  color: var(--fg-muted);
+  font-style: italic;
+}
+
+.segment-wedge--phrases {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-100);
+  margin-bottom: var(--space-200);
+}
+
+.phrase-inline {
+  display: inline-flex;
+  align-items: baseline;
+  padding: 3px var(--space-100);
+  background: var(--bg-raised);
+  border-radius: var(--radius-050);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  gap: 2px;
+}
+.phrase-inline__term {
+  color: var(--fg-primary);
+  font-weight: var(--w-medium);
+}
+.phrase-inline__n {
+  color: var(--fg-muted);
+}
+
+.seg-tag.measured-tag {
+  color: var(--viz-2);
+  background: rgba(160, 181, 214, 0.08);
+  border-color: rgba(160, 181, 214, 0.22);
+}
+
+.seg-tag.policy {
+  color: var(--fg-muted);
+  background: var(--bg-tertiary);
+  text-transform: none;
+  letter-spacing: 0.04em;
 }
 
 .segment:hover {

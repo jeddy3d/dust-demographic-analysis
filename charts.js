@@ -259,23 +259,161 @@ const ALPHA = (hex, a) => {
   const grid = document.getElementById('segmentGrid');
   if (!grid) return;
 
-  segments.forEach(s => {
-    const el = document.createElement('div');
-    el.className = 'segment';
-    el.style.setProperty('--seg-color', s.clusterColor);
-    el.innerHTML = `
-      <div class="segment-header">
-        <div class="segment-name">${s.name}</div>
-        <div class="segment-pop">${s.pop}</div>
-      </div>
-      <div class="segment-wedge">${s.wedge}</div>
-      <div class="segment-meta">
-        <span class="seg-tag cluster">Cluster ${s.cluster}</span>
-        <span class="seg-tag spend">${s.spend}</span>
-      </div>
-    `;
-    grid.appendChild(el);
+  // Map each hardcoded dossier segment onto the listener's segment key
+  // from pulse.measured_rubric. Segments with null land in the empty
+  // state path below — the `coverage` field distinguishes "not yet
+  // measured" (Tier 1/2 without listener coverage, will be measured
+  // someday) from "out of scope" (Earned/Partnership/B2B/Wave 3,
+  // policy won't reach them). Clinical covers both Nightmare/PTSD and
+  // Grief rows because the listener doesn't split the clinical bucket.
+  const LISTENER_KEY = {
+    'Nightmare & PTSD sufferers':          'clinical',
+    'Insomniacs (non-nightmare)':          'sleep_general',
+    'Long COVID / chronic illness':        null,
+    'Grief & bereavement':                 'clinical',
+    'Pregnant & new mothers':              'pregnancy',
+    'Perimenopausal women':                'perimenopause',
+    'Caregivers (elder / special-needs)':  null,
+    'Biohackers / sleep optimizers':       'biohackers',
+    'Tech execs / high performers':        null,
+    'Aging adults (50–70)':                null,
+    'Couples / relationship-focused':      null,
+    'Lucid dreaming enthusiasts':          'lucid',
+    'Creative professionals':              'creatives',
+    'Consciousness / psychedelic-curious': 'consciousness',
+    'Spiritual / yoga community':          null,
+    'Shift workers / first responders':    null,
+    'Gen Z & college students':            null,
+    'LGBTQ+ wellness':                     null,
+    'Religious / cultural (dream traditions)': null,
+    'Therapists & mental health pros':     null,
+  };
+
+  // Segments whose outreach policy per the dossier means the listener
+  // will never cover them — B2B channels, Earned-only, Partnership-only,
+  // Wave 3 demographic edge cases. Shown as "Out of scope for listener"
+  // so the reader doesn't expect measurement to appear later.
+  //
+  // NOT included here (despite being uncovered today): Tier 2 candidates
+  // that could reach listener coverage if the dossier expands source
+  // subreddits — Long COVID, Tech execs, Spiritual / yoga. Those show
+  // "Not yet measured" instead, which honestly signals it's a coverage
+  // gap rather than a policy exclusion.
+  const OUT_OF_SCOPE = new Set([
+    'Caregivers (elder / special-needs)',   // Wave 3
+    'Aging adults (50–70)',                 // Wave 3
+    'Couples / relationship-focused',       // Wave 3
+    'Shift workers / first responders',     // B2B
+    'Gen Z & college students',             // Wave 3
+    'LGBTQ+ wellness',                      // Earned only
+    'Religious / cultural (dream traditions)', // Partnership only
+    'Therapists & mental health pros',      // B2B channel
+  ]);
+
+  function hypothesisCardHTML(s) {
+    // Mirrors the pre-Pattern-2a card shape — name + pop badge, wedge
+    // copy, cluster + spend tags. Kept identical so the left half of
+    // every pair reads exactly like the old single-grid version.
+    return '<div class="segment segment--hypothesis" style="--seg-color: ' + s.clusterColor + '">'
+         +   '<div class="segment-header">'
+         +     '<div class="segment-name">' + s.name + '</div>'
+         +     '<div class="segment-pop">' + s.pop + '</div>'
+         +   '</div>'
+         +   '<div class="segment-wedge">' + s.wedge + '</div>'
+         +   '<div class="segment-meta">'
+         +     '<span class="seg-tag cluster">Cluster ' + s.cluster + '</span>'
+         +     '<span class="seg-tag spend">' + s.spend + '</span>'
+         +   '</div>'
+         + '</div>';
+  }
+
+  function measuredCardHTML(s, pulse) {
+    const key = LISTENER_KEY[s.name];
+    const segs = (pulse && pulse.segments) || [];
+    const segData = key ? segs.find(function (x) { return x && x.name === key; }) : null;
+
+    // No listener coverage — split empty states based on whether the
+    // segment is genuinely out of scope (policy) vs. just not yet
+    // measured (coverage gap that could close).
+    if (!key || !segData) {
+      const oos = OUT_OF_SCOPE.has(s.name);
+      const badgeLabel = oos ? 'Out of scope' : 'Not yet measured';
+      const body = oos
+        ? 'Listener does not cover this segment — earned, partnership, or B2B channel per the dossier. Measurement arrives off-platform or not at all.'
+        : 'Segment is a Tier 1/2 candidate but not yet in the listener\'s source-subreddit set. A measured card will appear here once coverage expands.';
+      return '<div class="segment segment--measured segment--empty" style="--seg-color: ' + s.clusterColor + '">'
+           +   '<div class="segment-header">'
+           +     '<div class="segment-name">' + s.name + '</div>'
+           +     '<div class="segment-pop segment-pop--empty">' + badgeLabel + '</div>'
+           +   '</div>'
+           +   '<div class="segment-wedge segment-wedge--empty">' + body + '</div>'
+           +   '<div class="segment-meta">'
+           +     '<span class="seg-tag cluster">Cluster ' + s.cluster + '</span>'
+           +     '<span class="seg-tag policy">' + (oos ? 'Policy exclusion' : 'Pending coverage') + '</span>'
+           +   '</div>'
+           + '</div>';
+    }
+
+    // Covered — build the measured content from pulse.segments[key].
+    const qualified = Number(segData.qualified_authors || 0);
+    const unique = Number(segData.unique_authors || 0);
+    const phrases = (segData.top_phrases || []).slice(0, 2);
+    const phrasesHTML = phrases.length
+      ? phrases.map(function (p) {
+          const phrase = (p.phrase || '').replace(/[<>]/g, '');
+          const docs = p.docs != null ? ' · ' + p.docs : '';
+          return '<span class="phrase-inline"><span class="phrase-inline__term">' + phrase + '</span><span class="phrase-inline__n">' + docs + '</span></span>';
+        }).join(' ')
+      : '<span class="muted">No distinctive phrases yet — need more qualified authors.</span>';
+    const policy = segData.outreach_policy || 'candidate';
+    const policyLabel = policy === 'candidate' ? 'Candidate'
+                      : policy === 'messaging_only' ? 'Messaging only'
+                      : policy === 'earned_only' ? 'Earned only'
+                      : policy;
+    // Candidate-policy segments headline qualified-author count (the
+    // recruitment metric). Earned-only / messaging-only segments aren't
+    // recruited — displaying "0 qualified" next to 1,000+ scanned
+    // authors reads as a failure when it's actually the correct policy
+    // outcome. For those, headline scanned-author count instead and
+    // move policy status into the meta row.
+    const isCandidate = policy === 'candidate';
+    const primaryBadge = isCandidate
+      ? (qualified.toLocaleString() + ' qualified')
+      : (unique.toLocaleString() + ' scanned');
+    const metaRight = isCandidate
+      ? (unique.toLocaleString() + ' scanned · ' + policyLabel)
+      : (qualified + ' qual · ' + policyLabel);
+
+    return '<div class="segment segment--measured" style="--seg-color: ' + s.clusterColor + '">'
+         +   '<div class="segment-header">'
+         +     '<div class="segment-name">' + s.name + '</div>'
+         +     '<div class="segment-pop segment-pop--measured">' + primaryBadge + '</div>'
+         +   '</div>'
+         +   '<div class="segment-wedge segment-wedge--phrases">' + phrasesHTML + '</div>'
+         +   '<div class="segment-meta">'
+         +     '<span class="seg-tag cluster">Cluster ' + s.cluster + '</span>'
+         +     '<span class="seg-tag measured-tag">' + metaRight + '</span>'
+         +   '</div>'
+         + '</div>';
+  }
+
+  function render(pulse) {
+    grid.innerHTML = '';
+    segments.forEach(function (s) {
+      const pair = document.createElement('div');
+      pair.className = 'segment-pair';
+      pair.innerHTML = hypothesisCardHTML(s) + measuredCardHTML(s, pulse);
+      grid.appendChild(pair);
+    });
+  }
+
+  // First paint without measured data (all right-halves empty); re-render
+  // when pulse-loaded fires. Same pattern as the heatmap.
+  render(null);
+  document.addEventListener('pulse-loaded', function (e) {
+    render(e && e.detail && e.detail.payload);
   });
+  if (window.DUST_PULSE) render(window.DUST_PULSE);
 })();
 
 // ============================================================
