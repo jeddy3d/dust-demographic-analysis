@@ -112,27 +112,33 @@
 
 <!-- SECTION 3: SCORING -->
 <section id="scoring" class="section">
-  <div class="section-kicker">Section 2 <span class="kicker-tag hypothesis">Hypothesis</span> <span class="kicker-tag validating">Under validation</span></div>
-  <h2 class="section-title">Scoring matrix.<br/><span class="muted">Six criteria × twenty segments. Lighter cells = stronger signal.</span></h2>
+  <div class="section-kicker">Section 2 <span class="kicker-tag hypothesis">Hypothesis</span> <span class="kicker-tag measured">Measured</span></div>
+  <h2 class="section-title">Scoring matrix.<br/><span class="muted">Six criteria × twenty segments. Pain, Viral, and Fit now carry a measured listener value beneath the dossier hypothesis — the Status column rolls the deltas up.</span></h2>
 
   <div class="criteria-row">
-    <div class="criteria-pill"><b>Pain</b> · intensity of unmet need</div>
-    <div class="criteria-pill"><b>WTP</b> · willingness to pay</div>
-    <div class="criteria-pill"><b>CAC</b> · acquisition efficiency</div>
-    <div class="criteria-pill"><b>Viral</b> · content &amp; WOM potential</div>
-    <div class="criteria-pill"><b>Risk</b> · regulatory / brand safety</div>
-    <div class="criteria-pill"><b>Fit</b> · existing product evidence</div>
+    <div class="criteria-pill criteria-pill--measured"><b>Pain</b> · intensity of unmet need <span class="criteria-source">measured</span></div>
+    <div class="criteria-pill"><b>WTP</b> · willingness to pay <span class="criteria-source">dossier</span></div>
+    <div class="criteria-pill"><b>CAC</b> · acquisition efficiency <span class="criteria-source">dossier</span></div>
+    <div class="criteria-pill criteria-pill--measured"><b>Viral</b> · content &amp; WOM potential <span class="criteria-source">measured</span></div>
+    <div class="criteria-pill"><b>Risk</b> · regulatory / brand safety <span class="criteria-source">dossier</span></div>
+    <div class="criteria-pill criteria-pill--measured"><b>Fit</b> · existing product evidence <span class="criteria-source">measured</span></div>
   </div>
 
   <div class="heatmap-card">
     <div class="heatmap-wrap">
       <table class="heatmap" id="heatmap"></table>
     </div>
-    <div class="heatmap-scale">
-      <span>Lower</span>
-      <div class="scale-bar"></div>
-      <span>Higher</span>
+    <div class="heatmap-legend">
+      <div class="legend-item"><span class="legend-swatch legend-swatch--dossier"></span>Dossier hypothesis (larger)</div>
+      <div class="legend-item"><span class="legend-swatch legend-swatch--measured"></span>Listener measurement (smaller, blue)</div>
+      <div class="legend-item legend-item--thresholds">Status rollup: Viral only · Holding ≤ 0.3 · Drifting 0.3–1.0 · Off ≥ 1.0</div>
     </div>
+    <p class="heatmap-footnote">
+      Pain and Fit show their measured deltas in-cell but are excluded from the row Status.
+      The measured analogs are related to but distinct from what the dossier hypothesized: <em>Pain</em> (measured) is pain-register language density; <em>Fit</em> (measured) is mean segment-fit confidence across qualified authors.
+      Rolling those systematic-but-different signals into Status would drown the Viral comparison, which is the only column where dossier and measured map cleanly (content &amp; WOM potential ↔ adjacency-matrix reach).
+      Better Pain and Fit proxies are future work — see the methodology page.
+    </p>
   </div>
 </section>
 

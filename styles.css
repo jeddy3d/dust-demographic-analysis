@@ -966,42 +966,128 @@ body {
 .heatmap td.seg-name {
   text-align: left;
   padding: var(--space-150) var(--space-200);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-050);
+}
+
+.heatmap td.seg-name .seg-title {
   font-size: var(--text-s);
   color: var(--fg-primary);
   font-weight: var(--w-medium);
-  background: var(--bg-tertiary);
-  border-radius: var(--radius-050);
   letter-spacing: -0.005em;
+  line-height: 1.25;
+}
+
+.heatmap td.seg-name .seg-sub {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  margin-top: 4px;
 }
 
 .heatmap td.score {
   text-align: center;
   padding: var(--space-150) var(--space-100);
   border-radius: var(--radius-050);
-  font-family: var(--font-mono);
-  font-weight: var(--w-medium);
-  font-size: var(--text-s);
   font-variant-numeric: tabular-nums;
+  vertical-align: middle;
 }
 
-.heatmap td.total {
-  font-family: var(--font-sans);
-  font-weight: var(--w-medium);
-  font-size: var(--text-l);
-  background: var(--bg-raised);
-  color: var(--fg-primary);
-}
+/* Measurable vs dossier-only columns get subtly different cell fills so
+ * the reader can scan "these columns have two numbers" at a glance
+ * without reading the header bar. */
+.heatmap td.score.measurable    { background: rgba(160, 181, 214, 0.05); }
+.heatmap td.score.dossier-only  { background: rgba(232, 217, 184, 0.05); }
 
-.heatmap td.tier {
+.heatmap .cell-hyp {
   font-family: var(--font-mono);
   font-weight: var(--w-medium);
-  text-align: center;
-  font-size: 9px;
-  padding: var(--space-100);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  border-radius: var(--radius-050);
+  font-size: var(--text-m);
+  color: var(--fg-primary);
+  line-height: 1.15;
 }
+
+.heatmap .cell-meas {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--viz-2);
+  margin-top: 4px;
+  line-height: 1.15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.heatmap .cell-meas--empty {
+  color: var(--fg-muted);
+}
+
+/* Delta chip — magnitude encoded by color, sign by text. Inside
+ * ±HOLDING_GAP = neutral (no visual alarm); within ±OFF_GAP = amber
+ * (drifting); beyond = red (hypothesis miss). */
+.heatmap .cell-delta {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: var(--w-medium);
+  padding: 1px 4px;
+  border-radius: var(--radius-050);
+  letter-spacing: 0.02em;
+}
+.heatmap .cell-delta.delta-neutral {
+  color: var(--fg-muted);
+  background: transparent;
+}
+.heatmap .cell-delta.delta-up {
+  color: var(--viz-4);
+  background: rgba(156, 186, 176, 0.14);
+}
+.heatmap .cell-delta.delta-down {
+  color: var(--viz-5);
+  background: rgba(212, 168, 140, 0.14);
+}
+.heatmap .cell-delta.delta-off {
+  color: #d79090;
+  background: rgba(200, 117, 125, 0.14);
+}
+
+/* Column-header accent: measured columns get a thin blue underbar,
+ * dossier-only columns get a thin parchment one. Reinforces the
+ * visual vocabulary consistently across the 6 scoring columns. */
+.heatmap th.col-measured    { border-bottom: 2px solid rgba(160, 181, 214, 0.45); }
+.heatmap th.col-dossier     { border-bottom: 2px solid rgba(232, 217, 184, 0.35); }
+.heatmap th.col-status      { border-bottom: 2px solid var(--border-default); }
+
+.heatmap td.status {
+  padding: var(--space-100) var(--space-100);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.status-chip {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: var(--w-medium);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: var(--radius-050);
+  white-space: nowrap;
+}
+.status-chip.status-holding      { background: rgba(156, 186, 176, 0.14); color: var(--viz-4); }
+.status-chip.status-drifting     { background: rgba(212, 168, 140, 0.14); color: var(--viz-5); }
+.status-chip.status-off          { background: rgba(200, 117, 125, 0.16); color: #d79090; }
+.status-chip.status-pending      { background: var(--bg-tertiary); color: var(--fg-muted); }
+.status-chip.status-out_of_scope { background: var(--bg-tertiary); color: var(--fg-muted); }
+
+/* Dim out-of-scope rows slightly so the reader's eye is pulled toward
+ * measurable rows first. Keep the dossier values legible; just take
+ * them off the primary grid. */
+.heatmap tr[data-status="out_of_scope"] td.seg-name,
+.heatmap tr[data-status="out_of_scope"] td.score { opacity: 0.72; }
 
 .heatmap tr.tier-1-row td.seg-name { border-left: var(--bw-025) solid var(--viz-4); }
 .heatmap tr.tier-2-row td.seg-name { border-left: var(--bw-025) solid var(--viz-2); }
@@ -1009,30 +1095,93 @@ body {
 .heatmap tr.wave-row td.seg-name   { border-left: var(--bw-025) solid var(--fg-muted); }
 .heatmap tr.b2b-row td.seg-name    { border-left: var(--bw-025) solid var(--viz-3); }
 
-.heatmap-scale {
+/* Blended-rubric legend. Replaces the old "Lower / Higher" opacity scale,
+ * which no longer applies — cells carry discrete values rather than a
+ * background intensity. */
+.heatmap-legend {
   display: flex;
   align-items: center;
-  gap: var(--space-150);
+  flex-wrap: wrap;
+  gap: var(--space-200) var(--space-300);
   margin-top: var(--space-300);
   font-family: var(--font-mono);
   font-size: 10px;
   font-weight: var(--w-medium);
   color: var(--fg-muted);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  letter-spacing: 0.08em;
   justify-content: center;
 }
 
-.scale-bar {
-  width: 240px;
-  height: 6px;
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-100);
+}
+
+.legend-swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+.legend-swatch--dossier  { background: var(--viz-1); }
+.legend-swatch--measured { background: var(--viz-2); }
+
+.legend-item--thresholds {
+  color: var(--fg-subtle);
+  letter-spacing: 0.04em;
+}
+
+.heatmap-footnote {
+  margin: var(--space-200) 0 0;
+  padding: var(--space-200) var(--space-300);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-100);
+  font-size: var(--text-xs);
+  color: var(--fg-muted);
+  line-height: 1.6;
+}
+
+.heatmap-footnote em {
+  color: var(--fg-secondary);
+  font-style: italic;
+}
+
+/* Column-source indicator inside the Section-2 criterion pills —
+ * reads "measured" / "dossier" so the reader learns the split before
+ * they hit the table. Measured pills get a faint blue tint to echo
+ * the measured-cell color inside the heatmap. */
+.criteria-pill--measured {
+  background: rgba(160, 181, 214, 0.06);
+  border-color: rgba(160, 181, 214, 0.22);
+}
+
+.criteria-source {
+  display: inline-block;
+  margin-left: var(--space-100);
+  padding: 1px 6px;
   border-radius: var(--radius-999);
-  background: linear-gradient(90deg,
-    rgba(232,217,184,0.12) 0%,
-    rgba(232,217,184,0.3)  25%,
-    rgba(232,217,184,0.5)  50%,
-    rgba(232,217,184,0.75) 75%,
-    rgba(232,217,184,1)   100%);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: var(--w-medium);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  background: var(--bg-tertiary);
+}
+.criteria-pill--measured .criteria-source {
+  color: var(--viz-2);
+  background: rgba(160, 181, 214, 0.12);
+}
+
+/* Kicker tag variant for "this surface now carries measured data"; sits
+ * alongside the existing .validated but names the state explicitly for
+ * sections that mix hypothesis + measurement (heatmap, segment grid,
+ * cohort doughnuts). */
+.kicker-tag.measured {
+  color: #a0b5d6;
+  background: rgba(160, 181, 214, 0.09);
+  border: var(--bw-0125) solid rgba(160, 181, 214, 0.30);
 }
 
 /* ============================================================

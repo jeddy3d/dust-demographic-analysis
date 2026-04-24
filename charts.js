@@ -279,7 +279,28 @@ const ALPHA = (hex, a) => {
 })();
 
 // ============================================================
-// 4. SCORING HEATMAP
+// 4. SCORING HEATMAP — blended rubric (hypothesis + measured)
+// ============================================================
+// Six columns × twenty segments. Three of the six columns carry a
+// measured listener value beneath the dossier hypothesis:
+//
+//   Pain  → messaging_atlas pain-register density (share of distinctive
+//           phrases classified "pain"), mapped 1-5.
+//   Viral → adjacency_matrix reach (sum of shared_count across pairs
+//           touching this segment), clamped to 30 and mapped 1-5.
+//   Fit   → mean segment_fit_confidence across qualified authors
+//           (composite >= 3.0), linearly rescaled from 0-1 to 1-5.
+//
+// The other three (WTP / CAC / Risk) have no listener analog and stay
+// dossier-only. WTP/CAC would require purchase or cost data we don't
+// observe; Risk requires regulatory judgment. See task #56 to revisit
+// virality with a methodologically defensible metric.
+//
+// Listener covers 8 aggregate segments (Tier 1 + Tier 2 + Tier 3
+// subreddit buckets per config.py). Dossier rows outside the covered
+// set render as "Not yet measured" (Tier 1/2 gaps — might get covered
+// later) or "Out of scope for listener" (B2B / Wave 3 / Earned-only /
+// Partnership-only — pipeline policy won't reach them).
 // ============================================================
 (function(){
   const data = [
@@ -305,53 +326,175 @@ const ALPHA = (hex, a) => {
     { seg: 'Religious / cultural', Pain:3, WTP:2, CAC:3, Viral:3, Risk:1, Fit:3, Total:15, Tier:'Partnership only', rowClass:'earned-row' },
   ];
 
+  // Dossier row → listener segment key (pulse.measured_rubric.segments[...]).
+  // Two dossier rows map to `clinical` because the listener doesn't
+  // distinguish Nightmare/PTSD from Grief internally — both feed the
+  // same Tier-3 subreddit bucket, so the measured values attribute to
+  // both rows identically. That's honest about what the measurement
+  // represents; split scoring would require new rollup granularity.
+  const LISTENER_SEG = {
+    'Lucid dreaming enthusiasts':     'lucid',
+    'Biohackers / sleep optimizers':  'biohackers',
+    'Pregnant / new mothers':         'pregnancy',
+    'Perimenopausal women':           'perimenopause',
+    'Consciousness / psychedelic':    'consciousness',
+    'Creative professionals':         'creatives',
+    'Nightmare / PTSD sufferers':     'clinical',
+    'Grief & bereavement':            'clinical',
+    'Insomniacs (non-nightmare)':     'sleep_general',
+  };
+
+  const MEASURED_COLS = ['Pain', 'Viral', 'Fit'];
+  // Which measured columns feed the per-row Status chip. Both Pain and
+  // Fit are shown in-cell with their delta chips but EXCLUDED from
+  // Status because their measured analogs don't match the dossier's
+  // original meaning 1:1:
+  //   Pain (dossier) = intensity of unmet need
+  //   Pain (measured) = share of distinctive phrases in pain register
+  //   Fit  (dossier) = existing product evidence
+  //   Fit  (measured) = mean segment_fit_confidence across qualified authors
+  // Rolling these systematic mismatches into Status would make nearly
+  // every Tier 1 row read as "Off" when the story is really "the
+  // measured signals are a different quantity, not a failed hypothesis".
+  // Keeping them visible preserves the variance signal; Status reflects
+  // only Viral, where the dossier's "content & WOM potential" and the
+  // listener's adjacency-matrix reach map cleanly.
+  const STATUS_COLS = ['Viral'];
+  // Variance thresholds rolled up into the row Status column. Tight gate
+  // (<0.3) keeps "Holding" from swallowing real drift; 1.0 marks a
+  // hypothesis miss big enough to warrant dossier revision.
+  const HOLDING_GAP = 0.3;
+  const OFF_GAP     = 1.0;
+
   const heat = document.getElementById('heatmap');
   if (!heat) return;
 
-  // Heatmap cells warm toward --viz-1 (parchment signal) as score increases
-  const cellColor = (v) => {
-    const opacity = 0.08 + (v-1) * 0.17;
-    return `background: rgba(232, 217, 184, ${opacity}); color: ${v >= 4 ? '#f4f2ed' : '#b8b5ad'};`;
+  // Which coverage state applies to a row. Drives the empty-state label
+  // in both the measured cells and the Status column — Tier 1/2 rows
+  // without listener coverage will someday get measured; Earned-only /
+  // Partnership-only / B2B / Wave 3 won't, per pipeline policy.
+  function coverageState(row) {
+    if (LISTENER_SEG[row.seg]) return 'covered';
+    const t = row.Tier;
+    if (t === '1' || t === '2') return 'pending';
+    return 'out_of_scope';
+  }
+
+  // Roll the per-cell measured deltas into a single row status chip.
+  // Uses STATUS_COLS (Viral + Fit) — Pain is deliberately excluded.
+  // See the STATUS_COLS comment for rationale.
+  function rowStatus(row, measured) {
+    const cov = coverageState(row);
+    if (cov === 'out_of_scope') return 'out_of_scope';
+    if (cov === 'pending') return 'pending';
+    const m = measured[LISTENER_SEG[row.seg]] || {};
+    const deltas = STATUS_COLS
+      .map(col => {
+        const v = m[col.toLowerCase()];
+        return v == null ? null : (v - row[col]);
+      })
+      .filter(d => d !== null);
+    if (!deltas.length) return 'pending';
+    const maxAbs = Math.max.apply(null, deltas.map(Math.abs));
+    if (maxAbs < HOLDING_GAP) return 'holding';
+    if (maxAbs >= OFF_GAP)    return 'off';
+    return 'drifting';
+  }
+
+  function deltaClass(delta) {
+    const a = Math.abs(delta);
+    if (a < HOLDING_GAP)  return 'delta-neutral';
+    if (a >= OFF_GAP)     return 'delta-off';
+    return delta > 0 ? 'delta-up' : 'delta-down';
+  }
+
+  // Render one cell. Dossier-only columns show a single value; measurable
+  // columns show hypothesis over measured-with-delta when data exists,
+  // or hypothesis + em-dash when the row is uncovered.
+  function cellHTML(row, col, measured) {
+    const h = row[col];
+    const isMeasurable = MEASURED_COLS.indexOf(col) !== -1;
+    if (!isMeasurable) {
+      return '<td class="score dossier-only">'
+           +   '<div class="cell-hyp">' + h + '</div>'
+           + '</td>';
+    }
+    const lseg = LISTENER_SEG[row.seg];
+    const mEntry = lseg ? measured[lseg] : null;
+    const mv = mEntry ? mEntry[col.toLowerCase()] : null;
+    if (mv == null) {
+      return '<td class="score measurable">'
+           +   '<div class="cell-hyp">' + h + '</div>'
+           +   '<div class="cell-meas cell-meas--empty">—</div>'
+           + '</td>';
+    }
+    const delta = mv - h;
+    const sign  = delta >= 0 ? '+' : '';
+    return '<td class="score measurable">'
+         +   '<div class="cell-hyp">' + h + '</div>'
+         +   '<div class="cell-meas">'
+         +     mv.toFixed(1)
+         +     ' <span class="cell-delta ' + deltaClass(delta) + '">'
+         +       sign + delta.toFixed(1)
+         +     '</span>'
+         +   '</div>'
+         + '</td>';
+  }
+
+  const STATUS_LABEL = {
+    holding:     'Holding',
+    drifting:    'Drifting',
+    off:         'Off',
+    pending:     'Not yet measured',
+    out_of_scope:'Out of scope',
   };
 
-  const tierColor = (t) => {
-    // Tier 1 — parchment (signal)
-    if (t === '1') return 'background: rgba(232, 217, 184, 0.18); color: #e8d9b8;';
-    // Tier 2 — blue
-    if (t === '2') return 'background: rgba(160, 181, 214, 0.14); color: #a0b5d6;';
-    // B2B — sage
-    if (t === 'B2B') return 'background: rgba(156, 186, 176, 0.14); color: #9cbab0;';
-    // Earned / Partnership — mauve
-    if (t.includes('Earned') || t.includes('Partnership')) return 'background: rgba(200, 162, 184, 0.14); color: #c8a2b8;';
-    // Wave — warm gray
-    if (t.includes('Wave')) return 'background: rgba(138, 134, 128, 0.2); color: #b8b5ad;';
-    return '';
-  };
+  function render(pulse) {
+    const measured = (pulse && pulse.measured_rubric && pulse.measured_rubric.segments) || {};
+    const rowsHtml = data.map(r => {
+      const status = rowStatus(r, measured);
+      return '<tr class="' + r.rowClass + '" data-status="' + status + '">'
+           +   '<td class="seg-name">'
+           +     '<div class="seg-title">' + r.seg + '</div>'
+           +     '<div class="seg-sub">' + r.Tier + '</div>'
+           +   '</td>'
+           +   cellHTML(r, 'Pain',  measured)
+           +   cellHTML(r, 'WTP',   measured)
+           +   cellHTML(r, 'CAC',   measured)
+           +   cellHTML(r, 'Viral', measured)
+           +   cellHTML(r, 'Risk',  measured)
+           +   cellHTML(r, 'Fit',   measured)
+           +   '<td class="status">'
+           +     '<span class="status-chip status-' + status + '">' + STATUS_LABEL[status] + '</span>'
+           +   '</td>'
+           + '</tr>';
+    }).join('');
 
-  heat.innerHTML = `
-    <thead>
-      <tr>
-        <th class="seg-col">Segment</th>
-        <th>Pain</th><th>WTP</th><th>CAC</th><th>Viral</th><th>Risk</th><th>Fit</th>
-        <th>Total</th><th>Tier</th>
-      </tr>
-    </thead>
-    <tbody>
-      ${data.map(r => `
-        <tr class="${r.rowClass}">
-          <td class="seg-name">${r.seg}</td>
-          <td class="score" style="${cellColor(r.Pain)}">${r.Pain}</td>
-          <td class="score" style="${cellColor(r.WTP)}">${r.WTP}</td>
-          <td class="score" style="${cellColor(r.CAC)}">${r.CAC}</td>
-          <td class="score" style="${cellColor(r.Viral)}">${r.Viral}</td>
-          <td class="score" style="${cellColor(r.Risk)}">${r.Risk}</td>
-          <td class="score" style="${cellColor(r.Fit)}">${r.Fit}</td>
-          <td class="score total">${r.Total}</td>
-          <td class="tier" style="${tierColor(r.Tier)}">${r.Tier}</td>
-        </tr>
-      `).join('')}
-    </tbody>
-  `;
+    heat.innerHTML =
+        '<thead>'
+      +   '<tr>'
+      +     '<th class="seg-col">Segment</th>'
+      +     '<th class="col-measured">Pain</th>'
+      +     '<th class="col-dossier">WTP</th>'
+      +     '<th class="col-dossier">CAC</th>'
+      +     '<th class="col-measured">Viral</th>'
+      +     '<th class="col-dossier">Risk</th>'
+      +     '<th class="col-measured">Fit</th>'
+      +     '<th class="col-status">Status</th>'
+      +   '</tr>'
+      + '</thead>'
+      + '<tbody>' + rowsHtml + '</tbody>';
+  }
+
+  // First paint without measured data — readers see the dossier shape
+  // immediately, even if pulse.json is slow/absent. Re-render when
+  // pulse-loaded fires; if pulse.js already resolved before this script
+  // ran, the DUST_PULSE global will be set and we pick it up here too.
+  render(null);
+  document.addEventListener('pulse-loaded', function (e) {
+    render(e && e.detail && e.detail.payload);
+  });
+  if (window.DUST_PULSE) render(window.DUST_PULSE);
 })();
 
 // ============================================================

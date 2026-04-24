@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-24T09:01:40Z",
-  "as_of": "2026-04-24",
+  "generated_at": "2026-04-24T14:06:58Z",
+  "as_of": "2026-04-23",
   "schema_version": 2,
   "segments": [
     {
@@ -8,7 +8,7 @@
       "tier": "1",
       "version": 3,
       "outreach_policy": "candidate",
-      "unique_authors": 1605,
+      "unique_authors": 1465,
       "qualified_authors": 23,
       "avg_composite": 1.5287924836601308,
       "avg_signal_density": 1.7418300653594772,
@@ -16,73 +16,73 @@
       "top_phrases": [
         {
           "phrase": "sleep",
-          "docs": 343
+          "docs": 313
         },
         {
           "phrase": "data",
-          "docs": 212
+          "docs": 199
         },
         {
           "phrase": "whoop",
-          "docs": 207
+          "docs": 188
         },
         {
           "phrase": "oura",
-          "docs": 191
+          "docs": 175
         },
         {
           "phrase": "ring",
-          "docs": 183
+          "docs": 166
         },
         {
           "phrase": "else",
-          "docs": 176
+          "docs": 154
         },
         {
           "phrase": "since",
-          "docs": 164
-        },
-        {
-          "phrase": "health",
-          "docs": 152
+          "docs": 150
         },
         {
           "phrase": "app",
-          "docs": 149
+          "docs": 136
+        },
+        {
+          "phrase": "health",
+          "docs": 135
         },
         {
           "phrase": "every",
-          "docs": 147
-        },
-        {
-          "phrase": "experience",
-          "docs": 145
+          "docs": 133
         },
         {
           "phrase": "around",
-          "docs": 138
+          "docs": 130
+        },
+        {
+          "phrase": "tracking",
+          "docs": 130
         }
       ],
       "top_subreddits": [
         {
           "subreddit": "Biohackers",
-          "authors": 548
+          "authors": 483
         },
         {
           "subreddit": "OuraRing",
-          "authors": 350
+          "authors": 315
         },
         {
           "subreddit": "whoop",
-          "authors": 302
+          "authors": 273
         },
         {
           "subreddit": "Nootropics",
-          "authors": 195
+          "authors": 182
         },
         {
           "subreddit": "Eightsleep",
-          "authors": 120
+          "authors": 119
         }
       ],
       "safety_flagged_count": 21
@@ -92,7 +92,7 @@
       "tier": "1",
       "version": 4,
       "outreach_policy": "candidate",
-      "unique_authors": 1075,
+      "unique_authors": 944,
       "qualified_authors": 15,
       "avg_composite": 1.2144813359528486,
       "avg_signal_density": 1.9980353634577603,
@@ -100,65 +100,65 @@
       "top_phrases": [
         {
           "phrase": "dream",
-          "docs": 879
+          "docs": 771
         },
         {
           "phrase": "dreams",
-          "docs": 471
+          "docs": 417
         },
         {
           "phrase": "woke",
-          "docs": 323
+          "docs": 277
         },
         {
           "phrase": "remember",
-          "docs": 305
+          "docs": 276
         },
         {
           "phrase": "night",
-          "docs": 291
+          "docs": 247
         },
         {
           "phrase": "life",
-          "docs": 260
+          "docs": 231
         },
         {
           "phrase": "lucid",
-          "docs": 259
+          "docs": 226
         },
         {
           "phrase": "dreaming",
-          "docs": 239
-        },
-        {
-          "phrase": "around",
-          "docs": 233
-        },
-        {
-          "phrase": "real",
-          "docs": 221
-        },
-        {
-          "phrase": "wake",
           "docs": 211
         },
         {
+          "phrase": "around",
+          "docs": 205
+        },
+        {
+          "phrase": "real",
+          "docs": 193
+        },
+        {
+          "phrase": "wake",
+          "docs": 190
+        },
+        {
           "phrase": "sleep",
-          "docs": 204
+          "docs": 180
         }
       ],
       "top_subreddits": [
         {
           "subreddit": "Dreams",
-          "authors": 623
+          "authors": 539
         },
         {
           "subreddit": "LucidDreaming",
-          "authors": 270
+          "authors": 237
         },
         {
           "subreddit": "DreamInterpretation",
-          "authors": 239
+          "authors": 220
         }
       ],
       "safety_flagged_count": 65
@@ -168,7 +168,7 @@
       "tier": "1",
       "version": 3,
       "outreach_policy": "messaging_only",
-      "unique_authors": 720,
+      "unique_authors": 647,
       "qualified_authors": 30,
       "avg_composite": 2.0354271844660192,
       "avg_signal_density": 2.407766990291262,
@@ -176,61 +176,61 @@
       "top_phrases": [
         {
           "phrase": "hrt",
-          "docs": 228
+          "docs": 206
         },
         {
           "phrase": "symptoms",
-          "docs": 192
+          "docs": 181
         },
         {
           "phrase": "progesterone",
-          "docs": 170
+          "docs": 156
         },
         {
           "phrase": "estrogen",
-          "docs": 170
+          "docs": 152
         },
         {
           "phrase": "patch",
-          "docs": 160
+          "docs": 141
         },
         {
           "phrase": "else",
-          "docs": 157
-        },
-        {
-          "phrase": "since",
-          "docs": 136
+          "docs": 140
         },
         {
           "phrase": "perimenopause",
-          "docs": 134
+          "docs": 126
         },
         {
-          "phrase": "period",
-          "docs": 133
+          "phrase": "since",
+          "docs": 124
         },
         {
           "phrase": "peri",
-          "docs": 132
+          "docs": 119
         },
         {
           "phrase": "menopause",
-          "docs": 126
+          "docs": 116
         },
         {
           "phrase": "having",
-          "docs": 126
+          "docs": 116
+        },
+        {
+          "phrase": "period",
+          "docs": 115
         }
       ],
       "top_subreddits": [
         {
           "subreddit": "Perimenopause",
-          "authors": 433
+          "authors": 389
         },
         {
           "subreddit": "Menopause",
-          "authors": 310
+          "authors": 277
         }
       ],
       "safety_flagged_count": 17
@@ -240,7 +240,7 @@
       "tier": "1",
       "version": 3,
       "outreach_policy": "messaging_only",
-      "unique_authors": 1543,
+      "unique_authors": 1344,
       "qualified_authors": 15,
       "avg_composite": 1.5746304347826088,
       "avg_signal_density": 2.48731884057971,
@@ -248,65 +248,65 @@
       "top_phrases": [
         {
           "phrase": "baby",
-          "docs": 596
+          "docs": 507
         },
         {
           "phrase": "pregnant",
-          "docs": 460
-        },
-        {
-          "phrase": "pregnancy",
-          "docs": 413
+          "docs": 396
         },
         {
           "phrase": "don",
-          "docs": 410
+          "docs": 361
+        },
+        {
+          "phrase": "pregnancy",
+          "docs": 350
         },
         {
           "phrase": "having",
-          "docs": 336
+          "docs": 292
         },
         {
           "phrase": "husband",
-          "docs": 298
+          "docs": 258
         },
         {
           "phrase": "since",
-          "docs": 270
+          "docs": 236
         },
         {
           "phrase": "else",
-          "docs": 267
+          "docs": 234
         },
         {
           "phrase": "around",
-          "docs": 257
+          "docs": 228
         },
         {
           "phrase": "right",
-          "docs": 251
+          "docs": 215
         },
         {
           "phrase": "advice",
-          "docs": 246
+          "docs": 211
         },
         {
-          "phrase": "mom",
-          "docs": 228
+          "phrase": "home",
+          "docs": 198
         }
       ],
       "top_subreddits": [
         {
           "subreddit": "pregnant",
-          "authors": 602
+          "authors": 527
         },
         {
           "subreddit": "Mommit",
-          "authors": 525
+          "authors": 452
         },
         {
           "subreddit": "BabyBumps",
-          "authors": 470
+          "authors": 410
         }
       ],
       "safety_flagged_count": 84
@@ -316,7 +316,7 @@
       "tier": "2",
       "version": 4,
       "outreach_policy": "candidate",
-      "unique_authors": 468,
+      "unique_authors": 447,
       "qualified_authors": 16,
       "avg_composite": 1.4735,
       "avg_signal_density": 1.9620689655172414,
@@ -324,61 +324,61 @@
       "top_phrases": [
         {
           "phrase": "meditation",
-          "docs": 160
+          "docs": 149
         },
         {
           "phrase": "experience",
-          "docs": 126
+          "docs": 122
         },
         {
           "phrase": "mind",
-          "docs": 91
+          "docs": 87
         },
         {
           "phrase": "life",
-          "docs": 91
-        },
-        {
-          "phrase": "body",
-          "docs": 75
+          "docs": 85
         },
         {
           "phrase": "thoughts",
-          "docs": 74
+          "docs": 72
+        },
+        {
+          "phrase": "body",
+          "docs": 70
         },
         {
           "phrase": "else",
-          "docs": 67
-        },
-        {
-          "phrase": "microdosing",
-          "docs": 64
+          "docs": 65
         },
         {
           "phrase": "long",
-          "docs": 63
-        },
-        {
-          "phrase": "meditate",
-          "docs": 62
-        },
-        {
-          "phrase": "every",
           "docs": 61
         },
         {
+          "phrase": "microdosing",
+          "docs": 61
+        },
+        {
+          "phrase": "meditate",
+          "docs": 59
+        },
+        {
+          "phrase": "meditating",
+          "docs": 57
+        },
+        {
           "phrase": "focus",
-          "docs": 60
+          "docs": 56
         }
       ],
       "top_subreddits": [
         {
           "subreddit": "meditation",
-          "authors": 239
+          "authors": 226
         },
         {
           "subreddit": "microdosing",
-          "authors": 126
+          "authors": 118
         },
         {
           "subreddit": "Psychonaut",
@@ -392,73 +392,73 @@
       "tier": "2",
       "version": 5,
       "outreach_policy": "candidate",
-      "unique_authors": 941,
+      "unique_authors": 836,
       "qualified_authors": 16,
       "avg_composite": 1.8544719101123597,
       "avg_signal_density": 1.8904494382022472,
       "avg_representativeness": 2.0730337078651684,
       "top_phrases": [
         {
-          "phrase": "story",
-          "docs": 159
+          "phrase": "art",
+          "docs": 137
         },
         {
-          "phrase": "art",
-          "docs": 150
+          "phrase": "story",
+          "docs": 132
         },
         {
           "phrase": "love",
-          "docs": 139
+          "docs": 119
         },
         {
           "phrase": "song",
-          "docs": 123
-        },
-        {
-          "phrase": "book",
-          "docs": 104
+          "docs": 112
         },
         {
           "phrase": "advice",
-          "docs": 103
+          "docs": 92
+        },
+        {
+          "phrase": "book",
+          "docs": 86
         },
         {
           "phrase": "right",
-          "docs": 99
-        },
-        {
-          "phrase": "don",
-          "docs": 94
-        },
-        {
-          "phrase": "idea",
-          "docs": 94
+          "docs": 85
         },
         {
           "phrase": "different",
-          "docs": 93
+          "docs": 84
+        },
+        {
+          "phrase": "don",
+          "docs": 83
         },
         {
           "phrase": "character",
-          "docs": 91
+          "docs": 79
         },
         {
-          "phrase": "long",
-          "docs": 90
+          "phrase": "well",
+          "docs": 79
+        },
+        {
+          "phrase": "idea",
+          "docs": 78
         }
       ],
       "top_subreddits": [
         {
           "subreddit": "writing",
-          "authors": 429
+          "authors": 371
         },
         {
           "subreddit": "ArtistLounge",
-          "authors": 266
+          "authors": 239
         },
         {
           "subreddit": "Songwriting",
-          "authors": 247
+          "authors": 227
         }
       ],
       "safety_flagged_count": 5
@@ -468,7 +468,7 @@
       "tier": "2",
       "version": 5,
       "outreach_policy": "candidate",
-      "unique_authors": 785,
+      "unique_authors": 672,
       "qualified_authors": 11,
       "avg_composite": 1.2691214953271028,
       "avg_signal_density": 2.146417445482866,
@@ -476,61 +476,61 @@
       "top_phrases": [
         {
           "phrase": "sleep",
-          "docs": 658
+          "docs": 563
         },
         {
           "phrase": "night",
-          "docs": 337
+          "docs": 280
         },
         {
           "phrase": "asleep",
-          "docs": 275
+          "docs": 246
         },
         {
           "phrase": "hours",
-          "docs": 249
+          "docs": 215
         },
         {
           "phrase": "wake",
-          "docs": 235
-        },
-        {
-          "phrase": "sleeping",
-          "docs": 217
-        },
-        {
-          "phrase": "bed",
-          "docs": 206
+          "docs": 199
         },
         {
           "phrase": "fall",
-          "docs": 205
+          "docs": 183
+        },
+        {
+          "phrase": "sleeping",
+          "docs": 183
+        },
+        {
+          "phrase": "bed",
+          "docs": 176
         },
         {
           "phrase": "fall asleep",
-          "docs": 194
+          "docs": 172
         },
         {
           "phrase": "insomnia",
-          "docs": 189
+          "docs": 158
         },
         {
           "phrase": "every",
-          "docs": 179
+          "docs": 146
         },
         {
           "phrase": "tired",
-          "docs": 155
+          "docs": 130
         }
       ],
       "top_subreddits": [
         {
           "subreddit": "sleep",
-          "authors": 480
+          "authors": 407
         },
         {
           "subreddit": "insomnia",
-          "authors": 341
+          "authors": 295
         }
       ],
       "safety_flagged_count": 48
@@ -540,7 +540,7 @@
       "tier": "3",
       "version": 1,
       "outreach_policy": "earned_only",
-      "unique_authors": 1534,
+      "unique_authors": 1357,
       "qualified_authors": 0,
       "avg_composite": null,
       "avg_signal_density": null,
@@ -548,69 +548,69 @@
       "top_phrases": [
         {
           "phrase": "life",
-          "docs": 621
+          "docs": 546
         },
         {
           "phrase": "since",
-          "docs": 411
+          "docs": 349
         },
         {
           "phrase": "don",
-          "docs": 391
-        },
-        {
-          "phrase": "away",
-          "docs": 373
-        },
-        {
-          "phrase": "every",
-          "docs": 370
-        },
-        {
-          "phrase": "mom",
           "docs": 340
         },
         {
+          "phrase": "away",
+          "docs": 332
+        },
+        {
+          "phrase": "every",
+          "docs": 316
+        },
+        {
+          "phrase": "mom",
+          "docs": 297
+        },
+        {
           "phrase": "family",
-          "docs": 337
-        },
-        {
-          "phrase": "lost",
-          "docs": 324
-        },
-        {
-          "phrase": "having",
-          "docs": 315
+          "docs": 290
         },
         {
           "phrase": "around",
-          "docs": 315
+          "docs": 286
+        },
+        {
+          "phrase": "having",
+          "docs": 278
+        },
+        {
+          "phrase": "lost",
+          "docs": 278
         },
         {
           "phrase": "else",
-          "docs": 312
+          "docs": 267
         },
         {
           "phrase": "person",
-          "docs": 304
+          "docs": 261
         }
       ],
       "top_subreddits": [
         {
           "subreddit": "GriefSupport",
-          "authors": 584
+          "authors": 513
         },
         {
           "subreddit": "CPTSD",
-          "authors": 580
+          "authors": 505
         },
         {
           "subreddit": "PTSD",
-          "authors": 254
+          "authors": 223
         },
         {
           "subreddit": "Nightmares",
-          "authors": 133
+          "authors": 130
         }
       ],
       "safety_flagged_count": 0
@@ -1323,8 +1323,8 @@
         "b": "lucid",
         "shared_count": 3,
         "examples": [
-          "happened",
           "remember",
+          "happened",
           "night"
         ]
       },
@@ -1799,5 +1799,58 @@
     },
     "errors": {},
     "generated_at": 1776384000
+  },
+  "measured_rubric": {
+    "generated_at": 1777039618,
+    "segments": {
+      "biohackers": {
+        "pain": 1.0,
+        "viral": 4.2,
+        "fit": 3.75,
+        "n_scored": 61
+      },
+      "clinical": {
+        "pain": 2.0,
+        "viral": 3.93,
+        "fit": null,
+        "n_scored": 0
+      },
+      "consciousness": {
+        "pain": 1.0,
+        "viral": 3.93,
+        "fit": 4.02,
+        "n_scored": 44
+      },
+      "creatives": {
+        "pain": 1.0,
+        "viral": 3.13,
+        "fit": 4.12,
+        "n_scored": 31
+      },
+      "lucid": {
+        "pain": 1.5,
+        "viral": 4.47,
+        "fit": 4.05,
+        "n_scored": 32
+      },
+      "perimenopause": {
+        "pain": 1.5,
+        "viral": 4.47,
+        "fit": 4.29,
+        "n_scored": 61
+      },
+      "pregnancy": {
+        "pain": 1.0,
+        "viral": 3.4,
+        "fit": 4.18,
+        "n_scored": 19
+      },
+      "sleep_general": {
+        "pain": 1.5,
+        "viral": 4.47,
+        "fit": 4.14,
+        "n_scored": 31
+      }
+    }
   }
 }
