@@ -933,6 +933,64 @@ body {
   margin-bottom: var(--space-200);
 }
 
+/* Labeled-row body for measured cards — each data element names
+ * itself (SCALE / TOP LANGUAGE / ROLE) so a reader doesn't have to
+ * decode what "1,357 scanned" or a bare phrase chip means. Mirrors
+ * the hypothesis card's header-body-meta shape; the body just
+ * trades one wedge sentence for three labeled rows. */
+.measured-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-150);
+  margin-bottom: var(--space-200);
+}
+
+.measured-row {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: var(--space-150);
+  align-items: baseline;
+}
+
+.measured-label {
+  font-family: var(--font-mono);
+  font-weight: var(--w-medium);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.measured-value {
+  font-size: var(--text-s);
+  color: var(--fg-primary);
+  line-height: var(--lh-body);
+}
+
+.measured-value--phrases {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-100);
+}
+
+.measured-value--role {
+  color: var(--fg-secondary);
+  font-size: 12.5px;
+  line-height: var(--lh-snug);
+}
+
+.measured-value--muted {
+  color: var(--fg-muted);
+  font-style: italic;
+}
+
+@media (max-width: 640px) {
+  .measured-row {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}
+
 .phrase-inline {
   display: inline-flex;
   align-items: baseline;

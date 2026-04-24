@@ -355,44 +355,60 @@ const ALPHA = (hex, a) => {
     }
 
     // Covered — build the measured content from pulse.segments[key].
+    // Labeled-row layout (Scale / Top language / Role) so each data
+    // element names itself rather than expecting the reader to decode
+    // chips. Mirrors the hypothesis card's header + body + meta shape
+    // but trades the single-sentence "wedge" for a three-line data
+    // sheet — because the measurement doesn't collapse to a sentence.
     const qualified = Number(segData.qualified_authors || 0);
     const unique = Number(segData.unique_authors || 0);
     const phrases = (segData.top_phrases || []).slice(0, 2);
-    const phrasesHTML = phrases.length
+    const phrasesText = phrases.length
       ? phrases.map(function (p) {
           const phrase = (p.phrase || '').replace(/[<>]/g, '');
           const docs = p.docs != null ? ' · ' + p.docs : '';
           return '<span class="phrase-inline"><span class="phrase-inline__term">' + phrase + '</span><span class="phrase-inline__n">' + docs + '</span></span>';
         }).join(' ')
-      : '<span class="muted">No distinctive phrases yet — need more qualified authors.</span>';
+      : '<span class="measured-value--muted">No distinctive phrases yet — need more qualified authors.</span>';
     const policy = segData.outreach_policy || 'candidate';
-    const policyLabel = policy === 'candidate' ? 'Candidate'
-                      : policy === 'messaging_only' ? 'Messaging only'
-                      : policy === 'earned_only' ? 'Earned only'
-                      : policy;
-    // Candidate-policy segments headline qualified-author count (the
-    // recruitment metric). Earned-only / messaging-only segments aren't
-    // recruited — displaying "0 qualified" next to 1,000+ scanned
-    // authors reads as a failure when it's actually the correct policy
-    // outcome. For those, headline scanned-author count instead and
-    // move policy status into the meta row.
+
+    // Scale copy: candidate-policy segments show the qualified/scanned
+    // fraction (the recruitment hit rate). Earned / messaging-only show
+    // scanned count alone — qualification isn't meaningful under those
+    // policies, so displaying "0 qualified of N" reads as failure when
+    // it's actually the correct policy outcome.
     const isCandidate = policy === 'candidate';
-    const primaryBadge = isCandidate
-      ? (qualified.toLocaleString() + ' qualified')
-      : (unique.toLocaleString() + ' scanned');
-    const metaRight = isCandidate
-      ? (unique.toLocaleString() + ' scanned · ' + policyLabel)
-      : (qualified + ' qual · ' + policyLabel);
+    const scaleCopy = isCandidate
+      ? qualified.toLocaleString() + ' of ' + unique.toLocaleString() + ' authors scanned'
+      : unique.toLocaleString() + ' authors scanned';
+    // Role copy: name the outreach policy plus a plain-English gloss
+    // so the reader knows how to use this segment. Candidate = cohort
+    // recruitment target; messaging/earned = language signal only.
+    const roleCopy = policy === 'candidate' ? 'Candidate · direct outreach pool'
+                   : policy === 'messaging_only' ? 'Messaging-only · language reference, no direct outreach'
+                   : policy === 'earned_only' ? 'Earned-only · research reference, no direct outreach'
+                   : policy;
 
     return '<div class="segment segment--measured" style="--seg-color: ' + s.clusterColor + '">'
          +   '<div class="segment-header">'
          +     '<div class="segment-name">' + s.name + '</div>'
-         +     '<div class="segment-pop segment-pop--measured">' + primaryBadge + '</div>'
          +   '</div>'
-         +   '<div class="segment-wedge segment-wedge--phrases">' + phrasesHTML + '</div>'
+         +   '<div class="measured-body">'
+         +     '<div class="measured-row">'
+         +       '<div class="measured-label">Scale</div>'
+         +       '<div class="measured-value">' + scaleCopy + '</div>'
+         +     '</div>'
+         +     '<div class="measured-row">'
+         +       '<div class="measured-label">Top language</div>'
+         +       '<div class="measured-value measured-value--phrases">' + phrasesText + '</div>'
+         +     '</div>'
+         +     '<div class="measured-row">'
+         +       '<div class="measured-label">Role</div>'
+         +       '<div class="measured-value measured-value--role">' + roleCopy + '</div>'
+         +     '</div>'
+         +   '</div>'
          +   '<div class="segment-meta">'
          +     '<span class="seg-tag cluster">Cluster ' + s.cluster + '</span>'
-         +     '<span class="seg-tag measured-tag">' + metaRight + '</span>'
          +   '</div>'
          + '</div>';
   }
