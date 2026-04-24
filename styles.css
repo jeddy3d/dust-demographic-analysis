@@ -1316,6 +1316,18 @@ body {
   border: var(--bw-0125) solid rgba(160, 181, 214, 0.30);
 }
 
+/* Pending state — listener data isn't available yet (day-zero, or the
+ * pulse export failed / is stale). Read as muted "no data" rather than
+ * stylized "in progress", so the reader knows the section will fill in
+ * later rather than assuming the muted chip IS the measurement. Pairs
+ * with the blue `.measured` tag: before data lands → pending; after →
+ * measured. */
+.kicker-tag.pending {
+  color: var(--fg-muted);
+  background: var(--bg-tertiary);
+  border: var(--bw-0125) solid var(--border-default);
+}
+
 /* ============================================================
    TIER FLOW
    ============================================================ */
@@ -2890,6 +2902,15 @@ body {
   color: var(--fg-secondary);
   font-variant-numeric: tabular-nums;
 }
+
+/* Hypothesis / measured color accents — mirror the site-wide vocabulary
+ * (parchment = dossier, blue = listener) so readers can track columns
+ * by hue even when scanning mid-row. */
+.variance-val--hyp  { color: var(--signal); }
+.variance-val--meas { color: var(--viz-2); }
+
+.variance-col-label--hyp  { color: var(--signal); }
+.variance-col-label--meas { color: var(--viz-2); }
 
 .variance-val--delta {
   color: var(--fg-muted);

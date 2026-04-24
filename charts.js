@@ -1011,11 +1011,11 @@ const ALPHA = (hex, a) => {
       && measured.some(function (m) { return (m.count || 0) > 0; });
     if (!hasSignal) {
       if (empty) empty.style.display = '';
-      if (tag) { tag.textContent = 'Pending data'; tag.className = 'kicker-tag validating'; }
+      if (tag) { tag.textContent = 'Pending'; tag.className = 'kicker-tag pending'; }
       return;
     }
     if (empty) empty.style.display = 'none';
-    if (tag) { tag.textContent = 'Live'; tag.className = 'kicker-tag validated'; }
+    if (tag) { tag.textContent = 'Measured'; tag.className = 'kicker-tag measured'; }
 
     const labels = measured.map(function (m) { return m.segment; });
     const data = measured.map(function (m) { return m.count; });
@@ -1076,7 +1076,7 @@ const ALPHA = (hex, a) => {
   // Happy path: pulse.js already populated DUST_PULSE before charts.js
   // ran (same-origin fetch is typically fast). If not, wait for the
   // event. Belt-and-suspenders: a 4-second timeout so we never leave
-  // the card in "Pending data" forever when pulse.json is confirmed
+  // the card in "Pending" forever when pulse.json is confirmed
   // absent (window.DUST_PULSE === null).
   if (!tryRender()) {
     document.addEventListener('pulse-loaded', tryRender, { once: true });
@@ -1145,7 +1145,7 @@ const ALPHA = (hex, a) => {
     }
     if (q >= 3) return { label: 'Validated', klass: 'kicker-tag validated' };
     if (q >= 1) return { label: 'Early signal', klass: 'kicker-tag building' };
-    return { label: 'Measuring', klass: 'kicker-tag validating' };
+    return { label: 'Measuring', klass: 'kicker-tag pending' };
   }
 
   function policyCopy(policy) {
@@ -1283,13 +1283,13 @@ const ALPHA = (hex, a) => {
     const tag = document.getElementById('liveSignalTag');
     const sub = document.getElementById('liveSignalSub');
     if (!segments || !segments.length) {
-      if (tag) { tag.textContent = 'Pending data'; tag.className = 'kicker-tag validating'; }
+      if (tag) { tag.textContent = 'Pending'; tag.className = 'kicker-tag pending'; }
       return;
     }
     const totalUnique = segments.reduce(function (a, s) { return a + (s.unique_authors || 0); }, 0);
     const candidates = segments.filter(function (s) { return (s.outreach_policy || 'candidate') === 'candidate'; });
     const totalQualified = candidates.reduce(function (a, s) { return a + (s.qualified_authors || 0); }, 0);
-    if (tag) { tag.textContent = 'Live'; tag.className = 'kicker-tag validated'; }
+    if (tag) { tag.textContent = 'Measured'; tag.className = 'kicker-tag measured'; }
     if (sub) {
       sub.textContent = totalUnique.toLocaleString() + ' unique authors scanned across ' +
         segments.length + ' segments · ' + totalQualified + ' qualified as outreach candidates · ' +
@@ -1314,7 +1314,7 @@ const ALPHA = (hex, a) => {
       // that the page was shipped with — nothing more to do.
       if (window.DUST_PULSE === null) {
         const tag = document.getElementById('liveSignalTag');
-        if (tag) { tag.textContent = 'Pending data'; tag.className = 'kicker-tag validating'; }
+        if (tag) { tag.textContent = 'Pending'; tag.className = 'kicker-tag pending'; }
       }
     }, 4000);
   }

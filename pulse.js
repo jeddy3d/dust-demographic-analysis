@@ -9,7 +9,7 @@
  *
  * Day-zero behavior: if pulse.json is missing or empty, we quietly
  * leave window.DUST_PULSE = null and the downstream charts show their
- * "Pending data" empty state. Never throws — a missing pulse should
+ * "Pending" empty state. Never throws — a missing pulse should
  * never break the site.
  *
  * Privacy note: pulse.json has already passed two privacy filters

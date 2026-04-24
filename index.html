@@ -98,7 +98,7 @@
 <section id="live-signal" class="section">
   <div class="section-kicker">
     <span>Live measurement</span>
-    <span class="kicker-tag validated" id="liveSignalTag">Pending data</span>
+    <span class="kicker-tag pending" id="liveSignalTag">Pending</span>
   </div>
   <h2 class="section-title">
     What the listener sees.<br/>
@@ -149,7 +149,7 @@
 
 <!-- SECTION 3: COHORT · side-by-side hypothesized / measured -->
 <section id="cohort" class="section">
-  <div class="section-kicker">Section 3 <span class="kicker-tag hypothesis">Hypothesis</span> <span class="kicker-tag validating">Under validation</span></div>
+  <div class="section-kicker">Section 3 <span class="kicker-tag hypothesis">Hypothesis</span> <span class="kicker-tag measured">Measured</span></div>
   <h2 class="section-title">One downstream application — cohort composition.<br/><span class="muted">What a deliberately heterogeneous 18–24-person beta cohort would look like <em>against this segmentation</em>. Hypothesized vs. measured mix.</span></h2>
 
   <div class="cohort-dual">
@@ -170,7 +170,7 @@
           <div class="chart-title">Measured mix</div>
           <div class="chart-sub">Live · from <code>data/pulse.json</code>. Qualified candidates per candidate-policy segment.</div>
         </div>
-        <span class="kicker-tag validating" id="measuredTag">Pending data</span>
+        <span class="kicker-tag pending" id="measuredTag">Pending</span>
       </div>
       <div class="chart-wrap"><canvas id="measuredCohortChart"></canvas></div>
       <div class="live-signal is-empty" id="measuredEmpty">
@@ -192,8 +192,8 @@
     <div class="variance-table" id="varianceTable">
       <div class="variance-row variance-row--header">
         <div>Segment</div>
-        <div>Hypothesized</div>
-        <div>Measured</div>
+        <div class="variance-col-label--hyp">Hypothesized</div>
+        <div class="variance-col-label--meas">Measured</div>
         <div>Delta</div>
       </div>
       <div class="variance-row variance-row--empty" id="varianceEmpty">
@@ -249,7 +249,7 @@
 <!-- SECTION 4: MESSAGING ATLAS · per-segment TF-IDF phrases, pain/aspiration tagged -->
 <section id="messaging-atlas" class="section">
   <div class="section-kicker">
-    Section 4 <span class="kicker-tag validating">Listener output</span> <span class="kicker-tag reference">Reference</span>
+    Section 4 <span class="kicker-tag measured">Measured</span> <span class="kicker-tag reference">Reference</span>
   </div>
   <h2 class="section-title">
     Messaging atlas.<br/>
@@ -268,7 +268,7 @@
 <!-- SECTION 6: ADJACENCY MATRIX · shared-language between segment pairs -->
 <section id="adjacency" class="section">
   <div class="section-kicker">
-    Section 5 <span class="kicker-tag validating">Listener output</span>
+    Section 5 <span class="kicker-tag measured">Measured</span>
   </div>
   <h2 class="section-title">
     Segment adjacency.<br/>
@@ -289,7 +289,7 @@
 <!-- SECTION 7: PARTNERSHIP RANKING · qualified-density ranking of source subreddits -->
 <section id="partnerships" class="section">
   <div class="section-kicker">
-    Section 6 <span class="kicker-tag validating">Listener output</span>
+    Section 6 <span class="kicker-tag measured">Measured</span>
   </div>
   <h2 class="section-title">
     Partnership &amp; channel targeting.<br/>
@@ -319,7 +319,7 @@
 <!-- SECTION 8: PERSONAS · Opus-synthesized archetype cards -->
 <section id="personas" class="section">
   <div class="section-kicker">
-    Section 7 <span class="kicker-tag validating">Listener output</span> <span class="kicker-tag reference">Synthesized</span>
+    Section 7 <span class="kicker-tag measured">Measured</span> <span class="kicker-tag reference">Synthesized</span>
   </div>
   <h2 class="section-title">
     Persona cards.<br/>
