@@ -1,546 +1,546 @@
 {
-  "generated_at": "2026-05-01T09:05:54Z",
-  "as_of": "2026-05-01",
+  "generated_at": "2026-05-02T08:27:55Z",
+  "as_of": "2026-05-02",
   "schema_version": 2,
   "segments": [
     {
       "name": "biohackers",
       "tier": "1",
-      "version": 3,
+      "version": 2,
       "outreach_policy": "candidate",
-      "unique_authors": 2585,
-      "qualified_authors": 30,
-      "avg_composite": 1.4958029197080291,
-      "avg_signal_density": 1.8467153284671534,
-      "avg_representativeness": 1.4202294056308655,
+      "unique_authors": 553,
+      "qualified_authors": 23,
+      "avg_composite": 1.5598488372093022,
+      "avg_signal_density": 1.686046511627907,
+      "avg_representativeness": 1.5290697674418605,
       "top_phrases": [
         {
           "phrase": "sleep",
-          "docs": 545
-        },
-        {
-          "phrase": "whoop",
-          "docs": 343
-        },
-        {
-          "phrase": "oura",
-          "docs": 333
+          "docs": 144
         },
         {
           "phrase": "data",
-          "docs": 323
+          "docs": 90
         },
         {
-          "phrase": "ring",
-          "docs": 305
+          "phrase": "tracking",
+          "docs": 71
         },
         {
           "phrase": "else",
-          "docs": 300
-        },
-        {
-          "phrase": "since",
-          "docs": 267
-        },
-        {
-          "phrase": "health",
-          "docs": 243
-        },
-        {
-          "phrase": "every",
-          "docs": 238
-        },
-        {
-          "phrase": "experience",
-          "docs": 236
-        },
-        {
-          "phrase": "long",
-          "docs": 228
+          "docs": 69
         },
         {
           "phrase": "app",
-          "docs": 228
+          "docs": 69
+        },
+        {
+          "phrase": "whoop",
+          "docs": 67
+        },
+        {
+          "phrase": "oura",
+          "docs": 64
+        },
+        {
+          "phrase": "since",
+          "docs": 62
+        },
+        {
+          "phrase": "ring",
+          "docs": 61
+        },
+        {
+          "phrase": "every",
+          "docs": 60
+        },
+        {
+          "phrase": "without",
+          "docs": 57
+        },
+        {
+          "phrase": "pod",
+          "docs": 55
         }
       ],
       "top_subreddits": [
         {
-          "subreddit": "Biohackers",
-          "authors": 1001
-        },
-        {
           "subreddit": "OuraRing",
-          "authors": 588
+          "authors": 99
         },
         {
           "subreddit": "whoop",
-          "authors": 506
+          "authors": 98
         },
         {
-          "subreddit": "Nootropics",
-          "authors": 275
+          "subreddit": "Biohackers",
+          "authors": 95
         },
         {
           "subreddit": "Eightsleep",
-          "authors": 141
+          "authors": 93
+        },
+        {
+          "subreddit": "Nootropics",
+          "authors": 91
         }
       ],
-      "safety_flagged_count": 65
+      "safety_flagged_count": 0
     },
     {
       "name": "lucid",
       "tier": "1",
-      "version": 4,
+      "version": 2,
       "outreach_policy": "candidate",
-      "unique_authors": 1912,
-      "qualified_authors": 17,
-      "avg_composite": 1.1857513966480449,
-      "avg_signal_density": 2.0186219739292364,
-      "avg_representativeness": 1.2001862197392923,
+      "unique_authors": 276,
+      "qualified_authors": 4,
+      "avg_composite": 1.2376226415094338,
+      "avg_signal_density": 1.8339622641509434,
+      "avg_representativeness": 1.271698113207547,
       "top_phrases": [
         {
           "phrase": "dream",
-          "docs": 1568
+          "docs": 235
         },
         {
           "phrase": "dreams",
-          "docs": 842
-        },
-        {
-          "phrase": "woke",
-          "docs": 576
-        },
-        {
-          "phrase": "remember",
-          "docs": 535
-        },
-        {
-          "phrase": "night",
-          "docs": 520
+          "docs": 117
         },
         {
           "phrase": "lucid",
-          "docs": 456
+          "docs": 82
         },
         {
-          "phrase": "dreaming",
-          "docs": 450
+          "phrase": "woke",
+          "docs": 82
+        },
+        {
+          "phrase": "remember",
+          "docs": 78
         },
         {
           "phrase": "life",
-          "docs": 443
+          "docs": 69
         },
         {
-          "phrase": "real",
-          "docs": 414
+          "phrase": "dreaming",
+          "docs": 65
+        },
+        {
+          "phrase": "night",
+          "docs": 64
+        },
+        {
+          "phrase": "sleep",
+          "docs": 57
         },
         {
           "phrase": "around",
-          "docs": 410
+          "docs": 55
         },
         {
-          "phrase": "wake",
-          "docs": 361
+          "phrase": "weird",
+          "docs": 55
         },
         {
-          "phrase": "having",
-          "docs": 357
+          "phrase": "real",
+          "docs": 55
         }
       ],
       "top_subreddits": [
         {
+          "subreddit": "DreamInterpretation",
+          "authors": 98
+        },
+        {
           "subreddit": "Dreams",
-          "authors": 1193
+          "authors": 97
         },
         {
           "subreddit": "LucidDreaming",
-          "authors": 478
-        },
-        {
-          "subreddit": "DreamInterpretation",
-          "authors": 358
+          "authors": 91
         }
       ],
-      "safety_flagged_count": 158
+      "safety_flagged_count": 0
     },
     {
       "name": "perimenopause",
       "tier": "1",
-      "version": 3,
+      "version": 2,
       "outreach_policy": "messaging_only",
-      "unique_authors": 1240,
-      "qualified_authors": 44,
-      "avg_composite": 1.9259864864864864,
-      "avg_signal_density": 2.4324324324324325,
-      "avg_representativeness": 2.45777027027027,
+      "unique_authors": 196,
+      "qualified_authors": 32,
+      "avg_composite": 2.1187357512953366,
+      "avg_signal_density": 2.4196891191709846,
+      "avg_representativeness": 2.844559585492228,
       "top_phrases": [
         {
           "phrase": "hrt",
-          "docs": 413
+          "docs": 70
         },
         {
           "phrase": "symptoms",
-          "docs": 318
-        },
-        {
-          "phrase": "progesterone",
-          "docs": 315
+          "docs": 57
         },
         {
           "phrase": "estrogen",
-          "docs": 308
+          "docs": 55
         },
         {
-          "phrase": "else",
-          "docs": 308
+          "phrase": "progesterone",
+          "docs": 53
         },
         {
           "phrase": "patch",
-          "docs": 269
+          "docs": 47
         },
         {
-          "phrase": "perimenopause",
-          "docs": 257
-        },
-        {
-          "phrase": "peri",
-          "docs": 233
-        },
-        {
-          "phrase": "having",
-          "docs": 230
+          "phrase": "else",
+          "docs": 40
         },
         {
           "phrase": "period",
-          "docs": 229
+          "docs": 37
         },
         {
-          "phrase": "night",
-          "docs": 226
+          "phrase": "peri",
+          "docs": 35
+        },
+        {
+          "phrase": "dose",
+          "docs": 34
         },
         {
           "phrase": "since",
-          "docs": 225
+          "docs": 34
+        },
+        {
+          "phrase": "every",
+          "docs": 34
+        },
+        {
+          "phrase": "menopause",
+          "docs": 33
         }
       ],
       "top_subreddits": [
         {
           "subreddit": "Perimenopause",
-          "authors": 761
+          "authors": 100
         },
         {
           "subreddit": "Menopause",
-          "authors": 521
+          "authors": 97
         }
       ],
-      "safety_flagged_count": 63
+      "safety_flagged_count": 0
     },
     {
       "name": "pregnancy",
       "tier": "1",
-      "version": 3,
+      "version": 2,
       "outreach_policy": "messaging_only",
-      "unique_authors": 2837,
-      "qualified_authors": 32,
-      "avg_composite": 1.5607585703865792,
-      "avg_signal_density": 2.5784099197665937,
-      "avg_representativeness": 2.1006564551422318,
+      "unique_authors": 295,
+      "qualified_authors": 2,
+      "avg_composite": 1.481730215827338,
+      "avg_signal_density": 2.1043165467625897,
+      "avg_representativeness": 1.9460431654676258,
       "top_phrases": [
         {
           "phrase": "baby",
-          "docs": 1153
+          "docs": 106
         },
         {
           "phrase": "pregnant",
-          "docs": 846
+          "docs": 80
         },
         {
           "phrase": "pregnancy",
-          "docs": 778
-        },
-        {
-          "phrase": "don",
-          "docs": 736
+          "docs": 76
         },
         {
           "phrase": "having",
-          "docs": 610
+          "docs": 64
         },
         {
-          "phrase": "husband",
-          "docs": 559
+          "phrase": "don",
+          "docs": 61
         },
         {
           "phrase": "since",
-          "docs": 516
-        },
-        {
-          "phrase": "around",
-          "docs": 511
-        },
-        {
-          "phrase": "else",
-          "docs": 503
-        },
-        {
-          "phrase": "right",
-          "docs": 458
+          "docs": 45
         },
         {
           "phrase": "advice",
-          "docs": 441
+          "docs": 44
+        },
+        {
+          "phrase": "else",
+          "docs": 43
+        },
+        {
+          "phrase": "around",
+          "docs": 43
+        },
+        {
+          "phrase": "well",
+          "docs": 42
+        },
+        {
+          "phrase": "husband",
+          "docs": 42
         },
         {
           "phrase": "home",
-          "docs": 415
+          "docs": 41
         }
       ],
       "top_subreddits": [
         {
           "subreddit": "pregnant",
-          "authors": 1137
+          "authors": 100
         },
         {
           "subreddit": "Mommit",
-          "authors": 943
+          "authors": 100
         },
         {
           "subreddit": "BabyBumps",
-          "authors": 861
+          "authors": 100
         }
       ],
-      "safety_flagged_count": 283
+      "safety_flagged_count": 0
     },
     {
       "name": "consciousness",
       "tier": "2",
-      "version": 4,
+      "version": 2,
       "outreach_policy": "candidate",
-      "unique_authors": 647,
-      "qualified_authors": 17,
-      "avg_composite": 1.4405295629820052,
-      "avg_signal_density": 1.961439588688946,
-      "avg_representativeness": 1.6529562982005142,
+      "unique_authors": 276,
+      "qualified_authors": 10,
+      "avg_composite": 1.4581007751937984,
+      "avg_signal_density": 2.0310077519379846,
+      "avg_representativeness": 1.817829457364341,
       "top_phrases": [
         {
-          "phrase": "meditation",
-          "docs": 257
+          "phrase": "experience",
+          "docs": 83
         },
         {
-          "phrase": "experience",
-          "docs": 171
+          "phrase": "meditation",
+          "docs": 69
         },
         {
           "phrase": "life",
-          "docs": 136
+          "docs": 51
         },
         {
           "phrase": "mind",
-          "docs": 130
+          "docs": 46
+        },
+        {
+          "phrase": "microdosing",
+          "docs": 46
         },
         {
           "phrase": "body",
-          "docs": 111
+          "docs": 44
+        },
+        {
+          "phrase": "trip",
+          "docs": 44
         },
         {
           "phrase": "thoughts",
-          "docs": 108
-        },
-        {
-          "phrase": "meditating",
-          "docs": 99
-        },
-        {
-          "phrase": "else",
-          "docs": 98
+          "docs": 42
         },
         {
           "phrase": "long",
-          "docs": 91
+          "docs": 41
         },
         {
-          "phrase": "focus",
-          "docs": 88
+          "phrase": "experiences",
+          "docs": 40
+        },
+        {
+          "phrase": "around",
+          "docs": 38
         },
         {
           "phrase": "every",
-          "docs": 86
-        },
-        {
-          "phrase": "practice",
-          "docs": 86
+          "docs": 38
         }
       ],
       "top_subreddits": [
         {
           "subreddit": "meditation",
-          "authors": 378
-        },
-        {
-          "subreddit": "microdosing",
-          "authors": 162
+          "authors": 96
         },
         {
           "subreddit": "Psychonaut",
-          "authors": 108
+          "authors": 96
+        },
+        {
+          "subreddit": "microdosing",
+          "authors": 85
         }
       ],
-      "safety_flagged_count": 48
+      "safety_flagged_count": 0
     },
     {
       "name": "creatives",
       "tier": "2",
-      "version": 5,
+      "version": 2,
       "outreach_policy": "candidate",
-      "unique_authors": 1653,
-      "qualified_authors": 25,
-      "avg_composite": 1.8317,
-      "avg_signal_density": 2.0295774647887326,
-      "avg_representativeness": 1.9830985915492958,
+      "unique_authors": 283,
+      "qualified_authors": 5,
+      "avg_composite": 1.8045413533834587,
+      "avg_signal_density": 1.736842105263158,
+      "avg_representativeness": 2.030075187969925,
       "top_phrases": [
         {
-          "phrase": "story",
-          "docs": 330
-        },
-        {
-          "phrase": "love",
-          "docs": 248
-        },
-        {
-          "phrase": "book",
-          "docs": 224
-        },
-        {
           "phrase": "art",
-          "docs": 222
+          "docs": 54
+        },
+        {
+          "phrase": "story",
+          "docs": 40
         },
         {
           "phrase": "song",
-          "docs": 220
+          "docs": 40
+        },
+        {
+          "phrase": "love",
+          "docs": 29
         },
         {
           "phrase": "advice",
-          "docs": 202
-        },
-        {
-          "phrase": "idea",
-          "docs": 195
-        },
-        {
-          "phrase": "right",
-          "docs": 191
-        },
-        {
-          "phrase": "character",
-          "docs": 188
-        },
-        {
-          "phrase": "don",
-          "docs": 186
+          "docs": 29
         },
         {
           "phrase": "well",
-          "docs": 183
+          "docs": 29
         },
         {
-          "phrase": "read",
-          "docs": 178
+          "phrase": "drawing",
+          "docs": 29
+        },
+        {
+          "phrase": "wondering",
+          "docs": 28
+        },
+        {
+          "phrase": "feedback",
+          "docs": 27
+        },
+        {
+          "phrase": "since",
+          "docs": 26
+        },
+        {
+          "phrase": "right",
+          "docs": 26
+        },
+        {
+          "phrase": "different",
+          "docs": 25
         }
       ],
       "top_subreddits": [
         {
           "subreddit": "writing",
-          "authors": 827
-        },
-        {
-          "subreddit": "Songwriting",
-          "authors": 419
+          "authors": 97
         },
         {
           "subreddit": "ArtistLounge",
-          "authors": 409
+          "authors": 97
+        },
+        {
+          "subreddit": "Songwriting",
+          "authors": 89
         }
       ],
-      "safety_flagged_count": 24
+      "safety_flagged_count": 0
     },
     {
       "name": "sleep_general",
       "tier": "2",
-      "version": 5,
+      "version": 2,
       "outreach_policy": "candidate",
-      "unique_authors": 1311,
-      "qualified_authors": 14,
-      "avg_composite": 1.2359640625000001,
-      "avg_signal_density": 2.1046875,
-      "avg_representativeness": 1.634375,
+      "unique_authors": 189,
+      "qualified_authors": 3,
+      "avg_composite": 1.1855405405405406,
+      "avg_signal_density": 2.2378378378378376,
+      "avg_representativeness": 1.7675675675675675,
       "top_phrases": [
         {
           "phrase": "sleep",
-          "docs": 1090
+          "docs": 162
         },
         {
           "phrase": "night",
-          "docs": 579
+          "docs": 87
         },
         {
           "phrase": "asleep",
-          "docs": 476
+          "docs": 72
         },
         {
           "phrase": "hours",
-          "docs": 421
-        },
-        {
-          "phrase": "wake",
-          "docs": 407
-        },
-        {
-          "phrase": "sleeping",
-          "docs": 383
+          "docs": 65
         },
         {
           "phrase": "fall",
-          "docs": 350
-        },
-        {
-          "phrase": "bed",
-          "docs": 348
-        },
-        {
-          "phrase": "fall asleep",
-          "docs": 332
+          "docs": 55
         },
         {
           "phrase": "insomnia",
-          "docs": 307
+          "docs": 55
+        },
+        {
+          "phrase": "sleeping",
+          "docs": 54
+        },
+        {
+          "phrase": "fall asleep",
+          "docs": 52
+        },
+        {
+          "phrase": "wake",
+          "docs": 46
+        },
+        {
+          "phrase": "bed",
+          "docs": 45
+        },
+        {
+          "phrase": "else",
+          "docs": 42
         },
         {
           "phrase": "every",
-          "docs": 300
-        },
-        {
-          "phrase": "tired",
-          "docs": 261
+          "docs": 41
         }
       ],
       "top_subreddits": [
         {
           "subreddit": "sleep",
-          "authors": 838
+          "authors": 99
         },
         {
           "subreddit": "insomnia",
-          "authors": 532
+          "authors": 95
         }
       ],
-      "safety_flagged_count": 138
+      "safety_flagged_count": 0
     },
     {
       "name": "clinical",
       "tier": "3",
       "version": 1,
       "outreach_policy": "earned_only",
-      "unique_authors": 2733,
+      "unique_authors": 378,
       "qualified_authors": 0,
       "avg_composite": null,
       "avg_signal_density": null,
@@ -548,69 +548,69 @@
       "top_phrases": [
         {
           "phrase": "life",
-          "docs": 1128
-        },
-        {
-          "phrase": "don",
-          "docs": 751
-        },
-        {
-          "phrase": "since",
-          "docs": 749
+          "docs": 140
         },
         {
           "phrase": "away",
-          "docs": 694
+          "docs": 92
+        },
+        {
+          "phrase": "don",
+          "docs": 85
+        },
+        {
+          "phrase": "since",
+          "docs": 82
         },
         {
           "phrase": "every",
-          "docs": 673
-        },
-        {
-          "phrase": "family",
-          "docs": 647
-        },
-        {
-          "phrase": "mom",
-          "docs": 639
-        },
-        {
-          "phrase": "lost",
-          "docs": 600
-        },
-        {
-          "phrase": "around",
-          "docs": 599
-        },
-        {
-          "phrase": "dad",
-          "docs": 571
+          "docs": 80
         },
         {
           "phrase": "having",
-          "docs": 570
+          "docs": 77
+        },
+        {
+          "phrase": "around",
+          "docs": 76
+        },
+        {
+          "phrase": "right",
+          "docs": 75
+        },
+        {
+          "phrase": "person",
+          "docs": 72
+        },
+        {
+          "phrase": "happened",
+          "docs": 70
+        },
+        {
+          "phrase": "say",
+          "docs": 69
         },
         {
           "phrase": "else",
-          "docs": 570
+          "docs": 67
         }
       ],
       "top_subreddits": [
         {
           "subreddit": "GriefSupport",
-          "authors": 1100
-        },
-        {
-          "subreddit": "CPTSD",
-          "authors": 1087
-        },
-        {
-          "subreddit": "PTSD",
-          "authors": 427
+          "authors": 99
         },
         {
           "subreddit": "Nightmares",
-          "authors": 152
+          "authors": 97
+        },
+        {
+          "subreddit": "PTSD",
+          "authors": 94
+        },
+        {
+          "subreddit": "CPTSD",
+          "authors": 92
         }
       ],
       "safety_flagged_count": 0
@@ -643,86 +643,86 @@
     "measured": [
       {
         "segment": "biohackers",
-        "count": 30,
-        "share": 0.2913
+        "count": 23,
+        "share": 0.5111
       },
       {
         "segment": "lucid",
-        "count": 17,
-        "share": 0.165
+        "count": 4,
+        "share": 0.0889
       },
       {
         "segment": "consciousness",
-        "count": 17,
-        "share": 0.165
+        "count": 10,
+        "share": 0.2222
       },
       {
         "segment": "creatives",
-        "count": 25,
-        "share": 0.2427
+        "count": 5,
+        "share": 0.1111
       },
       {
         "segment": "sleep_general",
-        "count": 14,
-        "share": 0.1359
+        "count": 3,
+        "share": 0.0667
       }
     ]
   },
   "messaging_atlas": {
     "biohackers": [
       {
+        "phrase": "data",
+        "docs": 90,
+        "distinctiveness": 225.37,
+        "classification": "aspiration",
+        "shared_with_n_segments": 0
+      },
+      {
         "phrase": "sleep",
-        "docs": 545,
-        "distinctiveness": 865.34,
+        "docs": 144,
+        "distinctiveness": 202.39,
         "classification": "neutral",
-        "shared_with_n_segments": 3
+        "shared_with_n_segments": 4
+      },
+      {
+        "phrase": "tracking",
+        "docs": 71,
+        "distinctiveness": 177.79,
+        "classification": "aspiration",
+        "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "app",
+        "docs": 69,
+        "distinctiveness": 172.78,
+        "classification": "neutral",
+        "shared_with_n_segments": 0
       },
       {
         "phrase": "whoop",
-        "docs": 343,
-        "distinctiveness": 858.9,
+        "docs": 67,
+        "distinctiveness": 167.77,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "oura",
-        "docs": 333,
-        "distinctiveness": 833.86,
+        "docs": 64,
+        "distinctiveness": 160.26,
         "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "data",
-        "docs": 323,
-        "distinctiveness": 808.82,
-        "classification": "aspiration",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "ring",
-        "docs": 305,
-        "distinctiveness": 763.74,
+        "docs": 61,
+        "distinctiveness": 152.75,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
-        "phrase": "health",
-        "docs": 243,
-        "distinctiveness": 608.49,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "app",
-        "docs": 228,
-        "distinctiveness": 570.93,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "high",
-        "docs": 199,
-        "distinctiveness": 498.31,
+        "phrase": "pod",
+        "docs": 55,
+        "distinctiveness": 137.72,
         "classification": "neutral",
         "shared_with_n_segments": 0
       }
@@ -730,231 +730,231 @@
     "clinical": [
       {
         "phrase": "lost",
-        "docs": 600,
-        "distinctiveness": 1502.45,
+        "docs": 66,
+        "distinctiveness": 165.27,
         "classification": "pain",
         "shared_with_n_segments": 0
       },
       {
-        "phrase": "dad",
-        "docs": 571,
-        "distinctiveness": 1429.83,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "family",
-        "docs": 647,
-        "distinctiveness": 1357.8,
-        "classification": "neutral",
-        "shared_with_n_segments": 1
-      },
-      {
-        "phrase": "mom",
-        "docs": 639,
-        "distinctiveness": 1341.01,
-        "classification": "neutral",
-        "shared_with_n_segments": 1
-      },
-      {
-        "phrase": "friends",
-        "docs": 506,
-        "distinctiveness": 1267.06,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "trauma",
-        "docs": 498,
-        "distinctiveness": 1247.03,
-        "classification": "pain",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "died",
-        "docs": 472,
-        "distinctiveness": 1181.92,
+        "phrase": "ptsd",
+        "docs": 64,
+        "distinctiveness": 160.26,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "life",
-        "docs": 1128,
-        "distinctiveness": 1128.0,
+        "docs": 140,
+        "distinctiveness": 156.49,
         "classification": "neutral",
-        "shared_with_n_segments": 7
+        "shared_with_n_segments": 6
+      },
+      {
+        "phrase": "happened",
+        "docs": 70,
+        "distinctiveness": 146.9,
+        "classification": "neutral",
+        "shared_with_n_segments": 1
+      },
+      {
+        "phrase": "scared",
+        "docs": 58,
+        "distinctiveness": 145.24,
+        "classification": "pain",
+        "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "friends",
+        "docs": 58,
+        "distinctiveness": 145.24,
+        "classification": "neutral",
+        "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "nightmare",
+        "docs": 58,
+        "distinctiveness": 145.24,
+        "classification": "pain",
+        "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "mom",
+        "docs": 66,
+        "distinctiveness": 138.51,
+        "classification": "neutral",
+        "shared_with_n_segments": 1
       }
     ],
     "consciousness": [
       {
-        "phrase": "meditation",
-        "docs": 257,
-        "distinctiveness": 643.55,
-        "classification": "aspiration",
-        "shared_with_n_segments": 0
-      },
-      {
         "phrase": "experience",
-        "docs": 171,
-        "distinctiveness": 309.67,
+        "docs": 83,
+        "distinctiveness": 174.18,
         "classification": "neutral",
-        "shared_with_n_segments": 2
+        "shared_with_n_segments": 1
       },
       {
-        "phrase": "thoughts",
-        "docs": 108,
-        "distinctiveness": 270.44,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "meditating",
-        "docs": 99,
-        "distinctiveness": 247.9,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "focus",
-        "docs": 88,
-        "distinctiveness": 220.36,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "practice",
-        "docs": 86,
-        "distinctiveness": 215.35,
+        "phrase": "meditation",
+        "docs": 69,
+        "distinctiveness": 172.78,
         "classification": "aspiration",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "microdosing",
-        "docs": 86,
-        "distinctiveness": 215.35,
+        "docs": 46,
+        "distinctiveness": 115.19,
+        "classification": "neutral",
+        "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "trip",
+        "docs": 44,
+        "distinctiveness": 110.18,
+        "classification": "neutral",
+        "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "thoughts",
+        "docs": 42,
+        "distinctiveness": 105.17,
+        "classification": "neutral",
+        "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "experiences",
+        "docs": 40,
+        "distinctiveness": 100.16,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "meditate",
-        "docs": 84,
-        "distinctiveness": 210.34,
+        "docs": 35,
+        "distinctiveness": 87.64,
+        "classification": "neutral",
+        "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "psilocybin",
+        "docs": 33,
+        "distinctiveness": 82.63,
         "classification": "neutral",
         "shared_with_n_segments": 0
       }
     ],
     "creatives": [
       {
-        "phrase": "story",
-        "docs": 330,
-        "distinctiveness": 826.35,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "book",
-        "docs": 224,
-        "distinctiveness": 560.91,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
         "phrase": "art",
-        "docs": 222,
-        "distinctiveness": 555.91,
+        "docs": 54,
+        "distinctiveness": 135.22,
+        "classification": "neutral",
+        "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "story",
+        "docs": 40,
+        "distinctiveness": 100.16,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "song",
-        "docs": 220,
-        "distinctiveness": 550.9,
+        "docs": 40,
+        "distinctiveness": 100.16,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
-        "phrase": "idea",
-        "docs": 195,
-        "distinctiveness": 488.3,
+        "phrase": "drawing",
+        "docs": 29,
+        "distinctiveness": 72.62,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
-        "phrase": "character",
-        "docs": 188,
-        "distinctiveness": 470.77,
+        "phrase": "wondering",
+        "docs": 28,
+        "distinctiveness": 70.11,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
-        "phrase": "read",
-        "docs": 178,
-        "distinctiveness": 445.73,
+        "phrase": "feedback",
+        "docs": 27,
+        "distinctiveness": 67.61,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
-        "phrase": "characters",
-        "docs": 159,
-        "distinctiveness": 398.15,
+        "phrase": "artists",
+        "docs": 25,
+        "distinctiveness": 62.6,
         "classification": "neutral",
         "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "advice",
+        "docs": 29,
+        "distinctiveness": 60.86,
+        "classification": "neutral",
+        "shared_with_n_segments": 1
       }
     ],
     "lucid": [
       {
         "phrase": "dream",
-        "docs": 1568,
-        "distinctiveness": 3926.39,
+        "docs": 235,
+        "distinctiveness": 493.17,
+        "classification": "aspiration",
+        "shared_with_n_segments": 1
+      },
+      {
+        "phrase": "dreams",
+        "docs": 117,
+        "distinctiveness": 292.98,
         "classification": "aspiration",
         "shared_with_n_segments": 0
       },
       {
-        "phrase": "dreams",
-        "docs": 842,
-        "distinctiveness": 2108.43,
+        "phrase": "lucid",
+        "docs": 82,
+        "distinctiveness": 205.33,
         "classification": "aspiration",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "woke",
-        "docs": 576,
-        "distinctiveness": 1442.35,
+        "docs": 82,
+        "distinctiveness": 205.33,
         "classification": "pain",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "remember",
-        "docs": 535,
-        "distinctiveness": 1339.68,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "lucid",
-        "docs": 456,
-        "distinctiveness": 1141.86,
-        "classification": "aspiration",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "dreaming",
-        "docs": 450,
-        "distinctiveness": 1126.83,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "real",
-        "docs": 414,
-        "distinctiveness": 868.83,
+        "docs": 78,
+        "distinctiveness": 163.69,
         "classification": "neutral",
         "shared_with_n_segments": 1
       },
       {
+        "phrase": "dreaming",
+        "docs": 65,
+        "distinctiveness": 162.77,
+        "classification": "neutral",
+        "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "lucid dream",
+        "docs": 44,
+        "distinctiveness": 148.74,
+        "classification": "aspiration",
+        "shared_with_n_segments": 0
+      },
+      {
         "phrase": "weird",
-        "docs": 346,
-        "distinctiveness": 866.41,
+        "docs": 55,
+        "distinctiveness": 137.72,
         "classification": "neutral",
         "shared_with_n_segments": 0
       }
@@ -962,57 +962,57 @@
     "perimenopause": [
       {
         "phrase": "hrt",
-        "docs": 413,
-        "distinctiveness": 1034.18,
+        "docs": 70,
+        "distinctiveness": 175.29,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "symptoms",
-        "docs": 318,
-        "distinctiveness": 796.3,
+        "docs": 57,
+        "distinctiveness": 142.73,
         "classification": "pain",
         "shared_with_n_segments": 0
       },
       {
-        "phrase": "progesterone",
-        "docs": 315,
-        "distinctiveness": 788.78,
+        "phrase": "estrogen",
+        "docs": 55,
+        "distinctiveness": 137.72,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
-        "phrase": "estrogen",
-        "docs": 308,
-        "distinctiveness": 771.26,
+        "phrase": "progesterone",
+        "docs": 53,
+        "distinctiveness": 132.72,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "patch",
-        "docs": 269,
-        "distinctiveness": 673.6,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "perimenopause",
-        "docs": 257,
-        "distinctiveness": 643.55,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "peri",
-        "docs": 233,
-        "distinctiveness": 583.45,
+        "docs": 47,
+        "distinctiveness": 117.69,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "period",
-        "docs": 229,
-        "distinctiveness": 573.43,
+        "docs": 37,
+        "distinctiveness": 92.65,
+        "classification": "neutral",
+        "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "peri",
+        "docs": 35,
+        "distinctiveness": 87.64,
+        "classification": "neutral",
+        "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "menopause",
+        "docs": 33,
+        "distinctiveness": 82.63,
         "classification": "neutral",
         "shared_with_n_segments": 0
       }
@@ -1020,117 +1020,117 @@
     "pregnancy": [
       {
         "phrase": "baby",
-        "docs": 1153,
-        "distinctiveness": 2887.2,
+        "docs": 106,
+        "distinctiveness": 265.43,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "pregnant",
-        "docs": 846,
-        "distinctiveness": 2118.45,
+        "docs": 80,
+        "distinctiveness": 200.33,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "pregnancy",
-        "docs": 778,
-        "distinctiveness": 1948.17,
+        "docs": 76,
+        "distinctiveness": 190.31,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "husband",
-        "docs": 559,
-        "distinctiveness": 1399.78,
+        "docs": 42,
+        "distinctiveness": 105.17,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
-        "phrase": "kids",
-        "docs": 395,
-        "distinctiveness": 989.11,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "mom",
-        "docs": 415,
-        "distinctiveness": 870.92,
+        "phrase": "advice",
+        "docs": 44,
+        "distinctiveness": 92.34,
         "classification": "neutral",
         "shared_with_n_segments": 1
       },
       {
-        "phrase": "second",
-        "docs": 335,
-        "distinctiveness": 838.87,
+        "phrase": "kids",
+        "docs": 36,
+        "distinctiveness": 90.15,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
-        "phrase": "currently",
-        "docs": 324,
-        "distinctiveness": 811.32,
+        "phrase": "second",
+        "docs": 34,
+        "distinctiveness": 85.14,
         "classification": "neutral",
         "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "normal",
+        "docs": 40,
+        "distinctiveness": 83.94,
+        "classification": "neutral",
+        "shared_with_n_segments": 1
       }
     ],
     "sleep_general": [
       {
         "phrase": "sleep",
-        "docs": 1090,
-        "distinctiveness": 1730.69,
+        "docs": 162,
+        "distinctiveness": 227.69,
         "classification": "neutral",
-        "shared_with_n_segments": 3
+        "shared_with_n_segments": 4
       },
       {
         "phrase": "asleep",
-        "docs": 476,
-        "distinctiveness": 1191.94,
+        "docs": 72,
+        "distinctiveness": 180.29,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "fall asleep",
-        "docs": 332,
-        "distinctiveness": 1122.33,
+        "docs": 52,
+        "distinctiveness": 175.79,
         "classification": "neutral",
+        "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "fall",
+        "docs": 55,
+        "distinctiveness": 137.72,
+        "classification": "neutral",
+        "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "insomnia",
+        "docs": 55,
+        "distinctiveness": 137.72,
+        "classification": "pain",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "sleeping",
-        "docs": 383,
-        "distinctiveness": 959.06,
+        "docs": 54,
+        "distinctiveness": 135.22,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
-        "phrase": "night",
-        "docs": 579,
-        "distinctiveness": 919.33,
+        "phrase": "hours",
+        "docs": 65,
+        "distinctiveness": 117.71,
         "classification": "neutral",
-        "shared_with_n_segments": 3
-      },
-      {
-        "phrase": "fall",
-        "docs": 350,
-        "distinctiveness": 876.43,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
+        "shared_with_n_segments": 2
       },
       {
         "phrase": "bed",
-        "docs": 348,
-        "distinctiveness": 871.42,
+        "docs": 45,
+        "distinctiveness": 112.68,
         "classification": "neutral",
         "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "wake",
-        "docs": 407,
-        "distinctiveness": 854.14,
-        "classification": "pain",
-        "shared_with_n_segments": 1
       }
     ]
   },
@@ -1147,62 +1147,34 @@
     ],
     "pairs": [
       {
-        "a": "biohackers",
-        "b": "perimenopause",
-        "shared_count": 4,
+        "a": "clinical",
+        "b": "lucid",
+        "shared_count": 6,
         "examples": [
-          "low",
-          "experience",
-          "night",
-          "sleep"
-        ]
-      },
-      {
-        "a": "biohackers",
-        "b": "sleep_general",
-        "shared_count": 3,
-        "examples": [
-          "hours",
-          "night",
+          "dream",
+          "happened",
+          "remember",
           "sleep"
         ]
       },
       {
         "a": "clinical",
         "b": "pregnancy",
-        "shared_count": 3,
+        "shared_count": 5,
         "examples": [
           "family",
           "mom",
-          "feels"
-        ]
-      },
-      {
-        "a": "consciousness",
-        "b": "lucid",
-        "shared_count": 3,
-        "examples": [
-          "almost",
-          "real",
-          "different"
+          "feels",
+          "night"
         ]
       },
       {
         "a": "lucid",
         "b": "sleep_general",
-        "shared_count": 3,
+        "shared_count": 5,
         "examples": [
           "wake",
-          "night",
-          "sleep"
-        ]
-      },
-      {
-        "a": "perimenopause",
-        "b": "sleep_general",
-        "shared_count": 3,
-        "examples": [
-          "anxiety",
+          "able",
           "sleep",
           "night"
         ]
@@ -1210,19 +1182,165 @@
       {
         "a": "biohackers",
         "b": "lucid",
-        "shared_count": 2,
+        "shared_count": 4,
         "examples": [
+          "different",
+          "sleep",
           "night",
-          "sleep"
+          "life"
         ]
       },
       {
         "a": "biohackers",
         "b": "pregnancy",
+        "shared_count": 4,
+        "examples": [
+          "pretty",
+          "hours",
+          "night",
+          "life"
+        ]
+      },
+      {
+        "a": "biohackers",
+        "b": "sleep_general",
+        "shared_count": 4,
+        "examples": [
+          "hours",
+          "sleep",
+          "night",
+          "life"
+        ]
+      },
+      {
+        "a": "clinical",
+        "b": "sleep_general",
+        "shared_count": 4,
+        "examples": [
+          "feels",
+          "sleep",
+          "night",
+          "life"
+        ]
+      },
+      {
+        "a": "perimenopause",
+        "b": "sleep_general",
+        "shared_count": 4,
+        "examples": [
+          "brain",
+          "sleep",
+          "night",
+          "life"
+        ]
+      },
+      {
+        "a": "pregnancy",
+        "b": "sleep_general",
+        "shared_count": 4,
+        "examples": [
+          "hours",
+          "feels",
+          "night",
+          "life"
+        ]
+      },
+      {
+        "a": "biohackers",
+        "b": "clinical",
+        "shared_count": 3,
+        "examples": [
+          "sleep",
+          "night",
+          "life"
+        ]
+      },
+      {
+        "a": "biohackers",
+        "b": "consciousness",
+        "shared_count": 3,
+        "examples": [
+          "experience",
+          "different",
+          "life"
+        ]
+      },
+      {
+        "a": "biohackers",
+        "b": "perimenopause",
+        "shared_count": 3,
+        "examples": [
+          "sleep",
+          "night",
+          "life"
+        ]
+      },
+      {
+        "a": "clinical",
+        "b": "perimenopause",
+        "shared_count": 3,
+        "examples": [
+          "sleep",
+          "night",
+          "life"
+        ]
+      },
+      {
+        "a": "consciousness",
+        "b": "lucid",
+        "shared_count": 3,
+        "examples": [
+          "real",
+          "different",
+          "life"
+        ]
+      },
+      {
+        "a": "consciousness",
+        "b": "pregnancy",
+        "shared_count": 3,
+        "examples": [
+          "almost",
+          "feels",
+          "life"
+        ]
+      },
+      {
+        "a": "lucid",
+        "b": "perimenopause",
+        "shared_count": 3,
+        "examples": [
+          "sleep",
+          "night",
+          "life"
+        ]
+      },
+      {
+        "a": "perimenopause",
+        "b": "pregnancy",
+        "shared_count": 3,
+        "examples": [
+          "normal",
+          "night",
+          "life"
+        ]
+      },
+      {
+        "a": "biohackers",
+        "b": "creatives",
         "shared_count": 2,
         "examples": [
-          "advice",
-          "hours"
+          "curious",
+          "different"
+        ]
+      },
+      {
+        "a": "clinical",
+        "b": "consciousness",
+        "shared_count": 2,
+        "examples": [
+          "feels",
+          "life"
         ]
       },
       {
@@ -1239,8 +1357,8 @@
         "b": "perimenopause",
         "shared_count": 2,
         "examples": [
-          "anxiety",
-          "experience"
+          "dose",
+          "life"
         ]
       },
       {
@@ -1248,8 +1366,8 @@
         "b": "sleep_general",
         "shared_count": 2,
         "examples": [
-          "brain",
-          "anxiety"
+          "feels",
+          "life"
         ]
       },
       {
@@ -1263,56 +1381,16 @@
       },
       {
         "a": "lucid",
-        "b": "perimenopause",
+        "b": "pregnancy",
         "shared_count": 2,
         "examples": [
           "night",
-          "sleep"
-        ]
-      },
-      {
-        "a": "biohackers",
-        "b": "consciousness",
-        "shared_count": 1,
-        "examples": [
-          "experience"
-        ]
-      },
-      {
-        "a": "biohackers",
-        "b": "creatives",
-        "shared_count": 1,
-        "examples": [
-          "advice"
-        ]
-      },
-      {
-        "a": "clinical",
-        "b": "consciousness",
-        "shared_count": 1,
-        "examples": [
-          "feels"
+          "life"
         ]
       },
       {
         "a": "clinical",
         "b": "creatives",
-        "shared_count": 1,
-        "examples": [
-          "feels"
-        ]
-      },
-      {
-        "a": "clinical",
-        "b": "lucid",
-        "shared_count": 1,
-        "examples": [
-          "happened"
-        ]
-      },
-      {
-        "a": "consciousness",
-        "b": "pregnancy",
         "shared_count": 1,
         "examples": [
           "feels"
@@ -1327,25 +1405,17 @@
         ]
       },
       {
-        "a": "perimenopause",
-        "b": "pregnancy",
-        "shared_count": 1,
-        "examples": [
-          "normal"
-        ]
-      },
-      {
-        "a": "pregnancy",
+        "a": "creatives",
         "b": "sleep_general",
         "shared_count": 1,
         "examples": [
-          "hours"
+          "feels"
         ]
       }
     ],
     "author_overlap": {
       "multi_segment_authors": 1,
-      "total_engaged_authors": 758,
+      "total_engaged_authors": 234,
       "note": "Authors almost never span multiple segments at composite >= 2.5. The adjacency signal is carried by shared language across audiences, not shared people."
     }
   },
@@ -1357,112 +1427,112 @@
     },
     "top": [
       {
-        "subreddit": "QuantifiedSelf",
-        "segment": "biohackers",
-        "unique_authors": 123,
-        "engaged_authors": 31,
-        "qualified_authors": 19,
-        "density_qualified": 0.1545,
-        "density_engaged": 0.252
-      },
-      {
-        "subreddit": "Psychonaut",
-        "segment": "consciousness",
-        "unique_authors": 108,
-        "engaged_authors": 16,
-        "qualified_authors": 10,
-        "density_qualified": 0.0926,
-        "density_engaged": 0.1481
+        "subreddit": "Perimenopause",
+        "segment": "perimenopause",
+        "unique_authors": 100,
+        "engaged_authors": 41,
+        "qualified_authors": 18,
+        "density_qualified": 0.18,
+        "density_engaged": 0.41
       },
       {
         "subreddit": "Menopause",
         "segment": "perimenopause",
-        "unique_authors": 521,
-        "engaged_authors": 81,
-        "qualified_authors": 30,
-        "density_qualified": 0.0576,
-        "density_engaged": 0.1555
+        "unique_authors": 97,
+        "engaged_authors": 34,
+        "qualified_authors": 14,
+        "density_qualified": 0.1443,
+        "density_engaged": 0.3505
       },
       {
-        "subreddit": "Perimenopause",
-        "segment": "perimenopause",
-        "unique_authors": 761,
-        "engaged_authors": 120,
-        "qualified_authors": 34,
-        "density_qualified": 0.0447,
-        "density_engaged": 0.1577
+        "subreddit": "QuantifiedSelf",
+        "segment": "biohackers",
+        "unique_authors": 82,
+        "engaged_authors": 22,
+        "qualified_authors": 11,
+        "density_qualified": 0.1341,
+        "density_engaged": 0.2683
+      },
+      {
+        "subreddit": "Psychonaut",
+        "segment": "consciousness",
+        "unique_authors": 96,
+        "engaged_authors": 14,
+        "qualified_authors": 9,
+        "density_qualified": 0.0938,
+        "density_engaged": 0.1458
       },
       {
         "subreddit": "LucidDreaming",
         "segment": "lucid",
-        "unique_authors": 478,
-        "engaged_authors": 48,
-        "qualified_authors": 18,
-        "density_qualified": 0.0377,
-        "density_engaged": 0.1004
+        "unique_authors": 91,
+        "engaged_authors": 11,
+        "qualified_authors": 4,
+        "density_qualified": 0.044,
+        "density_engaged": 0.1209
       },
       {
-        "subreddit": "microdosing",
-        "segment": "consciousness",
-        "unique_authors": 162,
-        "engaged_authors": 19,
-        "qualified_authors": 5,
-        "density_qualified": 0.0309,
-        "density_engaged": 0.1173
+        "subreddit": "Biohackers",
+        "segment": "biohackers",
+        "unique_authors": 95,
+        "engaged_authors": 9,
+        "qualified_authors": 4,
+        "density_qualified": 0.0421,
+        "density_engaged": 0.0947
       },
       {
         "subreddit": "Eightsleep",
         "segment": "biohackers",
-        "unique_authors": 141,
-        "engaged_authors": 14,
-        "qualified_authors": 4,
-        "density_qualified": 0.0284,
-        "density_engaged": 0.0993
+        "unique_authors": 93,
+        "engaged_authors": 10,
+        "qualified_authors": 3,
+        "density_qualified": 0.0323,
+        "density_engaged": 0.1075
       },
       {
         "subreddit": "writing",
         "segment": "creatives",
-        "unique_authors": 827,
-        "engaged_authors": 81,
-        "qualified_authors": 20,
-        "density_qualified": 0.0242,
-        "density_engaged": 0.0979
+        "unique_authors": 97,
+        "engaged_authors": 18,
+        "qualified_authors": 3,
+        "density_qualified": 0.0309,
+        "density_engaged": 0.1856
+      },
+      {
+        "subreddit": "OuraRing",
+        "segment": "biohackers",
+        "unique_authors": 99,
+        "engaged_authors": 4,
+        "qualified_authors": 3,
+        "density_qualified": 0.0303,
+        "density_engaged": 0.0404
       },
       {
         "subreddit": "insomnia",
         "segment": "sleep_general",
-        "unique_authors": 532,
-        "engaged_authors": 28,
-        "qualified_authors": 10,
-        "density_qualified": 0.0188,
-        "density_engaged": 0.0526
+        "unique_authors": 95,
+        "engaged_authors": 9,
+        "qualified_authors": 2,
+        "density_qualified": 0.0211,
+        "density_engaged": 0.0947
       },
       {
-        "subreddit": "pregnant",
-        "segment": "pregnancy",
-        "unique_authors": 1137,
-        "engaged_authors": 131,
-        "qualified_authors": 18,
-        "density_qualified": 0.0158,
-        "density_engaged": 0.1152
+        "subreddit": "whoop",
+        "segment": "biohackers",
+        "unique_authors": 98,
+        "engaged_authors": 5,
+        "qualified_authors": 2,
+        "density_qualified": 0.0204,
+        "density_engaged": 0.051
       },
       {
         "subreddit": "BabyBumps",
         "segment": "pregnancy",
-        "unique_authors": 861,
-        "engaged_authors": 82,
-        "qualified_authors": 12,
-        "density_qualified": 0.0139,
-        "density_engaged": 0.0952
-      },
-      {
-        "subreddit": "Songwriting",
-        "segment": "creatives",
-        "unique_authors": 419,
-        "engaged_authors": 21,
-        "qualified_authors": 5,
-        "density_qualified": 0.0119,
-        "density_engaged": 0.0501
+        "unique_authors": 100,
+        "engaged_authors": 15,
+        "qualified_authors": 2,
+        "density_qualified": 0.02,
+        "density_engaged": 0.15
       }
     ],
     "note": "Ranked by qualified-author density, not post volume. Subreddits with fewer than 10 unique authors excluded."
@@ -1632,69 +1702,6 @@
         "activation_hook": "Position DUST not as another sleep aid but as a guided mental protocol that gives their racing mind somewhere to go \u2014 a structured 'what to do when you can't sleep' practice, not another hygiene rule."
       }
     },
-    "errors": {
-      "clinical": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CabakR91b7ycAEHHUpPE6'}",
-      "biohackers": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CabakRwNyirUtX6Y1a8Ru'}",
-      "perimenopause": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CabakShmRENA2Dgto9gFV'}",
-      "pregnancy": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CabakTTf3zXZqvuVpi6aj'}",
-      "lucid": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CabakULVZCU2td3NuHi5a'}",
-      "consciousness": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CabakV7NaKmQb8jYcBSSM'}",
-      "creatives": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CabakVs29uQvucoYefeeU'}",
-      "sleep_general": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CabakWbRW5zmWFJnaScYu'}"
-    },
-    "generated_at": 1777626354
-  },
-  "measured_rubric": {
-    "generated_at": 1777626352,
-    "segments": {
-      "biohackers": {
-        "pain": 1.0,
-        "viral": 4.47,
-        "fit": 3.77,
-        "n_scored": 68
-      },
-      "clinical": {
-        "pain": 2.0,
-        "viral": 2.6,
-        "fit": null,
-        "n_scored": 0
-      },
-      "consciousness": {
-        "pain": 1.0,
-        "viral": 4.2,
-        "fit": 4.02,
-        "n_scored": 45
-      },
-      "creatives": {
-        "pain": 1.0,
-        "viral": 2.87,
-        "fit": 4.05,
-        "n_scored": 40
-      },
-      "lucid": {
-        "pain": 1.5,
-        "viral": 4.2,
-        "fit": 4.06,
-        "n_scored": 34
-      },
-      "perimenopause": {
-        "pain": 1.5,
-        "viral": 4.2,
-        "fit": 4.27,
-        "n_scored": 82
-      },
-      "pregnancy": {
-        "pain": 1.0,
-        "viral": 3.67,
-        "fit": 4.14,
-        "n_scored": 36
-      },
-      "sleep_general": {
-        "pain": 1.5,
-        "viral": 4.2,
-        "fit": 4.13,
-        "n_scored": 34
-      }
-    }
+    "errors": {}
   }
 }
