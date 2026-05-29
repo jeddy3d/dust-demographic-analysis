@@ -1,546 +1,546 @@
 {
-  "generated_at": "2026-05-28T10:19:20Z",
-  "as_of": "2026-05-28",
+  "generated_at": "2026-05-29T09:03:52Z",
+  "as_of": "2026-05-29",
   "schema_version": 2,
   "segments": [
     {
       "name": "biohackers",
       "tier": "1",
-      "version": 3,
+      "version": 2,
       "outreach_policy": "candidate",
-      "unique_authors": 6076,
-      "qualified_authors": 47,
-      "avg_composite": 1.5136454487587523,
-      "avg_signal_density": 1.9624443029917251,
-      "avg_representativeness": 1.3946530872056015,
+      "unique_authors": 553,
+      "qualified_authors": 21,
+      "avg_composite": 1.5566666666666666,
+      "avg_signal_density": 1.682170542635659,
+      "avg_representativeness": 1.5271317829457365,
       "top_phrases": [
         {
           "phrase": "sleep",
-          "docs": 1246
-        },
-        {
-          "phrase": "whoop",
-          "docs": 897
-        },
-        {
-          "phrase": "oura",
-          "docs": 822
-        },
-        {
-          "phrase": "ring",
-          "docs": 803
-        },
-        {
-          "phrase": "else",
-          "docs": 741
+          "docs": 144
         },
         {
           "phrase": "data",
-          "docs": 688
+          "docs": 90
+        },
+        {
+          "phrase": "tracking",
+          "docs": 71
+        },
+        {
+          "phrase": "else",
+          "docs": 69
+        },
+        {
+          "phrase": "app",
+          "docs": 69
+        },
+        {
+          "phrase": "whoop",
+          "docs": 67
+        },
+        {
+          "phrase": "oura",
+          "docs": 64
         },
         {
           "phrase": "since",
-          "docs": 612
+          "docs": 62
         },
         {
-          "phrase": "around",
-          "docs": 607
+          "phrase": "ring",
+          "docs": 61
         },
         {
           "phrase": "every",
-          "docs": 603
+          "docs": 60
         },
         {
-          "phrase": "experience",
-          "docs": 588
+          "phrase": "without",
+          "docs": 57
         },
         {
-          "phrase": "health",
-          "docs": 585
-        },
-        {
-          "phrase": "long",
-          "docs": 584
+          "phrase": "pod",
+          "docs": 55
         }
       ],
       "top_subreddits": [
         {
-          "subreddit": "Biohackers",
-          "authors": 2564
-        },
-        {
           "subreddit": "OuraRing",
-          "authors": 1456
+          "authors": 99
         },
         {
           "subreddit": "whoop",
-          "authors": 1251
+          "authors": 98
         },
         {
-          "subreddit": "Nootropics",
-          "authors": 545
+          "subreddit": "Biohackers",
+          "authors": 95
         },
         {
           "subreddit": "Eightsleep",
-          "authors": 220
+          "authors": 93
+        },
+        {
+          "subreddit": "Nootropics",
+          "authors": 91
         }
       ],
-      "safety_flagged_count": 141
+      "safety_flagged_count": 0
     },
     {
       "name": "lucid",
       "tier": "1",
-      "version": 4,
+      "version": 2,
       "outreach_policy": "candidate",
-      "unique_authors": 5001,
-      "qualified_authors": 25,
-      "avg_composite": 1.1765373998219057,
-      "avg_signal_density": 2.0556544968833483,
-      "avg_representativeness": 1.1861086375779164,
+      "unique_authors": 276,
+      "qualified_authors": 4,
+      "avg_composite": 1.235867924528302,
+      "avg_signal_density": 1.830188679245283,
+      "avg_representativeness": 1.271698113207547,
       "top_phrases": [
         {
           "phrase": "dream",
-          "docs": 4103
+          "docs": 235
         },
         {
           "phrase": "dreams",
-          "docs": 2307
-        },
-        {
-          "phrase": "woke",
-          "docs": 1547
-        },
-        {
-          "phrase": "remember",
-          "docs": 1432
-        },
-        {
-          "phrase": "night",
-          "docs": 1353
-        },
-        {
-          "phrase": "real",
-          "docs": 1174
-        },
-        {
-          "phrase": "life",
-          "docs": 1168
-        },
-        {
-          "phrase": "dreaming",
-          "docs": 1167
-        },
-        {
-          "phrase": "around",
-          "docs": 1128
+          "docs": 117
         },
         {
           "phrase": "lucid",
-          "docs": 1076
+          "docs": 82
         },
         {
-          "phrase": "wake",
-          "docs": 1008
+          "phrase": "woke",
+          "docs": 82
+        },
+        {
+          "phrase": "remember",
+          "docs": 78
+        },
+        {
+          "phrase": "life",
+          "docs": 69
+        },
+        {
+          "phrase": "dreaming",
+          "docs": 65
+        },
+        {
+          "phrase": "night",
+          "docs": 64
+        },
+        {
+          "phrase": "sleep",
+          "docs": 57
+        },
+        {
+          "phrase": "around",
+          "docs": 55
         },
         {
           "phrase": "weird",
-          "docs": 984
+          "docs": 55
+        },
+        {
+          "phrase": "real",
+          "docs": 55
         }
       ],
       "top_subreddits": [
         {
+          "subreddit": "DreamInterpretation",
+          "authors": 98
+        },
+        {
           "subreddit": "Dreams",
-          "authors": 3350
+          "authors": 97
         },
         {
           "subreddit": "LucidDreaming",
-          "authors": 1130
-        },
-        {
-          "subreddit": "DreamInterpretation",
-          "authors": 859
+          "authors": 91
         }
       ],
-      "safety_flagged_count": 375
+      "safety_flagged_count": 0
     },
     {
       "name": "perimenopause",
       "tier": "1",
-      "version": 3,
+      "version": 2,
       "outreach_policy": "messaging_only",
-      "unique_authors": 2880,
-      "qualified_authors": 95,
-      "avg_composite": 1.8997918118466897,
-      "avg_signal_density": 2.549651567944251,
-      "avg_representativeness": 2.4825783972125435,
+      "unique_authors": 196,
+      "qualified_authors": 32,
+      "avg_composite": 2.1187357512953366,
+      "avg_signal_density": 2.4196891191709846,
+      "avg_representativeness": 2.844559585492228,
       "top_phrases": [
         {
           "phrase": "hrt",
-          "docs": 1034
+          "docs": 70
         },
         {
           "phrase": "symptoms",
-          "docs": 797
-        },
-        {
-          "phrase": "progesterone",
-          "docs": 773
-        },
-        {
-          "phrase": "else",
-          "docs": 755
+          "docs": 57
         },
         {
           "phrase": "estrogen",
-          "docs": 743
+          "docs": 55
+        },
+        {
+          "phrase": "progesterone",
+          "docs": 53
         },
         {
           "phrase": "patch",
-          "docs": 647
+          "docs": 47
         },
         {
-          "phrase": "perimenopause",
-          "docs": 629
-        },
-        {
-          "phrase": "having",
-          "docs": 595
-        },
-        {
-          "phrase": "peri",
-          "docs": 589
-        },
-        {
-          "phrase": "menopause",
-          "docs": 567
+          "phrase": "else",
+          "docs": 40
         },
         {
           "phrase": "period",
-          "docs": 564
+          "docs": 37
         },
         {
-          "phrase": "night",
-          "docs": 557
+          "phrase": "peri",
+          "docs": 35
+        },
+        {
+          "phrase": "dose",
+          "docs": 34
+        },
+        {
+          "phrase": "since",
+          "docs": 34
+        },
+        {
+          "phrase": "every",
+          "docs": 34
+        },
+        {
+          "phrase": "menopause",
+          "docs": 33
         }
       ],
       "top_subreddits": [
         {
           "subreddit": "Perimenopause",
-          "authors": 1786
+          "authors": 100
         },
         {
           "subreddit": "Menopause",
-          "authors": 1197
+          "authors": 97
         }
       ],
-      "safety_flagged_count": 176
+      "safety_flagged_count": 0
     },
     {
       "name": "pregnancy",
       "tier": "1",
-      "version": 3,
+      "version": 2,
       "outreach_policy": "messaging_only",
-      "unique_authors": 7145,
-      "qualified_authors": 79,
-      "avg_composite": 1.57675,
-      "avg_signal_density": 2.674019607843137,
-      "avg_representativeness": 2.1411064425770308,
+      "unique_authors": 295,
+      "qualified_authors": 2,
+      "avg_composite": 1.481730215827338,
+      "avg_signal_density": 2.1043165467625897,
+      "avg_representativeness": 1.9460431654676258,
       "top_phrases": [
         {
           "phrase": "baby",
-          "docs": 3035
+          "docs": 106
         },
         {
           "phrase": "pregnant",
-          "docs": 2278
+          "docs": 80
         },
         {
           "phrase": "pregnancy",
-          "docs": 2084
-        },
-        {
-          "phrase": "don",
-          "docs": 1923
+          "docs": 76
         },
         {
           "phrase": "having",
-          "docs": 1632
+          "docs": 64
         },
         {
-          "phrase": "husband",
-          "docs": 1589
+          "phrase": "don",
+          "docs": 61
         },
         {
           "phrase": "since",
-          "docs": 1434
+          "docs": 45
+        },
+        {
+          "phrase": "advice",
+          "docs": 44
         },
         {
           "phrase": "else",
-          "docs": 1423
+          "docs": 43
         },
         {
           "phrase": "around",
-          "docs": 1420
+          "docs": 43
         },
         {
-          "phrase": "right",
-          "docs": 1231
+          "phrase": "well",
+          "docs": 42
         },
         {
-          "phrase": "mom",
-          "docs": 1209
+          "phrase": "husband",
+          "docs": 42
         },
         {
-          "phrase": "every",
-          "docs": 1136
+          "phrase": "home",
+          "docs": 41
         }
       ],
       "top_subreddits": [
         {
           "subreddit": "pregnant",
-          "authors": 2873
+          "authors": 100
         },
         {
           "subreddit": "Mommit",
-          "authors": 2419
+          "authors": 100
         },
         {
           "subreddit": "BabyBumps",
-          "authors": 2227
+          "authors": 100
         }
       ],
-      "safety_flagged_count": 710
+      "safety_flagged_count": 0
     },
     {
       "name": "consciousness",
       "tier": "2",
-      "version": 4,
+      "version": 2,
       "outreach_policy": "candidate",
-      "unique_authors": 1228,
-      "qualified_authors": 21,
-      "avg_composite": 1.413024013722127,
-      "avg_signal_density": 1.9862778730703259,
-      "avg_representativeness": 1.5454545454545454,
+      "unique_authors": 276,
+      "qualified_authors": 9,
+      "avg_composite": 1.4483062015503876,
+      "avg_signal_density": 2.0155038759689923,
+      "avg_representativeness": 1.810077519379845,
       "top_phrases": [
         {
-          "phrase": "meditation",
-          "docs": 561
-        },
-        {
           "phrase": "experience",
-          "docs": 306
+          "docs": 83
         },
         {
-          "phrase": "mind",
-          "docs": 279
+          "phrase": "meditation",
+          "docs": 69
         },
         {
           "phrase": "life",
-          "docs": 264
+          "docs": 51
         },
         {
-          "phrase": "thoughts",
-          "docs": 237
+          "phrase": "mind",
+          "docs": 46
+        },
+        {
+          "phrase": "microdosing",
+          "docs": 46
         },
         {
           "phrase": "body",
-          "docs": 230
+          "docs": 44
         },
         {
-          "phrase": "meditating",
-          "docs": 223
+          "phrase": "trip",
+          "docs": 44
         },
         {
-          "phrase": "practice",
-          "docs": 196
+          "phrase": "thoughts",
+          "docs": 42
         },
         {
-          "phrase": "else",
-          "docs": 184
+          "phrase": "long",
+          "docs": 41
         },
         {
-          "phrase": "right",
-          "docs": 182
+          "phrase": "experiences",
+          "docs": 40
         },
         {
-          "phrase": "meditate",
-          "docs": 179
+          "phrase": "every",
+          "docs": 38
         },
         {
-          "phrase": "focus",
-          "docs": 179
+          "phrase": "around",
+          "docs": 38
         }
       ],
       "top_subreddits": [
         {
           "subreddit": "meditation",
-          "authors": 838
-        },
-        {
-          "subreddit": "microdosing",
-          "authors": 263
+          "authors": 96
         },
         {
           "subreddit": "Psychonaut",
-          "authors": 132
+          "authors": 96
+        },
+        {
+          "subreddit": "microdosing",
+          "authors": 85
         }
       ],
-      "safety_flagged_count": 88
+      "safety_flagged_count": 0
     },
     {
       "name": "creatives",
       "tier": "2",
-      "version": 5,
+      "version": 2,
       "outreach_policy": "candidate",
-      "unique_authors": 4055,
-      "qualified_authors": 42,
-      "avg_composite": 1.8601321928460344,
-      "avg_signal_density": 2.146189735614308,
-      "avg_representativeness": 1.9688958009331259,
+      "unique_authors": 283,
+      "qualified_authors": 5,
+      "avg_composite": 1.8045413533834587,
+      "avg_signal_density": 1.736842105263158,
+      "avg_representativeness": 2.030075187969925,
       "top_phrases": [
         {
-          "phrase": "story",
-          "docs": 913
-        },
-        {
-          "phrase": "love",
-          "docs": 688
-        },
-        {
-          "phrase": "book",
-          "docs": 593
-        },
-        {
-          "phrase": "advice",
-          "docs": 569
-        },
-        {
           "phrase": "art",
-          "docs": 567
+          "docs": 54
         },
         {
-          "phrase": "character",
-          "docs": 533
+          "phrase": "story",
+          "docs": 40
         },
         {
           "phrase": "song",
-          "docs": 529
+          "docs": 40
         },
         {
-          "phrase": "idea",
-          "docs": 524
+          "phrase": "love",
+          "docs": 29
+        },
+        {
+          "phrase": "advice",
+          "docs": 29
         },
         {
           "phrase": "well",
-          "docs": 491
+          "docs": 29
         },
         {
-          "phrase": "characters",
-          "docs": 488
+          "phrase": "drawing",
+          "docs": 29
         },
         {
-          "phrase": "don",
-          "docs": 470
+          "phrase": "wondering",
+          "docs": 28
         },
         {
-          "phrase": "read",
-          "docs": 461
+          "phrase": "feedback",
+          "docs": 27
+        },
+        {
+          "phrase": "since",
+          "docs": 26
+        },
+        {
+          "phrase": "right",
+          "docs": 26
+        },
+        {
+          "phrase": "different",
+          "docs": 25
         }
       ],
       "top_subreddits": [
         {
           "subreddit": "writing",
-          "authors": 2183
+          "authors": 97
         },
         {
           "subreddit": "ArtistLounge",
-          "authors": 957
+          "authors": 97
         },
         {
           "subreddit": "Songwriting",
-          "authors": 927
+          "authors": 89
         }
       ],
-      "safety_flagged_count": 57
+      "safety_flagged_count": 0
     },
     {
       "name": "sleep_general",
       "tier": "2",
-      "version": 5,
+      "version": 2,
       "outreach_policy": "candidate",
-      "unique_authors": 3274,
-      "qualified_authors": 21,
-      "avg_composite": 1.2126469155844155,
-      "avg_signal_density": 2.13474025974026,
-      "avg_representativeness": 1.6112012987012987,
+      "unique_authors": 189,
+      "qualified_authors": 3,
+      "avg_composite": 1.1855405405405406,
+      "avg_signal_density": 2.2378378378378376,
+      "avg_representativeness": 1.7675675675675675,
       "top_phrases": [
         {
           "phrase": "sleep",
-          "docs": 2711
+          "docs": 162
         },
         {
           "phrase": "night",
-          "docs": 1480
+          "docs": 87
         },
         {
           "phrase": "asleep",
-          "docs": 1182
+          "docs": 72
         },
         {
           "phrase": "hours",
-          "docs": 1113
-        },
-        {
-          "phrase": "wake",
-          "docs": 1062
-        },
-        {
-          "phrase": "sleeping",
-          "docs": 944
-        },
-        {
-          "phrase": "bed",
-          "docs": 893
+          "docs": 65
         },
         {
           "phrase": "fall",
-          "docs": 871
-        },
-        {
-          "phrase": "fall asleep",
-          "docs": 818
-        },
-        {
-          "phrase": "every",
-          "docs": 768
+          "docs": 55
         },
         {
           "phrase": "insomnia",
-          "docs": 747
+          "docs": 55
         },
         {
-          "phrase": "tired",
-          "docs": 654
+          "phrase": "sleeping",
+          "docs": 54
+        },
+        {
+          "phrase": "fall asleep",
+          "docs": 52
+        },
+        {
+          "phrase": "wake",
+          "docs": 46
+        },
+        {
+          "phrase": "bed",
+          "docs": 45
+        },
+        {
+          "phrase": "else",
+          "docs": 42
+        },
+        {
+          "phrase": "every",
+          "docs": 41
         }
       ],
       "top_subreddits": [
         {
           "subreddit": "sleep",
-          "authors": 2199
+          "authors": 99
         },
         {
           "subreddit": "insomnia",
-          "authors": 1234
+          "authors": 95
         }
       ],
-      "safety_flagged_count": 332
+      "safety_flagged_count": 0
     },
     {
       "name": "clinical",
       "tier": "3",
       "version": 1,
       "outreach_policy": "earned_only",
-      "unique_authors": 6956,
+      "unique_authors": 378,
       "qualified_authors": 0,
       "avg_composite": null,
       "avg_signal_density": null,
@@ -548,69 +548,69 @@
       "top_phrases": [
         {
           "phrase": "life",
-          "docs": 3097
-        },
-        {
-          "phrase": "don",
-          "docs": 1986
-        },
-        {
-          "phrase": "since",
-          "docs": 1976
+          "docs": 140
         },
         {
           "phrase": "away",
-          "docs": 1838
+          "docs": 92
         },
         {
-          "phrase": "family",
-          "docs": 1794
+          "phrase": "don",
+          "docs": 85
+        },
+        {
+          "phrase": "since",
+          "docs": 82
         },
         {
           "phrase": "every",
-          "docs": 1723
+          "docs": 80
         },
         {
-          "phrase": "lost",
-          "docs": 1714
-        },
-        {
-          "phrase": "mom",
-          "docs": 1674
+          "phrase": "having",
+          "docs": 77
         },
         {
           "phrase": "around",
-          "docs": 1600
+          "docs": 76
+        },
+        {
+          "phrase": "right",
+          "docs": 75
         },
         {
           "phrase": "person",
-          "docs": 1538
+          "docs": 72
         },
         {
-          "phrase": "else",
-          "docs": 1505
+          "phrase": "happened",
+          "docs": 70
         },
         {
           "phrase": "say",
-          "docs": 1501
+          "docs": 69
+        },
+        {
+          "phrase": "else",
+          "docs": 67
         }
       ],
       "top_subreddits": [
         {
           "subreddit": "GriefSupport",
-          "authors": 3027
-        },
-        {
-          "subreddit": "CPTSD",
-          "authors": 2799
-        },
-        {
-          "subreddit": "PTSD",
-          "authors": 979
+          "authors": 99
         },
         {
           "subreddit": "Nightmares",
-          "authors": 259
+          "authors": 97
+        },
+        {
+          "subreddit": "PTSD",
+          "authors": 94
+        },
+        {
+          "subreddit": "CPTSD",
+          "authors": 92
         }
       ],
       "safety_flagged_count": 0
@@ -643,86 +643,86 @@
     "measured": [
       {
         "segment": "biohackers",
-        "count": 47,
-        "share": 0.3013
+        "count": 21,
+        "share": 0.5
       },
       {
         "segment": "lucid",
-        "count": 25,
-        "share": 0.1603
+        "count": 4,
+        "share": 0.0952
       },
       {
         "segment": "consciousness",
-        "count": 21,
-        "share": 0.1346
+        "count": 9,
+        "share": 0.2143
       },
       {
         "segment": "creatives",
-        "count": 42,
-        "share": 0.2692
+        "count": 5,
+        "share": 0.119
       },
       {
         "segment": "sleep_general",
-        "count": 21,
-        "share": 0.1346
+        "count": 3,
+        "share": 0.0714
       }
     ]
   },
   "messaging_atlas": {
     "biohackers": [
       {
+        "phrase": "data",
+        "docs": 90,
+        "distinctiveness": 225.37,
+        "classification": "aspiration",
+        "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "sleep",
+        "docs": 144,
+        "distinctiveness": 202.39,
+        "classification": "neutral",
+        "shared_with_n_segments": 4
+      },
+      {
+        "phrase": "tracking",
+        "docs": 71,
+        "distinctiveness": 177.79,
+        "classification": "aspiration",
+        "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "app",
+        "docs": 69,
+        "distinctiveness": 172.78,
+        "classification": "neutral",
+        "shared_with_n_segments": 0
+      },
+      {
         "phrase": "whoop",
-        "docs": 897,
-        "distinctiveness": 2246.16,
+        "docs": 67,
+        "distinctiveness": 167.77,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "oura",
-        "docs": 822,
-        "distinctiveness": 2058.35,
+        "docs": 64,
+        "distinctiveness": 160.26,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "ring",
-        "docs": 803,
-        "distinctiveness": 2010.77,
+        "docs": 61,
+        "distinctiveness": 152.75,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
-        "phrase": "sleep",
-        "docs": 1246,
-        "distinctiveness": 1978.38,
-        "classification": "neutral",
-        "shared_with_n_segments": 3
-      },
-      {
-        "phrase": "data",
-        "docs": 688,
-        "distinctiveness": 1722.81,
-        "classification": "aspiration",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "health",
-        "docs": 585,
-        "distinctiveness": 1464.89,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "app",
-        "docs": 548,
-        "distinctiveness": 1372.23,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "high",
-        "docs": 520,
-        "distinctiveness": 1302.12,
+        "phrase": "pod",
+        "docs": 55,
+        "distinctiveness": 137.72,
         "classification": "neutral",
         "shared_with_n_segments": 0
       }
@@ -730,231 +730,231 @@
     "clinical": [
       {
         "phrase": "lost",
-        "docs": 1714,
-        "distinctiveness": 4291.99,
+        "docs": 66,
+        "distinctiveness": 165.27,
         "classification": "pain",
         "shared_with_n_segments": 0
       },
       {
-        "phrase": "family",
-        "docs": 1794,
-        "distinctiveness": 3764.91,
+        "phrase": "ptsd",
+        "docs": 64,
+        "distinctiveness": 160.26,
+        "classification": "neutral",
+        "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "life",
+        "docs": 140,
+        "distinctiveness": 156.49,
+        "classification": "neutral",
+        "shared_with_n_segments": 6
+      },
+      {
+        "phrase": "happened",
+        "docs": 70,
+        "distinctiveness": 146.9,
         "classification": "neutral",
         "shared_with_n_segments": 1
       },
       {
-        "phrase": "dad",
-        "docs": 1470,
-        "distinctiveness": 3680.99,
+        "phrase": "scared",
+        "docs": 58,
+        "distinctiveness": 145.24,
+        "classification": "pain",
+        "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "friends",
+        "docs": 58,
+        "distinctiveness": 145.24,
         "classification": "neutral",
+        "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "nightmare",
+        "docs": 58,
+        "distinctiveness": 145.24,
+        "classification": "pain",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "mom",
-        "docs": 1674,
-        "distinctiveness": 3513.08,
+        "docs": 66,
+        "distinctiveness": 138.51,
         "classification": "neutral",
         "shared_with_n_segments": 1
-      },
-      {
-        "phrase": "friends",
-        "docs": 1378,
-        "distinctiveness": 3450.62,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "feels",
-        "docs": 1493,
-        "distinctiveness": 3133.23,
-        "classification": "neutral",
-        "shared_with_n_segments": 1
-      },
-      {
-        "phrase": "trauma",
-        "docs": 1250,
-        "distinctiveness": 3130.1,
-        "classification": "pain",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "died",
-        "docs": 1240,
-        "distinctiveness": 3105.06,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
       }
     ],
     "consciousness": [
       {
-        "phrase": "meditation",
-        "docs": 561,
-        "distinctiveness": 1404.79,
-        "classification": "aspiration",
-        "shared_with_n_segments": 0
-      },
-      {
         "phrase": "experience",
-        "docs": 306,
-        "distinctiveness": 642.18,
+        "docs": 83,
+        "distinctiveness": 174.18,
         "classification": "neutral",
         "shared_with_n_segments": 1
       },
       {
-        "phrase": "thoughts",
-        "docs": 237,
-        "distinctiveness": 593.47,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "meditating",
-        "docs": 223,
-        "distinctiveness": 558.41,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "practice",
-        "docs": 196,
-        "distinctiveness": 490.8,
+        "phrase": "meditation",
+        "docs": 69,
+        "distinctiveness": 172.78,
         "classification": "aspiration",
         "shared_with_n_segments": 0
       },
       {
+        "phrase": "microdosing",
+        "docs": 46,
+        "distinctiveness": 115.19,
+        "classification": "neutral",
+        "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "trip",
+        "docs": 44,
+        "distinctiveness": 110.18,
+        "classification": "neutral",
+        "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "thoughts",
+        "docs": 42,
+        "distinctiveness": 105.17,
+        "classification": "neutral",
+        "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "experiences",
+        "docs": 40,
+        "distinctiveness": 100.16,
+        "classification": "neutral",
+        "shared_with_n_segments": 0
+      },
+      {
         "phrase": "meditate",
-        "docs": 179,
-        "distinctiveness": 448.23,
+        "docs": 35,
+        "distinctiveness": 87.64,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
-        "phrase": "focus",
-        "docs": 179,
-        "distinctiveness": 448.23,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "minutes",
-        "docs": 154,
-        "distinctiveness": 385.63,
+        "phrase": "psilocybin",
+        "docs": 33,
+        "distinctiveness": 82.63,
         "classification": "neutral",
         "shared_with_n_segments": 0
       }
     ],
     "creatives": [
       {
-        "phrase": "story",
-        "docs": 913,
-        "distinctiveness": 2286.22,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "book",
-        "docs": 593,
-        "distinctiveness": 1484.92,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
         "phrase": "art",
-        "docs": 567,
-        "distinctiveness": 1419.81,
+        "docs": 54,
+        "distinctiveness": 135.22,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
-        "phrase": "character",
-        "docs": 533,
-        "distinctiveness": 1334.67,
+        "phrase": "story",
+        "docs": 40,
+        "distinctiveness": 100.16,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "song",
-        "docs": 529,
-        "distinctiveness": 1324.66,
+        "docs": 40,
+        "distinctiveness": 100.16,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
-        "phrase": "idea",
-        "docs": 524,
-        "distinctiveness": 1312.14,
+        "phrase": "drawing",
+        "docs": 29,
+        "distinctiveness": 72.62,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
-        "phrase": "characters",
-        "docs": 488,
-        "distinctiveness": 1221.99,
+        "phrase": "wondering",
+        "docs": 28,
+        "distinctiveness": 70.11,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
-        "phrase": "read",
-        "docs": 461,
-        "distinctiveness": 1154.38,
+        "phrase": "feedback",
+        "docs": 27,
+        "distinctiveness": 67.61,
         "classification": "neutral",
         "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "artists",
+        "docs": 25,
+        "distinctiveness": 62.6,
+        "classification": "neutral",
+        "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "advice",
+        "docs": 29,
+        "distinctiveness": 60.86,
+        "classification": "neutral",
+        "shared_with_n_segments": 1
       }
     ],
     "lucid": [
       {
         "phrase": "dream",
-        "docs": 4103,
-        "distinctiveness": 10274.23,
+        "docs": 235,
+        "distinctiveness": 493.17,
+        "classification": "aspiration",
+        "shared_with_n_segments": 1
+      },
+      {
+        "phrase": "dreams",
+        "docs": 117,
+        "distinctiveness": 292.98,
         "classification": "aspiration",
         "shared_with_n_segments": 0
       },
       {
-        "phrase": "dreams",
-        "docs": 2307,
-        "distinctiveness": 5776.91,
+        "phrase": "lucid",
+        "docs": 82,
+        "distinctiveness": 205.33,
         "classification": "aspiration",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "woke",
-        "docs": 1547,
-        "distinctiveness": 3873.81,
+        "docs": 82,
+        "distinctiveness": 205.33,
         "classification": "pain",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "remember",
-        "docs": 1432,
-        "distinctiveness": 3585.84,
+        "docs": 78,
+        "distinctiveness": 163.69,
         "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "real",
-        "docs": 1174,
-        "distinctiveness": 2939.79,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
+        "shared_with_n_segments": 1
       },
       {
         "phrase": "dreaming",
-        "docs": 1167,
-        "distinctiveness": 2922.26,
+        "docs": 65,
+        "distinctiveness": 162.77,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
-        "phrase": "lucid",
-        "docs": 1076,
-        "distinctiveness": 2694.39,
+        "phrase": "lucid dream",
+        "docs": 44,
+        "distinctiveness": 148.74,
         "classification": "aspiration",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "weird",
-        "docs": 984,
-        "distinctiveness": 2464.01,
+        "docs": 55,
+        "distinctiveness": 137.72,
         "classification": "neutral",
         "shared_with_n_segments": 0
       }
@@ -962,57 +962,57 @@
     "perimenopause": [
       {
         "phrase": "hrt",
-        "docs": 1034,
-        "distinctiveness": 2589.22,
+        "docs": 70,
+        "distinctiveness": 175.29,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "symptoms",
-        "docs": 797,
-        "distinctiveness": 1995.75,
+        "docs": 57,
+        "distinctiveness": 142.73,
         "classification": "pain",
         "shared_with_n_segments": 0
       },
       {
-        "phrase": "progesterone",
-        "docs": 773,
-        "distinctiveness": 1935.65,
+        "phrase": "estrogen",
+        "docs": 55,
+        "distinctiveness": 137.72,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
-        "phrase": "estrogen",
-        "docs": 743,
-        "distinctiveness": 1860.53,
+        "phrase": "progesterone",
+        "docs": 53,
+        "distinctiveness": 132.72,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "patch",
-        "docs": 647,
-        "distinctiveness": 1620.14,
+        "docs": 47,
+        "distinctiveness": 117.69,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
-        "phrase": "perimenopause",
-        "docs": 629,
-        "distinctiveness": 1575.06,
+        "phrase": "period",
+        "docs": 37,
+        "distinctiveness": 92.65,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "peri",
-        "docs": 589,
-        "distinctiveness": 1474.9,
+        "docs": 35,
+        "distinctiveness": 87.64,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "menopause",
-        "docs": 567,
-        "distinctiveness": 1419.81,
+        "docs": 33,
+        "distinctiveness": 82.63,
         "classification": "neutral",
         "shared_with_n_segments": 0
       }
@@ -1020,115 +1020,115 @@
     "pregnancy": [
       {
         "phrase": "baby",
-        "docs": 3035,
-        "distinctiveness": 7599.87,
+        "docs": 106,
+        "distinctiveness": 265.43,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "pregnant",
-        "docs": 2278,
-        "distinctiveness": 5704.29,
+        "docs": 80,
+        "distinctiveness": 200.33,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "pregnancy",
-        "docs": 2084,
-        "distinctiveness": 5218.5,
+        "docs": 76,
+        "distinctiveness": 190.31,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "husband",
-        "docs": 1589,
-        "distinctiveness": 3978.98,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "mom",
-        "docs": 1209,
-        "distinctiveness": 2537.22,
-        "classification": "neutral",
-        "shared_with_n_segments": 1
-      },
-      {
-        "phrase": "kids",
-        "docs": 999,
-        "distinctiveness": 2501.57,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "second",
-        "docs": 903,
-        "distinctiveness": 2261.18,
+        "docs": 42,
+        "distinctiveness": 105.17,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "advice",
-        "docs": 1109,
-        "distinctiveness": 2008.32,
+        "docs": 44,
+        "distinctiveness": 92.34,
         "classification": "neutral",
-        "shared_with_n_segments": 2
+        "shared_with_n_segments": 1
+      },
+      {
+        "phrase": "kids",
+        "docs": 36,
+        "distinctiveness": 90.15,
+        "classification": "neutral",
+        "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "second",
+        "docs": 34,
+        "distinctiveness": 85.14,
+        "classification": "neutral",
+        "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "normal",
+        "docs": 40,
+        "distinctiveness": 83.94,
+        "classification": "neutral",
+        "shared_with_n_segments": 1
       }
     ],
     "sleep_general": [
       {
         "phrase": "sleep",
-        "docs": 2711,
-        "distinctiveness": 4304.49,
+        "docs": 162,
+        "distinctiveness": 227.69,
         "classification": "neutral",
-        "shared_with_n_segments": 3
+        "shared_with_n_segments": 4
       },
       {
         "phrase": "asleep",
-        "docs": 1182,
-        "distinctiveness": 2959.82,
+        "docs": 72,
+        "distinctiveness": 180.29,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "fall asleep",
-        "docs": 818,
-        "distinctiveness": 2765.25,
+        "docs": 52,
+        "distinctiveness": 175.79,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
+        "phrase": "fall",
+        "docs": 55,
+        "distinctiveness": 137.72,
+        "classification": "neutral",
+        "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "insomnia",
+        "docs": 55,
+        "distinctiveness": 137.72,
+        "classification": "pain",
+        "shared_with_n_segments": 0
+      },
+      {
         "phrase": "sleeping",
-        "docs": 944,
-        "distinctiveness": 2363.85,
+        "docs": 54,
+        "distinctiveness": 135.22,
         "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
         "phrase": "hours",
-        "docs": 1113,
-        "distinctiveness": 2335.76,
+        "docs": 65,
+        "distinctiveness": 117.71,
         "classification": "neutral",
-        "shared_with_n_segments": 1
+        "shared_with_n_segments": 2
       },
       {
         "phrase": "bed",
-        "docs": 893,
-        "distinctiveness": 2236.14,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
-        "phrase": "wake",
-        "docs": 1062,
-        "distinctiveness": 2228.73,
-        "classification": "pain",
-        "shared_with_n_segments": 1
-      },
-      {
-        "phrase": "fall",
-        "docs": 871,
-        "distinctiveness": 2181.05,
+        "docs": 45,
+        "distinctiveness": 112.68,
         "classification": "neutral",
         "shared_with_n_segments": 0
       }
@@ -1147,51 +1147,33 @@
     ],
     "pairs": [
       {
-        "a": "perimenopause",
-        "b": "sleep_general",
-        "shared_count": 4,
+        "a": "clinical",
+        "b": "lucid",
+        "shared_count": 6,
         "examples": [
-          "brain",
-          "anxiety",
-          "sleep",
-          "night"
+          "happened",
+          "dream",
+          "remember",
+          "sleep"
         ]
       },
       {
-        "a": "biohackers",
-        "b": "perimenopause",
-        "shared_count": 3,
-        "examples": [
-          "low",
-          "sleep",
-          "night"
-        ]
-      },
-      {
-        "a": "biohackers",
+        "a": "clinical",
         "b": "pregnancy",
-        "shared_count": 3,
+        "shared_count": 5,
         "examples": [
-          "already",
-          "advice",
-          "night"
-        ]
-      },
-      {
-        "a": "biohackers",
-        "b": "sleep_general",
-        "shared_count": 3,
-        "examples": [
-          "hours",
-          "sleep",
+          "family",
+          "mom",
+          "feels",
           "night"
         ]
       },
       {
         "a": "lucid",
         "b": "sleep_general",
-        "shared_count": 3,
+        "shared_count": 5,
         "examples": [
+          "able",
           "wake",
           "sleep",
           "night"
@@ -1200,46 +1182,201 @@
       {
         "a": "biohackers",
         "b": "lucid",
-        "shared_count": 2,
+        "shared_count": 4,
         "examples": [
+          "different",
           "sleep",
-          "night"
+          "night",
+          "life"
+        ]
+      },
+      {
+        "a": "biohackers",
+        "b": "pregnancy",
+        "shared_count": 4,
+        "examples": [
+          "pretty",
+          "hours",
+          "night",
+          "life"
+        ]
+      },
+      {
+        "a": "biohackers",
+        "b": "sleep_general",
+        "shared_count": 4,
+        "examples": [
+          "hours",
+          "sleep",
+          "night",
+          "life"
         ]
       },
       {
         "a": "clinical",
-        "b": "pregnancy",
-        "shared_count": 2,
+        "b": "sleep_general",
+        "shared_count": 4,
         "examples": [
-          "mom",
-          "family"
+          "feels",
+          "sleep",
+          "night",
+          "life"
         ]
       },
       {
-        "a": "consciousness",
-        "b": "creatives",
-        "shared_count": 2,
+        "a": "perimenopause",
+        "b": "sleep_general",
+        "shared_count": 4,
         "examples": [
-          "part",
-          "different"
+          "brain",
+          "sleep",
+          "night",
+          "life"
+        ]
+      },
+      {
+        "a": "pregnancy",
+        "b": "sleep_general",
+        "shared_count": 4,
+        "examples": [
+          "hours",
+          "feels",
+          "night",
+          "life"
+        ]
+      },
+      {
+        "a": "biohackers",
+        "b": "clinical",
+        "shared_count": 3,
+        "examples": [
+          "sleep",
+          "night",
+          "life"
+        ]
+      },
+      {
+        "a": "biohackers",
+        "b": "consciousness",
+        "shared_count": 3,
+        "examples": [
+          "experience",
+          "different",
+          "life"
+        ]
+      },
+      {
+        "a": "biohackers",
+        "b": "perimenopause",
+        "shared_count": 3,
+        "examples": [
+          "sleep",
+          "night",
+          "life"
+        ]
+      },
+      {
+        "a": "clinical",
+        "b": "perimenopause",
+        "shared_count": 3,
+        "examples": [
+          "sleep",
+          "night",
+          "life"
         ]
       },
       {
         "a": "consciousness",
         "b": "lucid",
-        "shared_count": 2,
+        "shared_count": 3,
         "examples": [
+          "real",
           "different",
-          "almost"
+          "life"
+        ]
+      },
+      {
+        "a": "consciousness",
+        "b": "pregnancy",
+        "shared_count": 3,
+        "examples": [
+          "almost",
+          "feels",
+          "life"
         ]
       },
       {
         "a": "lucid",
         "b": "perimenopause",
-        "shared_count": 2,
+        "shared_count": 3,
         "examples": [
           "sleep",
-          "night"
+          "night",
+          "life"
+        ]
+      },
+      {
+        "a": "perimenopause",
+        "b": "pregnancy",
+        "shared_count": 3,
+        "examples": [
+          "normal",
+          "night",
+          "life"
+        ]
+      },
+      {
+        "a": "biohackers",
+        "b": "creatives",
+        "shared_count": 2,
+        "examples": [
+          "curious",
+          "different"
+        ]
+      },
+      {
+        "a": "clinical",
+        "b": "consciousness",
+        "shared_count": 2,
+        "examples": [
+          "feels",
+          "life"
+        ]
+      },
+      {
+        "a": "consciousness",
+        "b": "creatives",
+        "shared_count": 2,
+        "examples": [
+          "different",
+          "feels"
+        ]
+      },
+      {
+        "a": "consciousness",
+        "b": "perimenopause",
+        "shared_count": 2,
+        "examples": [
+          "dose",
+          "life"
+        ]
+      },
+      {
+        "a": "consciousness",
+        "b": "sleep_general",
+        "shared_count": 2,
+        "examples": [
+          "feels",
+          "life"
+        ]
+      },
+      {
+        "a": "creatives",
+        "b": "pregnancy",
+        "shared_count": 2,
+        "examples": [
+          "advice",
+          "feels"
         ]
       },
       {
@@ -1247,76 +1384,19 @@
         "b": "pregnancy",
         "shared_count": 2,
         "examples": [
-          "almost",
-          "night"
-        ]
-      },
-      {
-        "a": "perimenopause",
-        "b": "pregnancy",
-        "shared_count": 2,
-        "examples": [
-          "normal",
-          "night"
-        ]
-      },
-      {
-        "a": "biohackers",
-        "b": "consciousness",
-        "shared_count": 1,
-        "examples": [
-          "experience"
-        ]
-      },
-      {
-        "a": "biohackers",
-        "b": "creatives",
-        "shared_count": 1,
-        "examples": [
-          "advice"
+          "night",
+          "life"
         ]
       },
       {
         "a": "clinical",
-        "b": "consciousness",
+        "b": "creatives",
         "shared_count": 1,
         "examples": [
           "feels"
         ]
       },
       {
-        "a": "clinical",
-        "b": "lucid",
-        "shared_count": 1,
-        "examples": [
-          "happened"
-        ]
-      },
-      {
-        "a": "consciousness",
-        "b": "perimenopause",
-        "shared_count": 1,
-        "examples": [
-          "anxiety"
-        ]
-      },
-      {
-        "a": "consciousness",
-        "b": "pregnancy",
-        "shared_count": 1,
-        "examples": [
-          "almost"
-        ]
-      },
-      {
-        "a": "consciousness",
-        "b": "sleep_general",
-        "shared_count": 1,
-        "examples": [
-          "anxiety"
-        ]
-      },
-      {
         "a": "creatives",
         "b": "lucid",
         "shared_count": 1,
@@ -1326,24 +1406,16 @@
       },
       {
         "a": "creatives",
-        "b": "pregnancy",
-        "shared_count": 1,
-        "examples": [
-          "advice"
-        ]
-      },
-      {
-        "a": "pregnancy",
         "b": "sleep_general",
         "shared_count": 1,
         "examples": [
-          "night"
+          "feels"
         ]
       }
     ],
     "author_overlap": {
       "multi_segment_authors": 1,
-      "total_engaged_authors": 1545,
+      "total_engaged_authors": 234,
       "note": "Authors almost never span multiple segments at composite >= 2.5. The adjacency signal is carried by shared language across audiences, not shared people."
     }
   },
@@ -1355,112 +1427,112 @@
     },
     "top": [
       {
-        "subreddit": "QuantifiedSelf",
-        "segment": "biohackers",
-        "unique_authors": 187,
-        "engaged_authors": 42,
-        "qualified_authors": 27,
-        "density_qualified": 0.1444,
-        "density_engaged": 0.2246
-      },
-      {
-        "subreddit": "Psychonaut",
-        "segment": "consciousness",
-        "unique_authors": 132,
-        "engaged_authors": 19,
-        "qualified_authors": 11,
-        "density_qualified": 0.0833,
-        "density_engaged": 0.1439
+        "subreddit": "Perimenopause",
+        "segment": "perimenopause",
+        "unique_authors": 100,
+        "engaged_authors": 41,
+        "qualified_authors": 18,
+        "density_qualified": 0.18,
+        "density_engaged": 0.41
       },
       {
         "subreddit": "Menopause",
         "segment": "perimenopause",
-        "unique_authors": 1197,
-        "engaged_authors": 171,
-        "qualified_authors": 60,
-        "density_qualified": 0.0501,
-        "density_engaged": 0.1429
+        "unique_authors": 97,
+        "engaged_authors": 34,
+        "qualified_authors": 14,
+        "density_qualified": 0.1443,
+        "density_engaged": 0.3505
       },
       {
-        "subreddit": "Perimenopause",
-        "segment": "perimenopause",
-        "unique_authors": 1786,
-        "engaged_authors": 221,
-        "qualified_authors": 61,
-        "density_qualified": 0.0342,
-        "density_engaged": 0.1237
+        "subreddit": "QuantifiedSelf",
+        "segment": "biohackers",
+        "unique_authors": 82,
+        "engaged_authors": 22,
+        "qualified_authors": 11,
+        "density_qualified": 0.1341,
+        "density_engaged": 0.2683
+      },
+      {
+        "subreddit": "Psychonaut",
+        "segment": "consciousness",
+        "unique_authors": 96,
+        "engaged_authors": 14,
+        "qualified_authors": 10,
+        "density_qualified": 0.1042,
+        "density_engaged": 0.1458
       },
       {
         "subreddit": "LucidDreaming",
         "segment": "lucid",
-        "unique_authors": 1130,
-        "engaged_authors": 92,
-        "qualified_authors": 27,
-        "density_qualified": 0.0239,
-        "density_engaged": 0.0814
+        "unique_authors": 91,
+        "engaged_authors": 11,
+        "qualified_authors": 4,
+        "density_qualified": 0.044,
+        "density_engaged": 0.1209
       },
       {
-        "subreddit": "microdosing",
-        "segment": "consciousness",
-        "unique_authors": 263,
-        "engaged_authors": 23,
-        "qualified_authors": 6,
-        "density_qualified": 0.0228,
-        "density_engaged": 0.0875
+        "subreddit": "Biohackers",
+        "segment": "biohackers",
+        "unique_authors": 95,
+        "engaged_authors": 9,
+        "qualified_authors": 4,
+        "density_qualified": 0.0421,
+        "density_engaged": 0.0947
       },
       {
         "subreddit": "Eightsleep",
         "segment": "biohackers",
-        "unique_authors": 220,
-        "engaged_authors": 16,
-        "qualified_authors": 4,
-        "density_qualified": 0.0182,
-        "density_engaged": 0.0727
-      },
-      {
-        "subreddit": "pregnant",
-        "segment": "pregnancy",
-        "unique_authors": 2873,
-        "engaged_authors": 342,
-        "qualified_authors": 49,
-        "density_qualified": 0.0171,
-        "density_engaged": 0.119
+        "unique_authors": 93,
+        "engaged_authors": 10,
+        "qualified_authors": 3,
+        "density_qualified": 0.0323,
+        "density_engaged": 0.1075
       },
       {
         "subreddit": "writing",
         "segment": "creatives",
-        "unique_authors": 2183,
-        "engaged_authors": 176,
-        "qualified_authors": 35,
-        "density_qualified": 0.016,
-        "density_engaged": 0.0806
+        "unique_authors": 97,
+        "engaged_authors": 18,
+        "qualified_authors": 3,
+        "density_qualified": 0.0309,
+        "density_engaged": 0.1856
       },
       {
-        "subreddit": "BabyBumps",
-        "segment": "pregnancy",
-        "unique_authors": 2227,
-        "engaged_authors": 199,
-        "qualified_authors": 30,
-        "density_qualified": 0.0135,
-        "density_engaged": 0.0894
+        "subreddit": "OuraRing",
+        "segment": "biohackers",
+        "unique_authors": 99,
+        "engaged_authors": 4,
+        "qualified_authors": 3,
+        "density_qualified": 0.0303,
+        "density_engaged": 0.0404
       },
       {
         "subreddit": "insomnia",
         "segment": "sleep_general",
-        "unique_authors": 1234,
-        "engaged_authors": 56,
-        "qualified_authors": 16,
-        "density_qualified": 0.013,
-        "density_engaged": 0.0454
+        "unique_authors": 95,
+        "engaged_authors": 9,
+        "qualified_authors": 2,
+        "density_qualified": 0.0211,
+        "density_engaged": 0.0947
       },
       {
         "subreddit": "whoop",
         "segment": "biohackers",
-        "unique_authors": 1251,
-        "engaged_authors": 23,
-        "qualified_authors": 12,
-        "density_qualified": 0.0096,
-        "density_engaged": 0.0184
+        "unique_authors": 98,
+        "engaged_authors": 5,
+        "qualified_authors": 2,
+        "density_qualified": 0.0204,
+        "density_engaged": 0.051
+      },
+      {
+        "subreddit": "BabyBumps",
+        "segment": "pregnancy",
+        "unique_authors": 100,
+        "engaged_authors": 15,
+        "qualified_authors": 2,
+        "density_qualified": 0.02,
+        "density_engaged": 0.15
       }
     ],
     "note": "Ranked by qualified-author density, not post volume. Subreddits with fewer than 10 unique authors excluded."
@@ -1469,223 +1541,167 @@
     "model": "claude-opus-4-7",
     "personas": {
       "clinical": {
-        "archetype": "Wounded Sleeper",
-        "demographic_inference": "Adults across a wide age range, often mid-life or older, navigating trauma, bereavement, or service-related injury; no specific region indicated.",
-        "profession_hints": "Signal suggests veterans, first responders, and people in grief recovery; income and employment status vary and are not reliably inferable.",
+        "archetype": "Trauma-haunted sleeper",
+        "demographic_inference": "Adults across a wide age range (late 20s through retirement), disproportionately including veterans, first responders, bereaved partners, and assault survivors; geography varies but skews toward regions with active VA, hospice, and trauma-therapy networks.",
+        "profession_hints": "Signal is sparse but clusters around military and first-responder service histories, caregiving roles, and people on medical leave or disability; income and employment status are often disrupted by the condition itself.",
         "dominant_emotion": "Exhausted dread",
         "competing_products": [
-          "Prazosin and other prescribed nightmare medications",
-          "Trauma-focused therapy (EMDR, CPT, IRT)",
-          "Grief counseling and hospice support groups",
-          "Cannabis or alcohol as self-medication for sleep",
-          "Weighted blankets and sleep hygiene routines"
+          "prazosin and other prescribed nightmare medications",
+          "trauma-focused therapy (EMDR, CPT, IRT)",
+          "cannabis and alcohol for sleep suppression",
+          "weighted blankets and sleep-environment modifications",
+          "VA and hospice peer-support groups"
         ],
-        "what_they_want_from_dream_tech": "A way to stop dreading sleep without re-traumatizing themselves or adding another pill to the regimen.",
+        "what_they_want_from_dream_tech": "A way to sleep through the night without reliving the worst moment of their life, ideally without another pill or another clinician to explain it to.",
         "representative_quotes": [
-          "I am scared to close my eyes because I know what is waiting for me when I do.",
-          "The medication dulls the nightmares but I still wake up tired and on edge every single morning.",
-          "Therapy is helping during the day, but nighttime is where I still lose the fight."
+          "I am afraid to fall asleep because I know what is waiting for me.",
+          "The medication dulls the dreams but I wake up feeling like I have not slept at all.",
+          "It has been months since they died and I still see them every night \u2014 I do not know if I want that to stop or not."
         ],
-        "activation_hook": "Earned-media stories and trauma-clinician partnerships positioning dream tech as a sleep-safety tool that works alongside existing therapeutic care, never as a replacement or a direct-to-sufferer pitch."
+        "activation_hook": "Earned-media and clinician-partnership storytelling (trauma therapists, VA-adjacent providers, hospice and grief organizations) that positions DUST as a tool introduced through a trusted caregiver, never through direct outreach to the sufferer."
       },
       "biohackers": {
-        "archetype": "Skeptical Quant Builder",
-        "demographic_inference": "Male, 28-45, urban or tech-hub based (SF, NYC, Seattle, Austin, London), mid-to-senior engineer or quant-adjacent professional in a high-cost-of-living metro.",
-        "profession_hints": "Software engineering, data science, or technical founder background \u2014 fluent enough in APIs, cron jobs, and statistical methods to ship their own multi-source health aggregators on GitHub rather than pay $400/mo for Terra.",
-        "dominant_emotion": "Disillusioned curiosity",
+        "archetype": "Disillusioned Quantifier",
+        "demographic_inference": "Predominantly male, ages 25-50 with a long tail into 50s, urban and tech-hub concentrated across US metros, mid-to-late career or endurance-athlete life stage.",
+        "profession_hints": "Tech-adjacent knowledge workers and builders \u2014 engineers, product people, and technically literate hobbyists with $75K-$300K+ income who self-serve with APIs and spreadsheets.",
+        "dominant_emotion": "Skeptical fatigue",
         "competing_products": [
           "Oura Ring",
           "WHOOP",
           "Eight Sleep Pod",
-          "Apple Health + Apple Watch",
-          "Garmin + self-built aggregators (WearSync-style, Terra API)"
+          "Garmin / Apple Watch",
+          "DIY dashboards (Athlytic, Bevel, custom API aggregators, home EEG rigs)"
         ],
-        "what_they_want_from_dream_tech": "A dream/REM-layer data source they can pipe into their existing stack and run time-lagged causal analysis on \u2014 not another walled-garden vendor app.",
+        "what_they_want_from_dream_tech": "An open, data-layer product that augments their existing stack with genuinely novel, time-lagged insight \u2014 something the wearable incumbents structurally can't deliver.",
         "representative_quotes": [
-          "Native apps only surface same-day correlations \u2014 they miss the fiber-on-Monday, deep-sleep-on-Wednesday pattern entirely.",
-          "Put the ring in a drawer for six weeks and slept better than I had in years; the score itself was becoming the stressor.",
-          "Terra is $400/mo and the vendor coaches can't even read their own historical data, so I built the aggregator myself."
+          "Fourteen months of religious tracking, 65-degree room, magnesium glycinate, spreadsheet exports every Sunday \u2014 and my score still hovered in the 70s until I put the ring in a drawer.",
+          "I wear a Garmin, my training partners wear Whoop and Apple Watch, and nothing talks to anything, so I ended up building the aggregator myself.",
+          "The AI coach in the app can't even read its own data, and the subscription keeps going up \u2014 I'm done paying to have my own metrics held hostage."
         ],
-        "activation_hook": "Position DUST as an open, API-accessible dream-stage data layer that fills the one gap their multi-wearable stack can't measure \u2014 and let them run their own correlations against HRV, fiber, and barometric pressure."
-      },
-      "perimenopause": {
-        "archetype": "HRT Titrator",
-        "demographic_inference": "Women 40-46, mid-career, US/Canada/UK, often post-hysterectomy or in year 5-10 of perimenopause, college-educated, sandwich-generation caregivers.",
-        "profession_hints": "Peak-earning knowledge workers who frame symptoms in terms of lost productivity ('two useless weeks a month') and budget for telehealth menopause clinics out of pocket.",
-        "dominant_emotion": "exhausted self-advocacy",
-        "competing_products": [
-          "estradiol patches (Estradot/Dotti/Sandoz) and gels (Divigel, Estrogel)",
-          "micronized progesterone (Utrogestan/Prometrium, oral and vaginal pessary)",
-          "testosterone gel/cream",
-          "telehealth menopause clinics (Maven, Midi, Defy, Gennev, Elektra)",
-          "CBT-I and prescription sleep meds (Dayvigo, Lunesta)"
-        ],
-        "what_they_want_from_dream_tech": "A non-pharmaceutical sleep and dream support that works alongside (not against) their HRT regimen during endless dose titration, especially through 3-5am wakings, vivid dreaming, and progesterone-grogginess windows.",
-        "representative_quotes": [
-          "I bumped up from .0375 to .05 about two months ago and now I can already feel it wearing off \u2014 I'm scared I'll max out the patch before I'm even in menopause.",
-          "I basically had to bully a young doctor into giving me the oral progesterone back because the pessary was wrecking my sleep and nobody would listen.",
-          "I'm waking at 4am drenched, heart racing, and by the time I sit down to write something at work the word is just not there."
-        ],
-        "activation_hook": "Position as the sleep and dream layer for women already deep in HRT titration \u2014 a tool that stabilizes the 3am wakings and fragmented REM without asking them to change a single hormone dose."
-      },
-      "pregnancy": {
-        "archetype": "Anxious First-Time Mom",
-        "demographic_inference": "Woman aged 25-35, mid-pregnancy through early postpartum, US/UK middle-class with some college education, likely in a partnered household.",
-        "profession_hints": "References to FMLA, scheduled OB appointments, and NHS care suggest white-collar or salaried employment with maternity-leave navigation; income enough to engage with paid pregnancy apps and registries.",
-        "dominant_emotion": "Guilty anxiety",
-        "competing_products": [
-          "Peanut app community threads",
-          "What to Expect / pregnancy tracker apps",
-          "OB/midwife reassurance appointments",
-          "melatonin or Unisom (with hesitancy)",
-          "doomscrolling Reddit and Facebook groups at 2am",
-          "pregnancy pillows and sleep wedges"
-        ],
-        "what_they_want_from_dream_tech": "A way to quiet a racing mind at night and stop nightmare-grade worry from taking over sleep, without taking anything that might harm the baby.",
-        "representative_quotes": [
-          "I'm 19 weeks and I feel awful for saying it but I hate being pregnant \u2014 and then I lie awake at 2am feeling guilty about even thinking that.",
-          "My mind will not stop spinning about induction and whether the baby is moving enough; I keep having these intense, weird dreams when I finally do drop off.",
-          "FTM here and nobody warned me that the worst part of third tri would be staring at the ceiling at 3am running through every worst-case scenario."
-        ],
-        "activation_hook": "Position DUST as a safe, non-pharmaceutical way to calm a 2am racing mind and soften pregnancy nightmares \u2014 meeting her at 'I can't sleep and my brain won't stop' rather than at dream-journaling."
+        "activation_hook": "Position DUST as the first dream-layer API that plugs into the stack they already built \u2014 surfacing REM-phase and subjective dream signal their Oura, WHOOP, and Eight Sleep feeds structurally miss."
       },
       "lucid": {
-        "archetype": "Method-Stacking Practitioner",
-        "demographic_inference": "Predominantly male, ages 18-35, college-educated, urban or college-town, North America / Western Europe skew with active English-language forum participation.",
-        "profession_hints": "Mix of students, knowledge workers, and technically-inclined hobbyists \u2014 evidenced by DIY hardware builds (HRV haptics, soundproofed sleep chambers), fluency with ML/CO2 sensors, and disposable income for stacks plus apps.",
-        "dominant_emotion": "Frustrated mastery-seeking",
+        "archetype": "Plateaued Dream Explorer",
+        "demographic_inference": "Male-skewing, ages 25-40, college-educated, likely urban or college-town North America, past the beginner phase of a long-running hobby.",
+        "profession_hints": "Knowledge-worker or student adjacent \u2014 fluent in technical jargon, comfortable consulting AI chatbots as coaches, and treating practice like a skill tree to optimize.",
+        "dominant_emotion": "Frustrated curiosity",
         "competing_products": [
           "Galantamine (~$45/mo)",
           "Mugwort (~$25)",
           "Shape app ($39.99/yr)",
           "slow-release melatonin",
-          "Claude/ChatGPT as a practice coach",
-          "DreamViews/LD4All forum guides and long-form YouTube technique videos"
+          "ChatGPT/Claude as practice coach",
+          "dream journals and WBTB/SSILD/FILD protocol stacks"
         ],
-        "what_they_want_from_dream_tech": "A reliable in-dream stabilizer that extends duration and agency past the five-minute collapse \u2014 not another induction trick, but a way to hold the lucid state and execute on a personal bucket list once they're in.",
+        "what_they_want_from_dream_tech": "A reliable way to stabilize and extend lucidity past the first few minutes and gain fine-grained in-dream control, not another induction trick.",
         "representative_quotes": [
-          "I've been lucid for ten years and induction is solved \u2014 what I want now is to stop the dream from collapsing the second I realize I'm in it.",
-          "Running gets that underwater feeling, excitement ejects me, and reality checks sometimes sap my strength inside the dream itself.",
-          "I built my own protocol \u2014 call it Dream Portal v4 \u2014 and I'm cross-posting the numbered guide; happy to test anything that triggers the hypnagogic window without an aggressive alarm."
+          "I can get lucid fine, but the moment I realize it the dream collapses or I snap awake from excitement.",
+          "Ten years in and I'm hitting a ceiling \u2014 induction isn't the problem, it's duration and being able to actually move through the dream.",
+          "I've been stacking techniques and even asking an AI to coach me through stabilization, but nothing holds for more than five minutes."
         ],
-        "activation_hook": "Position DUST as the stabilization and agency layer for practitioners who are already lucid but can't hold it \u2014 not 'learn to lucid dream' but 'finally finish your dream bucket list.'"
-      },
-      "consciousness": {
-        "archetype": "Contemplative Psychonaut",
-        "demographic_inference": "Late-20s to late-40s, coast-skewed, college-educated, leans male; solo-living or partnered with private practice space at home.",
-        "profession_hints": "Knowledge-worker or creative-class income \u2014 disposable budget for grow kits, ketamine infusions, supplement stacks, and contemplative retreats; not signaled as founder/biohacker class, which they actively reject.",
-        "dominant_emotion": "reverent inquiry",
-        "competing_products": [
-          "home-grown psilocybin (Golden Teacher, Penis Envy, McKennaii, Thai strains; lemon-tek prep)",
-          "microdosing protocols (Stamets stack, amanita) weighed against SSRIs like sertraline/fluoxetine",
-          "long-form meditation practice (Vipassana, metta, Yoga Nidra, non-dual traditions)",
-          "monthly ketamine infusions as parallel introspective track",
-          "trip reports and integration journaling on r/Psychonaut and r/microdosing"
-        ],
-        "what_they_want_from_dream_tech": "A reverent, tradition-aware tool that treats dreams as a legitimate integration chamber for psychedelic and meditative insight \u2014 not a productivity hack or another item in a longevity stack.",
-        "representative_quotes": [
-          "Microdosing surfaced dreams I hadn't had in years \u2014 repressed stuff bubbling up, and I don't have a framework for processing it the morning after.",
-          "If you're pitching this as another intervention in the stack, I'm out. Ego dissolution isn't a biomarker.",
-          "I'm trying to decide between staying on an SSRI and going deeper with psilocybin and sits \u2014 dreams are where the integration actually happens for me."
-        ],
-        "activation_hook": "Position DUST as the integration layer between trip and waking life \u2014 the place where the night metabolizes what the medicine surfaced \u2014 framed in contemplative language, not optimization language."
-      },
-      "creatives": {
-        "archetype": "Zero-Draft Novelist",
-        "demographic_inference": "Mid-20s to late-30s, US/UK/Anglophone, life stage spans undergrad art students, early-career amateurs, and tired parents writing on phones at night.",
-        "profession_hints": "Day job or caregiving role outside the arts; writing/art is a serious side practice, not yet income-generating, with frequent mentions of ADHD, chronic illness, and time scarcity.",
-        "dominant_emotion": "Vulnerable process-anxiety",
-        "competing_products": [
-          "Scrivener / Google Docs / iPhone Notes app for drafting",
-          "r/writing and r/Songwriting for procedural advice",
-          "AO3 and Tumblr for community feedback loops",
-          "NaNoWriMo-style word-count tracking",
-          "Pinterest/mood boards and Spotify playlists for vibe-sourcing"
-        ],
-        "what_they_want_from_dream_tech": "A judgment-free source of raw, non-derivative material that bypasses the blank page and the shame of not having read/studied 'enough.'",
-        "representative_quotes": [
-          "I'm a third of the way into something hazy and nonlinear and at risk of sounding pretentious \u2014 but my test readers just don't get it.",
-          "I have ADHD and a kid and I'm too tired to start; I end up drafting in the Notes app in bed.",
-          "I've been pantsing this in script format for years and now I'm not sure how to convert it into actual prose."
-        ],
-        "activation_hook": "Pitch Dust as a sketchbook for your subconscious \u2014 a way to harvest genuinely original, dreamlike scenes and images before the inner critic, the word-count tracker, or the test reader gets involved."
-      },
-      "sleep_general": {
-        "archetype": "Defeated Sleep-Fighter",
-        "demographic_inference": "Adults roughly 25-45, working life-stage with weekday obligations, predominantly Anglophone (US/UK/CA) based on r/sleep and r/insomnia posting patterns.",
-        "profession_hints": "Holds a job or commitments with fixed early starts \u2014 performance-contingent insomnia (can sleep on free days, can't sleep before work) implies white-collar or scheduled work rather than flexible/self-employed.",
-        "dominant_emotion": "Exhausted defeat",
-        "competing_products": [
-          "CBT-I and sleep restriction therapy",
-          "melatonin and magnesium glycinate",
-          "sleep earbuds (Ozlo, Somnipods) and mouth tape",
-          "weighted blankets and lavender",
-          "smartwatch sleep tracking",
-          "desperation reaches for THC/CBN gummies, hydroxyzine, or alcohol"
-        ],
-        "what_they_want_from_dream_tech": "A repeatable mental script that occupies the racing mind and signals safety to the nervous system, so falling asleep stops being a project they're consciously managing.",
-        "representative_quotes": [
-          "I've done the hygiene checklist, the sleep study came back clean, and I'm starting to think my body just doesn't feel safe enough to let go at night.",
-          "The worst part isn't the lost hours \u2014 it's who I become. Short-tempered, crying at nothing, and at 2am the catastrophizing actually feels rational.",
-          "I can sleep fine on a Saturday, but the second I have somewhere to be the next morning my pulse jumps and I'm awake from 2 to 5."
-        ],
-        "activation_hook": "Frame Dust not as another sleep aid but as a guided mental occupier \u2014 a structured imagery practice that gives the racing mind a job and tells a vigilant nervous system it's safe to stand down."
-      }
-    },
-    "errors": {},
-    "generated_at": 1778839457
-  },
-  "measured_rubric": {
-    "generated_at": 1779963560,
-    "segments": {
-      "biohackers": {
-        "pain": 1.0,
-        "viral": 4.47,
-        "fit": 3.78,
-        "n_scored": 90
-      },
-      "clinical": {
-        "pain": 2.0,
-        "viral": 2.07,
-        "fit": null,
-        "n_scored": 0
-      },
-      "consciousness": {
-        "pain": 1.0,
-        "viral": 3.4,
-        "fit": 4.02,
-        "n_scored": 51
-      },
-      "creatives": {
-        "pain": 1.0,
-        "viral": 2.33,
-        "fit": 3.98,
-        "n_scored": 60
-      },
-      "lucid": {
-        "pain": 1.5,
-        "viral": 4.47,
-        "fit": 4.03,
-        "n_scored": 46
+        "activation_hook": "Frame DUST as the stabilization and duration tool for practitioners who already induce reliably \u2014 the final-boss layer above Galantamine and Shape, not a beginner entry point."
       },
       "perimenopause": {
-        "pain": 1.5,
-        "viral": 4.2,
-        "fit": 4.26,
-        "n_scored": 145
+        "archetype": "HRT Titrator",
+        "demographic_inference": "Woman aged 41-48, mid-career, US-based, likely suburban, often juggling young-to-teen kids and aging parents (sandwich-generation load).",
+        "profession_hints": "College-educated knowledge worker \u2014 writers, professionals, caregivers \u2014 in peak earning years where cognitive output directly drives income, making brain fog a career-threatening symptom.",
+        "dominant_emotion": "Frustrated determination",
+        "competing_products": [
+          "Estradiol patch + oral progesterone 100mg",
+          "Estrogel and testosterone gel via telehealth menopause clinics (Midi, Maven, Gennev, Elektra)",
+          "CBT-I and sleep restriction protocols",
+          "Vaginal estradiol cream and hormonal IUDs",
+          "Self-managed routines: dry erase boards, rigid schedules, supplement stacks"
+        ],
+        "what_they_want_from_dream_tech": "A non-pharmaceutical sleep and dream adjunct that fills the gaps her HRT can't close \u2014 especially 3am wakings, REM fragmentation, and progesterone-grogginess tradeoffs \u2014 without asking her to abandon the hormone protocol she fought to get.",
+        "representative_quotes": [
+          "HRT mostly works but I'm still waking at 4am with my heart pounding, and no provider seems to take that piece seriously.",
+          "I used to be the sharp one at work \u2014 now I lose words mid-sentence and it's terrifying because my job depends on writing.",
+          "Progesterone saved my sleep but I'm groggy until noon; I'm tired of choosing between sedation and insomnia."
+        ],
+        "activation_hook": "Position as the missing layer for women whose HRT got them 70% of the way there \u2014 meeting them mid-titration as a tool for the sleep architecture and cognitive recovery that hormones alone don't fully restore."
       },
       "pregnancy": {
-        "pain": 1.0,
-        "viral": 4.2,
-        "fit": 4.09,
-        "n_scored": 91
+        "archetype": "Anxious First-Time Mom",
+        "demographic_inference": "Woman aged 25-35, middle-class, likely college-educated, in second or third trimester of her first pregnancy across suburban US.",
+        "profession_hints": "Employment signals are thin, but the register (clinical shorthand, insurance/OB navigation, access to specialist care) suggests white-collar or healthcare-adjacent work on maternity runway.",
+        "dominant_emotion": "guilty anxiety",
+        "competing_products": [
+          "Peanut app community threads",
+          "melatonin and Unisom (when OB-cleared)",
+          "pregnancy pillows (Frida, Boppy)",
+          "meditation/sleep apps like Expectful and Calm",
+          "late-night Googling and r/BabyBumps scrolling"
+        ],
+        "what_they_want_from_dream_tech": "Something that quiets the 2am mental spiral about the baby without adding another thing to feel guilty about taking while pregnant.",
+        "representative_quotes": [
+          "I'm 33 weeks and every time I close my eyes my brain runs worst-case scenarios about labor \u2014 I can't shut it off.",
+          "I love this baby but I hate what pregnancy is doing to my body and I feel awful even saying that out loud.",
+          "It's 2am, I'm wedged between pillows, baby's kicking my ribs, and I'm doomscrolling induction stories again."
+        ],
+        "activation_hook": "Position it as a safe, non-pharmaceutical way to stop the 3am worry loop \u2014 framed around 'can't sleep, mind racing, weird pregnancy dreams' rather than dream journaling \u2014 and seed it through Peanut and trusted FTM micro-influencers who already hold this audience's trust."
+      },
+      "consciousness": {
+        "archetype": "Integration-Minded Psychonaut",
+        "demographic_inference": "Late 20s to mid-40s, college-educated, coast-skewed US, likely in a knowledge-work life stage with enough stability to treat inner exploration as a serious project.",
+        "profession_hints": "Signals suggest white-collar or creative-analytical work \u2014 comfortable citing research, writing long-form, and budgeting for supplements, retreats, and guided sessions.",
+        "dominant_emotion": "Reverent curiosity",
+        "competing_products": [
+          "psilocybin macrodoses and microdosing protocols (Stamets stack, Golden Teacher, Penis Envy)",
+          "LSD for top-down analytical work",
+          "Vipassana, metta, and Yoga Nidra practice",
+          "ketamine-assisted therapy and guided/sitter-led sessions",
+          "breathwork and contemplative apps (Lumenate, cyclic sighing protocols)"
+        ],
+        "what_they_want_from_dream_tech": "A reliable, drug-free on-ramp to the same ego-loosening, insight-generating states they currently chase through plant medicine \u2014 without the logistics, legality, or comedown.",
+        "representative_quotes": [
+          "My LSD sessions give me top-down pattern recognition; psilocybin drops me into bottom-up somatic material \u2014 I want tools that know the difference.",
+          "The heroic dose wasn't escapism, it was an inward journey, and the real work is the integration that happens in the weeks after.",
+          "Metta radiates outward, sankalpa plants inward, and ego death sits somewhere between \u2014 I'm trying to understand these states as one map."
+        ],
+        "activation_hook": "Frame DUST as an integration and non-dual-state practice \u2014 the 'natural psychedelic' that extends trip work into the dream layer \u2014 and let them self-experiment with protocols rather than handing them a start-low-go-slow script."
+      },
+      "creatives": {
+        "archetype": "Mid-draft craftsperson",
+        "demographic_inference": "Late 20s to late 30s, likely US or UK-based, in a life stage with enough stability to pursue long-form creative projects but not yet professionally established.",
+        "profession_hints": "Day jobs outside the arts subsidize unpublished novels, unreleased songs, or personal visual work; creative output is avocational-but-serious rather than income-generating.",
+        "dominant_emotion": "Vulnerable self-doubt",
+        "competing_products": [
+          "Scrivener and Google Docs for drafting",
+          "physical notebooks and morning pages",
+          "Notion or Obsidian for worldbuilding",
+          "subreddit writing communities for accountability",
+          "voice memos for melody and lyric capture"
+        ],
+        "what_they_want_from_dream_tech": "A low-stakes way to generate raw, weird, emotionally charged material they can later shape, without the pressure of facing a blank page consciously.",
+        "representative_quotes": [
+          "I've known this plot turn was coming for months but now that I'm actually writing it I'm an emotional wreck \u2014 is that normal?",
+          "Finished the draft and the high lasted about sixty seconds before I remembered redrafts, pitching, and all the rejection ahead.",
+          "Haven't written anything I actually liked in months; how do you get unstuck when the block becomes the identity?"
+        ],
+        "activation_hook": "Frame Dust as a sketchbook for your subconscious \u2014 a way to mine zero-draft material and surprise yourself out of a block, not a wellness app."
       },
       "sleep_general": {
-        "pain": 1.5,
-        "viral": 4.2,
-        "fit": 4.1,
-        "n_scored": 45
+        "archetype": "Defeated Sleeper",
+        "demographic_inference": "Likely mid-20s to mid-40s adults, mixed gender, probably skewing US/UK/Western English-speaking based on subreddit norms.",
+        "profession_hints": "Sparse occupational signal; posts reference impact on work performance and daytime functioning rather than specific careers, suggesting knowledge/office workers whose cognitive output is being eroded.",
+        "dominant_emotion": "Exhausted defeat",
+        "competing_products": [
+          "melatonin and magnesium glycinate",
+          "CBT-I and therapy",
+          "sleep hygiene rituals (no screens, cut caffeine)",
+          "weighted blankets and mouth tape",
+          "counting games, meditation apps, and self-invented mental tricks"
+        ],
+        "what_they_want_from_dream_tech": "A repeatable, in-the-moment mental practice that occupies the racing mind and signals safety to the body \u2014 something to do at 2am instead of lying there spiraling.",
+        "representative_quotes": [
+          "I've tried every checklist item out there and I'm starting to wonder if my body just doesn't feel safe enough to sleep.",
+          "My body is wrecked but my brain is doing cardio \u2014 tired all day, wired the second my head hits the pillow.",
+          "Long-term bad sleep changes your personality in ways nobody warns you about; at 3am you genuinely believe your life is broken."
+        ],
+        "activation_hook": "Position DUST not as another sleep aid but as a guided mental protocol that gives their racing mind somewhere to go \u2014 a structured 'what to do when you can't sleep' practice, not another hygiene rule."
       }
-    }
+    },
+    "errors": {}
   }
 }
