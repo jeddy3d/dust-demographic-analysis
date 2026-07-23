@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-22T08:50:01Z",
-  "as_of": "2026-07-22",
+  "generated_at": "2026-07-23T08:54:54Z",
+  "as_of": "2026-07-23",
   "schema_version": 2,
   "segments": [
     {
@@ -363,11 +363,11 @@
           "docs": 40
         },
         {
-          "phrase": "every",
+          "phrase": "around",
           "docs": 38
         },
         {
-          "phrase": "around",
+          "phrase": "every",
           "docs": 38
         }
       ],
@@ -1151,9 +1151,9 @@
         "b": "lucid",
         "shared_count": 6,
         "examples": [
-          "happened",
           "remember",
           "dream",
+          "happened",
           "sleep"
         ]
       },
@@ -1217,8 +1217,8 @@
         "b": "sleep_general",
         "shared_count": 4,
         "examples": [
-          "sleep",
           "feels",
+          "sleep",
           "night",
           "life"
         ]
