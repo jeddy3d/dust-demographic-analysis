@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-04T08:53:48Z",
-  "as_of": "2026-08-04",
+  "generated_at": "2026-08-05T08:53:12Z",
+  "as_of": "2026-08-05",
   "schema_version": 2,
   "segments": [
     {
@@ -764,17 +764,17 @@
         "shared_with_n_segments": 0
       },
       {
-        "phrase": "friends",
-        "docs": 58,
-        "distinctiveness": 145.24,
-        "classification": "neutral",
-        "shared_with_n_segments": 0
-      },
-      {
         "phrase": "nightmare",
         "docs": 58,
         "distinctiveness": 145.24,
         "classification": "pain",
+        "shared_with_n_segments": 0
+      },
+      {
+        "phrase": "friends",
+        "docs": 58,
+        "distinctiveness": 145.24,
+        "classification": "neutral",
         "shared_with_n_segments": 0
       },
       {
@@ -1151,9 +1151,9 @@
         "b": "lucid",
         "shared_count": 6,
         "examples": [
-          "happened",
           "remember",
           "dream",
+          "happened",
           "sleep"
         ]
       },
@@ -1162,8 +1162,8 @@
         "b": "pregnancy",
         "shared_count": 5,
         "examples": [
-          "mom",
           "family",
+          "mom",
           "feels",
           "night"
         ]
@@ -1173,8 +1173,8 @@
         "b": "sleep_general",
         "shared_count": 5,
         "examples": [
-          "wake",
           "able",
+          "wake",
           "sleep",
           "night"
         ]
@@ -1217,8 +1217,8 @@
         "b": "sleep_general",
         "shared_count": 4,
         "examples": [
-          "sleep",
           "feels",
+          "sleep",
           "night",
           "life"
         ]
