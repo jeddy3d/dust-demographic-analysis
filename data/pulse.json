@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-05T08:53:12Z",
-  "as_of": "2026-08-05",
+  "generated_at": "2026-08-06T08:53:08Z",
+  "as_of": "2026-08-06",
   "schema_version": 2,
   "segments": [
     {
@@ -363,11 +363,11 @@
           "docs": 40
         },
         {
-          "phrase": "every",
+          "phrase": "around",
           "docs": 38
         },
         {
-          "phrase": "around",
+          "phrase": "every",
           "docs": 38
         }
       ],
@@ -1151,9 +1151,9 @@
         "b": "lucid",
         "shared_count": 6,
         "examples": [
+          "happened",
           "remember",
           "dream",
-          "happened",
           "sleep"
         ]
       },
