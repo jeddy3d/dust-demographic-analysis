@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-24T08:02:00Z",
-  "as_of": "2026-09-24",
+  "generated_at": "2026-09-25T08:02:36Z",
+  "as_of": "2026-09-25",
   "schema_version": 2,
   "segments": [
     {
@@ -1151,9 +1151,9 @@
         "b": "lucid",
         "shared_count": 6,
         "examples": [
+          "dream",
           "happened",
           "remember",
-          "dream",
           "sleep"
         ]
       },
