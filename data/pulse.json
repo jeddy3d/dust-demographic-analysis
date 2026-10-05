@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-04T09:58:26Z",
-  "as_of": "2026-10-04",
+  "generated_at": "2026-10-05T08:09:53Z",
+  "as_of": "2026-10-05",
   "schema_version": 2,
   "segments": [
     {
@@ -1162,8 +1162,8 @@
         "b": "pregnancy",
         "shared_count": 5,
         "examples": [
-          "family",
           "mom",
+          "family",
           "feels",
           "night"
         ]
@@ -1173,8 +1173,8 @@
         "b": "sleep_general",
         "shared_count": 5,
         "examples": [
-          "wake",
           "able",
+          "wake",
           "sleep",
           "night"
         ]
@@ -1217,8 +1217,8 @@
         "b": "sleep_general",
         "shared_count": 4,
         "examples": [
-          "feels",
           "sleep",
+          "feels",
           "night",
           "life"
         ]
